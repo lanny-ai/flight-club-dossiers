@@ -54,6 +54,33 @@
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/anna-cabeca/index.html"
   },
   {
+    "name": "Armando Leduc",
+    "slug": "armando-leduc",
+    "type": "member",
+    "business": "Leduc Entertainment",
+    "url": "https://dossiers.aimomentumlabs.com/armando-leduc/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/armando-leduc.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/armando-leduc/index.html"
+  },
+  {
+    "name": "Armin Farah",
+    "slug": "armin-farah",
+    "type": "member",
+    "business": "LTVUP",
+    "url": "https://dossiers.aimomentumlabs.com/armin-farah/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/armin-farah.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/armin-farah/index.html"
+  },
+  {
+    "name": "Atibade Souza",
+    "slug": "atibade-souza",
+    "type": "member",
+    "business": "Client Attraction Pros",
+    "url": "https://dossiers.aimomentumlabs.com/atibade-souza/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/atibade-souza.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/atibade-souza/index.html"
+  },
+  {
     "name": "Brody Lee",
     "slug": "brody-lee",
     "type": "guest",
