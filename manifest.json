@@ -45,6 +45,15 @@
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/dr-kate/index.html"
   },
   {
+    "name": "Dr. Taylor Francois",
+    "slug": "dr-taylor-francois",
+    "type": "guest",
+    "business": "The Flow Agency",
+    "url": "https://dossiers.aimomentumlabs.com/dr-taylor-francois/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/dr-taylor-francois.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/dr-taylor-francois/index.html"
+  },
+  {
     "name": "Emily Morse",
     "slug": "emily-morse",
     "type": "guest",

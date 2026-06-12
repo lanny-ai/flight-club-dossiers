@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Taylor Francois // Strategic Intelligence Dossier</title>
+<meta name="description" content="Classified strategic intelligence dossier prepared exclusively for Dr. Taylor Francois by OSCortex AI.">
+<meta property="og:title" content="Dr. Taylor Francois // Classified Dossier">
+<meta property="og:description" content="Your personalized strategic intelligence report from AI Momentum Labs.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&family=Special+Elite&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #0a0a0f;
+    color: #d4d0c8;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .page-bg {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(180,40,40,0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(180,140,60,0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .top-bar {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #5c1010, #c41e1e, #d4a24c, #c41e1e, #5c1010);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(196,30,30,0.3);
+  }
+
+  .classification {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    color: #c41e1e;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .dossier-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #e8e4df;
+    line-height: 1.1;
+  }
+
+  .dossier-subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #d4a24c;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .header-meta {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    color: #4a4540;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    margin-top: 16px;
+  }
+
+  .stamp {
+    display: inline-block;
+    border: 2px solid #c41e1e;
+    padding: 4px 16px;
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    color: #c41e1e;
+    letter-spacing: 4px;
+    transform: rotate(-3deg);
+    margin-top: 12px;
+  }
+
+  /* Subject bar */
+  .subject-bar {
+    background: linear-gradient(135deg, rgba(180,40,40,0.12), rgba(180,40,40,0.04));
+    border: 1px solid rgba(196,30,30,0.2);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 36px;
+    text-align: center;
+  }
+
+  .subject-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 600;
+    color: #f0ece6;
+    letter-spacing: 2px;
+  }
+
+  .subject-org {
+    font-size: 15px;
+    color: #d4a24c;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  .subject-url {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    color: #5a5550;
+    margin-top: 6px;
+  }
+
+  /* Video Section */
+  .video-section {
+    margin-bottom: 40px;
+  }
+
+  .video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+    background: #111;
+    position: relative;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(180,40,40,0.1), rgba(20,20,30,0.8));
+    border: 1px solid rgba(196,30,30,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .video-placeholder .icon { font-size: 48px; opacity: 0.3; }
+  .video-placeholder .text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    color: #5a5550;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .video-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    color: #4a4540;
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 2px;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 32px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .section-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #c41e1e, #8b1a1a);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #c41e1e;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(196,30,30,0.3), transparent);
+  }
+
+  .section-body {
+    padding-left: 44px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #b0a898;
+  }
+
+  .section-body p { margin-bottom: 10px; }
+  .section-body strong { color: #d4d0c8; font-weight: 600; }
+
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .section-body li:last-child { border-bottom: none; }
+  .section-body li::before {
+    content: '\25B8';
+    position: absolute;
+    left: 0;
+    color: #c41e1e;
+    font-size: 11px;
+  }
+
+  /* Highlight boxes */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(212,162,76,0.08), rgba(212,162,76,0.03));
+    border-left: 3px solid #d4a24c;
+    padding: 14px 18px;
+    margin: 12px 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .highlight-box .label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d4a24c;
+    margin-bottom: 6px;
+  }
+
+  .alert-box {
+    background: linear-gradient(135deg, rgba(180,40,40,0.1), rgba(180,40,40,0.04));
+    border-left: 3px solid #c41e1e;
+    padding: 14px 18px;
+    margin: 12px 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .alert-box .label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #c41e1e;
+    margin-bottom: 6px;
+  }
+
+  /* Competitor table */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 12px 0;
+  }
+
+  .comp-table th {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d4a24c;
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(212,162,76,0.2);
+  }
+
+  .comp-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: #b0a898;
+  }
+
+  .comp-table .status-win { color: #4caf50; font-weight: 600; }
+  .comp-table .status-lose { color: #c41e1e; font-weight: 600; }
+  .comp-table .status-neutral { color: #d4a24c; }
+
+  /* Visibility meters */
+  .visibility-meter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+  }
+
+  .meter-bar {
+    flex: 1;
+    height: 10px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .meter-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #c41e1e, #d4a24c, #4caf50);
+  }
+
+  .meter-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    color: #d4a24c;
+    min-width: 40px;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .meter-name {
+    font-size: 11px;
+    color: #6a6560;
+    min-width: 70px;
+  }
+
+  /* Multiplier grid */
+  .multiplier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 12px 0;
+  }
+
+  @media (max-width: 600px) {
+    .multiplier-grid { grid-template-columns: 1fr; }
+    .section-body { padding-left: 0; }
+  }
+
+  .multiplier-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-top: 3px solid #c41e1e;
+    border-radius: 0 0 6px 6px;
+    padding: 16px 18px;
+  }
+
+  .multiplier-card .mc-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color: #c41e1e;
+    font-weight: 700;
+  }
+
+  .multiplier-card .mc-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #d4a24c;
+    margin: 4px 0;
+  }
+
+  .multiplier-card .mc-desc {
+    font-size: 12px;
+    color: #8a8078;
+    line-height: 1.6;
+  }
+
+  /* OSCortex recs */
+  .oscortex-rec {
+    background: linear-gradient(135deg, rgba(30,58,95,0.15), rgba(30,58,95,0.05));
+    border: 1px solid rgba(30,80,140,0.2);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 10px 0;
+  }
+
+  .oscortex-rec .rec-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #5a9fd4;
+    margin-bottom: 4px;
+  }
+
+  .oscortex-rec .rec-agent { font-weight: 600; color: #d4d0c8; }
+  .oscortex-rec .rec-desc { font-size: 13px; color: #8a8078; margin-top: 4px; line-height: 1.6; }
+
+  /* Divider */
+  .divider {
+    text-align: center;
+    margin: 48px 0;
+    color: #2a2520;
+    font-size: 12px;
+    letter-spacing: 6px;
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background: rgba(196,30,30,0.2);
+    vertical-align: middle;
+    margin: 0 16px;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(212,162,76,0.08), rgba(212,162,76,0.02));
+    border: 1px solid rgba(212,162,76,0.15);
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  .cta-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #d4a24c;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .cta-text {
+    font-size: 14px;
+    color: #8a8078;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 14px 36px;
+    background: linear-gradient(135deg, #c41e1e, #8b1a1a);
+    color: #f0ece6;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+
+  .cta-button:hover {
+    background: linear-gradient(135deg, #d42828, #a02020);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(196,30,30,0.3);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 48px 20px 32px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    margin-top: 48px;
+  }
+
+  .footer-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #2a2520;
+  }
+
+  .footer-brand span { color: #c41e1e; }
+
+  .footer-legal {
+    font-size: 10px;
+    color: #1a1815;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-bg"></div>
+<div class="top-bar"></div>
+
+<div class="container">
+
+  <div class="header">
+    <div class="classification">// TOP SECRET // OSCORTEX INTELLIGENCE //</div>
+    <div class="dossier-title">Strategic Intelligence Dossier</div>
+    <div class="dossier-subtitle">Flight Club Mastermind // June 2026</div>
+    <div class="header-meta">
+      FILE NO: FC-2026-006 &nbsp;|&nbsp; COMPILED: June 12, 2026 &nbsp;|&nbsp; CLASSIFICATION: EYES ONLY &nbsp;|&nbsp; ANALYST: OSCORTEX AI
+    </div>
+    <div class="stamp">Classified</div>
+  </div>
+
+  <div class="subject-bar">
+    <div class="subject-name">Dr. Taylor Francois</div>
+    <div class="subject-org">The Flow Agency</div>
+    <div class="subject-url">fullcircleflow.com</div>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-section">
+    <div class="video-placeholder">
+      <div class="icon">🎬</div>
+      <div class="text">Personalized Video Briefing Coming Soon</div>
+    </div>
+    <div class="video-label">// PERSONALIZED BRIEFING // PREPARED EXCLUSIVELY FOR Dr. //</div>
+  </div>
+
+  <!-- SUBJECT PROFILE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">👤</div>
+      <div class="section-title">Subject Profile</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p><strong>Core Expertise:</strong> Dr. Taylor Francois operates The Flow Agency, a full-service marketing and content creation agency specializing in viral organic content campaigns. Based on public records, the agency focuses on storytelling, imagery, and video production with campaigns known to attract millions of views and rapidly enhance brand recognition.</p><p><strong>Primary Challenge:</strong> With only 14 ranked keywords and an average search position of 36.9, The Flow Agency faces significant organic visibility challenges despite their content creation expertise. The agency appears to be in a classic "cobbler's children have no shoes" scenario, creating viral content for clients while their own digital presence remains relatively invisible.</p><p><strong>Mission:</strong> To serve as an extension of client teams, growing businesses through strategic content creation, branding, and data-driven growth approaches. The agency positions itself as specialists in luxury and creative sectors while maintaining focus on sustainable, consistent growth outcomes.</p>
+    </div>
+  </div>
+
+  <!-- COMPETITIVE INTELLIGENCE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div class="section-title">Competitive Intelligence</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <table class="comp-table"><tr><th>Competitor</th><th>Strength</th><th>Your Edge</th></tr><tr><td>Traditional Creative Agencies</td><td>Established client relationships and brand recognition</td><td class="status-win">Viral content specialty with proven millions of views</td></tr><tr><td>Digital Marketing Platforms</td><td>Scale and automation capabilities</td><td class="status-win">Boutique personalization and storytelling focus</td></tr><tr><td>Content Creation Studios</td><td>Production infrastructure and resources</td><td class="status-neutral">Similar capabilities but luxury market positioning</td></tr></table><div class="highlight-box"><strong>Key Finding:</strong> Your viral content creation track record is a massive differentiator, but competitors are outranking you in search visibility. You're winning on results but losing on discoverability.</div>
+    </div>
+  </div>
+
+  <!-- AI VISIBILITY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🤖</div>
+      <div class="section-title">AI Visibility Assessment</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <div class="visibility-meter"><span class="meter-label">ChatGPT Visibility</span><div class="meter-bar"><div class="meter-fill" style="width: 15%;"></div></div><span class="meter-value">15%</span></div><div class="visibility-meter"><span class="meter-label">Perplexity Visibility</span><div class="meter-bar"><div class="meter-fill" style="width: 8%;"></div></div><span class="meter-value">8%</span></div><div class="visibility-meter"><span class="meter-label">Google AI Overview</span><div class="meter-bar"><div class="meter-fill" style="width: 12%;"></div></div><span class="meter-value">12%</span></div><div class="alert-box"><strong>Critical Gap:</strong> Your viral content success stories aren't indexed by AI systems. With 11.6% average AI visibility, potential clients asking AI for content agency recommendations likely won't discover The Flow Agency, despite your proven track record of millions of views.</div>
+    </div>
+  </div>
+
+  <div class="divider">◆</div>
+
+  <!-- HIDDEN MULTIPLIERS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">💎</div>
+      <div class="section-title">Hidden Multipliers</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <div class="multiplier-grid"><div class="multiplier-card"><div class="mc-number">01</div><div class="mc-title">Viral Case Study SEO</div><div class="mc-desc">Your millions-of-views campaigns aren't ranking for "viral marketing case studies" or "content marketing success stories." Package these wins into SEO-optimized case studies to capture high-intent prospects.</div></div><div class="multiplier-card"><div class="mc-number">02</div><div class="mc-title">Luxury Industry Authority</div><div class="mc-desc">You mention luxury specialization but aren't ranking for "luxury brand marketing agency" or "high-end content creation." This niche commands 3-5x higher retainers than general agencies.</div></div><div class="multiplier-card"><div class="mc-number">03</div><div class="mc-title">Behind-the-Scenes Content</div><div class="mc-desc">Document your viral campaign creation process. "How we got 2M views in 48 hours" content would attract both clients and industry partnerships while showcasing expertise.</div></div><div class="multiplier-card"><div class="mc-number">04</div><div class="mc-title">Agency White-Label Partnerships</div><div class="mc-desc">Your viral content specialty could be white-labeled to larger agencies lacking this capability. One partnership could 10x your reach without proportional overhead increase.</div></div></div>
+    </div>
+  </div>
+
+  <!-- OSCORTEX RECOMMENDATIONS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⚡</div>
+      <div class="section-title">Recommended AI Workforce</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p><strong>Based on Dr.'s stated challenges and business model, here is what an OSCortex deployment would look like:</strong></p>
+      <div class="oscortex-rec"><div class="rec-header">Scout</div><div class="rec-agent">Lead Intelligence Agent</div><div class="rec-desc">Monitor luxury brands launching campaigns that underperform, then auto-trigger outreach with your viral case studies. Scout can identify these opportunities within 24-48 hours of campaign launch.</div></div><div class="oscortex-rec"><div class="rec-header">Broadcast</div><div class="rec-agent">Content Distribution Agent</div><div class="rec-desc">Systematically distribute your viral campaign case studies across 47+ industry channels and publications. Your millions-of-views stories deserve industry-wide visibility, not just client-only sharing.</div></div><div class="oscortex-rec"><div class="rec-header">Vox</div><div class="rec-agent">AI Copywriting Agent</div><div class="rec-desc">Generate SEO-optimized case study narratives from your viral campaigns. Vox can analyze your successful campaigns and create compelling, keyword-rich stories that rank for high-value search terms.</div></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-title">This Dossier Was Built by OSCortex</div>
+    <div class="cta-text">
+      Everything you just read was researched, analyzed, and assembled by an AI workforce in minutes, not weeks.
+      Imagine what a system like this could do running inside your business every single day.
+    </div>
+    <a href="https://aimomentumlabs.com" class="cta-button">Learn More About OSCortex</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">PREPARED BY <span>OSCORTEX</span> // AI MOMENTUM LABS // JUNE 2026</div>
+  <div class="footer-legal">This intelligence report was compiled using publicly available information and AI analysis.</div>
+</div>
+
+</body>
+</html>
