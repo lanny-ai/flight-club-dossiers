@@ -189,6 +189,15 @@
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/dr-kate/index.html"
   },
   {
+    "name": "Dr. Maritsa Yzaguirre-Kelley",
+    "slug": "dr-maritsa-yzaguirre-kelley",
+    "type": "member",
+    "business": "Obtaining Mastery",
+    "url": "https://dossiers.aimomentumlabs.com/dr-maritsa-yzaguirre-kelley/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/dr-maritsa-yzaguirre-kelley.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/dr-maritsa-yzaguirre-kelley/index.html"
+  },
+  {
     "name": "Dr. Taylor Francois",
     "slug": "dr-taylor-francois",
     "type": "guest",
@@ -207,6 +216,15 @@
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/emily-morse/index.html"
   },
   {
+    "name": "Eric Berman",
+    "slug": "eric-berman",
+    "type": "member",
+    "business": "Speakeasy Mastermind &",
+    "url": "https://dossiers.aimomentumlabs.com/eric-berman/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/eric-berman.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/eric-berman/index.html"
+  },
+  {
     "name": "Esther Wildenberg",
     "slug": "esther-wildenberg",
     "type": "guest",
@@ -214,6 +232,15 @@
     "url": "https://dossiers.aimomentumlabs.com/esther-wildenberg/",
     "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/esther-wildenberg.png",
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/esther-wildenberg/index.html"
+  },
+  {
+    "name": "Facundo Lopez",
+    "slug": "facundo-lopez",
+    "type": "member",
+    "business": "ProfitAds",
+    "url": "https://dossiers.aimomentumlabs.com/facundo-lopez/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/facundo-lopez.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/facundo-lopez/index.html"
   },
   {
     "name": "Gillian Pothier",
@@ -225,6 +252,42 @@
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/gillian-pothier/index.html"
   },
   {
+    "name": "Grace Stinnett",
+    "slug": "grace-stinnett",
+    "type": "member",
+    "business": "Architect Legacy",
+    "url": "https://dossiers.aimomentumlabs.com/grace-stinnett/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/grace-stinnett.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/grace-stinnett/index.html"
+  },
+  {
+    "name": "Hilary Silver",
+    "slug": "hilary-silver",
+    "type": "member",
+    "business": "Ready for Love",
+    "url": "https://dossiers.aimomentumlabs.com/hilary-silver/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/hilary-silver.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/hilary-silver/index.html"
+  },
+  {
+    "name": "Jake Larsen",
+    "slug": "jake-larsen",
+    "type": "member",
+    "business": "Video Power Marketing",
+    "url": "https://dossiers.aimomentumlabs.com/jake-larsen/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/jake-larsen.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/jake-larsen/index.html"
+  },
+  {
+    "name": "Jasmine Jonte",
+    "slug": "jasmine-jonte",
+    "type": "member",
+    "business": "Course Creation Agency",
+    "url": "https://dossiers.aimomentumlabs.com/jasmine-jonte/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/jasmine-jonte.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/jasmine-jonte/index.html"
+  },
+  {
     "name": "Jenny Lorenz",
     "slug": "jenny-lorenz",
     "type": "guest",
@@ -232,6 +295,24 @@
     "url": "https://dossiers.aimomentumlabs.com/jenny-lorenz/",
     "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/jenny-lorenz.png",
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/jenny-lorenz/index.html"
+  },
+  {
+    "name": "Jim Muldoon",
+    "slug": "jim-muldoon",
+    "type": "member",
+    "business": "Digistore24",
+    "url": "https://dossiers.aimomentumlabs.com/jim-muldoon/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/jim-muldoon.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/jim-muldoon/index.html"
+  },
+  {
+    "name": "Joe Kelley",
+    "slug": "joe-kelley",
+    "type": "member",
+    "business": "OM Center",
+    "url": "https://dossiers.aimomentumlabs.com/joe-kelley/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/joe-kelley.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/joe-kelley/index.html"
   },
   {
     "name": "Max Marmer",
