@@ -477,6 +477,24 @@
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/mike-murphy/index.html"
   },
   {
+    "name": "Naomi McKenna",
+    "slug": "naomi-mckenna",
+    "type": "member",
+    "business": "Michael Curtis Media",
+    "url": "https://dossiers.aimomentumlabs.com/naomi-mckenna/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/naomi-mckenna.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/naomi-mckenna/index.html"
+  },
+  {
+    "name": "Natalie Jill",
+    "slug": "natalie-jill",
+    "type": "member",
+    "business": "Midlife Conversations",
+    "url": "https://dossiers.aimomentumlabs.com/natalie-jill/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/natalie-jill.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/natalie-jill/index.html"
+  },
+  {
     "name": "Nicholas Johnson",
     "slug": "nicholas-johnson",
     "type": "guest",
@@ -484,6 +502,60 @@
     "url": "https://dossiers.aimomentumlabs.com/nicholas-johnson/",
     "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/nicholas-johnson.png",
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/nicholas-johnson/index.html"
+  },
+  {
+    "name": "Nick Morgan",
+    "slug": "nick-morgan",
+    "type": "member",
+    "business": "Perfectus Labs",
+    "url": "https://dossiers.aimomentumlabs.com/nick-morgan/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/nick-morgan.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/nick-morgan/index.html"
+  },
+  {
+    "name": "Paul Hoffman",
+    "slug": "paul-hoffman",
+    "type": "member",
+    "business": "Sculpting Your Life",
+    "url": "https://dossiers.aimomentumlabs.com/paul-hoffman/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/paul-hoffman.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/paul-hoffman/index.html"
+  },
+  {
+    "name": "Paul Omahony",
+    "slug": "paul-omahony",
+    "type": "member",
+    "business": "Rethink Academy",
+    "url": "https://dossiers.aimomentumlabs.com/paul-omahony/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/paul-omahony.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/paul-omahony/index.html"
+  },
+  {
+    "name": "Rebecca Kallaus",
+    "slug": "rebecca-kallaus",
+    "type": "member",
+    "business": "Business Done Better",
+    "url": "https://dossiers.aimomentumlabs.com/rebecca-kallaus/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/rebecca-kallaus.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/rebecca-kallaus/index.html"
+  },
+  {
+    "name": "Regan Archibald",
+    "slug": "regan-archibald",
+    "type": "member",
+    "business": "EastWest Health",
+    "url": "https://dossiers.aimomentumlabs.com/regan-archibald/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/regan-archibald.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/regan-archibald/index.html"
+  },
+  {
+    "name": "Ridgely Goldsborough",
+    "slug": "ridgely-goldsborough",
+    "type": "member",
+    "business": "JVHacking.com & MindTypes.com",
+    "url": "https://dossiers.aimomentumlabs.com/ridgely-goldsborough/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/ridgely-goldsborough.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/ridgely-goldsborough/index.html"
   },
   {
     "name": "Samuel Prentice",
