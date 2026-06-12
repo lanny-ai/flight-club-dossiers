@@ -558,6 +558,42 @@
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/ridgely-goldsborough/index.html"
   },
   {
+    "name": "Robert Poling",
+    "slug": "robert-poling",
+    "type": "member",
+    "business": "Brandetize",
+    "url": "https://dossiers.aimomentumlabs.com/robert-poling/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/robert-poling.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/robert-poling/index.html"
+  },
+  {
+    "name": "Rohit Sheth",
+    "slug": "rohit-sheth",
+    "type": "member",
+    "business": "GrowRev Marketing",
+    "url": "https://dossiers.aimomentumlabs.com/rohit-sheth/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/rohit-sheth.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/rohit-sheth/index.html"
+  },
+  {
+    "name": "Roland Frasier",
+    "slug": "roland-frasier",
+    "type": "member",
+    "business": "DigitalMarketer",
+    "url": "https://dossiers.aimomentumlabs.com/roland-frasier/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/roland-frasier.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/roland-frasier/index.html"
+  },
+  {
+    "name": "Sabrina Mart\u00ednez Caula",
+    "slug": "sabrina-martnez-caula",
+    "type": "member",
+    "business": "Profit Ads",
+    "url": "https://dossiers.aimomentumlabs.com/sabrina-martnez-caula/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/sabrina-martnez-caula.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/sabrina-martnez-caula/index.html"
+  },
+  {
     "name": "Samuel Prentice",
     "slug": "samuel-prentice",
     "type": "guest",
@@ -583,5 +619,32 @@
     "url": "https://dossiers.aimomentumlabs.com/scott-zimmerman/",
     "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/scott-zimmerman.png",
     "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/scott-zimmerman/index.html"
+  },
+  {
+    "name": "Sheevaun Moran",
+    "slug": "sheevaun-moran",
+    "type": "member",
+    "business": "Energetic Solutions Inc.",
+    "url": "https://dossiers.aimomentumlabs.com/sheevaun-moran/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/sheevaun-moran.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/sheevaun-moran/index.html"
+  },
+  {
+    "name": "Tracey Starr",
+    "slug": "tracey-starr",
+    "type": "member",
+    "business": "Tracey Starr",
+    "url": "https://dossiers.aimomentumlabs.com/tracey-starr/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/tracey-starr.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/tracey-starr/index.html"
+  },
+  {
+    "name": "Tressa Yonekawa",
+    "slug": "tressa-yonekawa",
+    "type": "member",
+    "business": "Tressa Yonekawa",
+    "url": "https://dossiers.aimomentumlabs.com/tressa-yonekawa/",
+    "qr": "/Users/helios/CoworkSpace/flight-club-dossiers/site/qr/tressa-yonekawa.png",
+    "page": "/Users/helios/CoworkSpace/flight-club-dossiers/site/tressa-yonekawa/index.html"
   }
 ]
