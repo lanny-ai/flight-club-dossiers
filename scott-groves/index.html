@@ -523,7 +523,7 @@
     <div class="dossier-title">Strategic Intelligence Dossier</div>
     <div class="dossier-subtitle">Flight Club Mastermind // June 2026</div>
     <div class="header-meta">
-      FILE NO: FC-2026-068 &nbsp;|&nbsp; COMPILED: June 12, 2026 &nbsp;|&nbsp; CLASSIFICATION: EYES ONLY &nbsp;|&nbsp; ANALYST: OSCORTEX AI
+      FILE NO: FC-2026-069 &nbsp;|&nbsp; COMPILED: June 14, 2026 &nbsp;|&nbsp; CLASSIFICATION: EYES ONLY &nbsp;|&nbsp; ANALYST: OSCORTEX AI
     </div>
     <div class="stamp">Classified</div>
   </div>
@@ -534,117 +534,38 @@
     <div class="subject-url">HomeTownLegend.com</div>
   </div>
 
-  
-  <!-- VIDEO BRIEFING REQUEST -->
-  <div class="briefing-request" id="briefingSection">
-    <div class="briefing-icon">🎬</div>
-    <div class="briefing-title">Your Classified Video Briefing</div>
-    <div class="briefing-text">
-      OSCortex has compiled a personalized strategic intelligence briefing for you.
-      Press the button below to generate your classified video — researched, scripted, and produced by AI in minutes.
+  <!-- VIDEO -->
+  <div class="video-section">
+    <div class="video-placeholder">
+      <div class="icon">🎬</div>
+      <div class="text">Personalized Video Briefing Coming Soon</div>
     </div>
-    <button class="briefing-button" id="generateBtn" onclick="requestBriefing()">
-      ▶ GENERATE MY CLASSIFIED BRIEFING
-    </button>
-    <div class="briefing-status" id="briefingStatus" style="display:none;">
-      <div class="status-spinner"></div>
-      <div class="status-text">OSCortex is compiling your briefing. This takes a few minutes.<br>You'll receive a secure link when it's ready.</div>
+    <div class="video-label">// PERSONALIZED BRIEFING // PREPARED EXCLUSIVELY FOR Scott //</div>
+  </div>
+
+  <!-- SUBJECT PROFILE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">👤</div>
+      <div class="section-title">Subject Profile</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p><strong>Core Expertise:</strong> Scott Groves operates HomeTown Legend, a done-for-you media service that transforms real estate agents and mortgage professionals into local community authorities through newsletters, social content, and lead generation systems.</p><p><strong>Primary Challenge:</strong> As a guest prospect, Scott likely faces the challenge of scaling his service delivery while maintaining quality across multiple local markets, and potentially needs better systems for client acquisition and retention in the competitive real estate marketing space.</p><p><strong>Mission:</strong> HomeTown Legend aims to help real estate professionals become the most visible and trusted person in their community by creating local media brands without requiring technical expertise or content creation from the client.</p>
     </div>
   </div>
 
-  <style>
-    .briefing-request {
-      margin: 24px 0 32px 0;
-      padding: 40px 32px;
-      background: linear-gradient(135deg, rgba(212,162,76,0.06), rgba(196,30,30,0.04));
-      border: 1px solid rgba(212,162,76,0.2);
-      border-radius: 8px;
-      text-align: center;
-    }
-    .briefing-icon { font-size: 48px; margin-bottom: 16px; }
-    .briefing-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 18px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #d4a24c;
-      margin-bottom: 12px;
-    }
-    .briefing-text {
-      font-size: 14px;
-      color: #8a8078;
-      line-height: 1.7;
-      max-width: 500px;
-      margin: 0 auto 24px auto;
-    }
-    .briefing-button {
-      display: inline-block;
-      padding: 16px 40px;
-      background: linear-gradient(135deg, #c41e1e, #8b1a1a);
-      color: #f0ece6;
-      font-family: 'Oswald', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-    .briefing-button:hover {
-      background: linear-gradient(135deg, #d42828, #a02020);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(196,30,30,0.3);
-    }
-    .briefing-button:active { transform: translateY(0); }
-    .briefing-status { margin-top: 24px; }
-    .status-spinner {
-      width: 32px; height: 32px;
-      border: 3px solid rgba(212,162,76,0.2);
-      border-top-color: #d4a24c;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 12px auto;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .status-text {
-      font-size: 13px;
-      color: #d4a24c;
-      line-height: 1.6;
-    }
-  </style>
-
-  <script>
-    function requestBriefing() {
-      var btn = document.getElementById('generateBtn');
-      var status = document.getElementById('briefingStatus');
-      btn.style.display = 'none';
-      status.style.display = 'block';
-      
-      fetch('https://copilot.aimomentumlabs.com/dossier/request-video', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          slug: 'scott-groves',
-          name: 'Scott Groves'
-        })
-      }).then(function(r) { return r.json(); }).then(function(data) {
-        document.querySelector('.status-text').innerHTML = 
-          '✅ Your classified briefing has been requested.<br>' +
-          'OSCortex is now researching, scripting, and producing your personalized video.<br>' +
-          '<strong>You\'ll receive a secure link within 24 hours.</strong>';
-        document.querySelector('.status-spinner').style.display = 'none';
-      }).catch(function() {
-        document.querySelector('.status-text').innerHTML = 
-          '✅ Request received. Your personalized briefing is being compiled.<br>' +
-          '<strong>You\'ll receive a secure link within 24 hours.</strong>';
-        document.querySelector('.status-spinner').style.display = 'none';
-      });
-    }
-  </script>
-
+  <!-- COMPETITIVE INTELLIGENCE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div class="section-title">Competitive Intelligence</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <table class='comp-table'><thead><tr><th>Competitor</th><th>Strength</th><th>Your Edge</th></tr></thead><tbody><tr><td>Local Newsletter Platforms</td><td>Established tech infrastructure</td><td class='status-win'>Full-service, no-tech-required approach</td></tr><tr><td>Real Estate Marketing Agencies</td><td>Industry specialization</td><td class='status-neutral'>Hyper-local focus with proven subscriber growth</td></tr><tr><td>Social Media Management Services</td><td>Broad reach capabilities</td><td class='status-win'>Community-centric content that drives actual leads</td></tr></tbody></table><div class='highlight-box'><strong>Key Finding:</strong> HomeTown Legend's proven track record (31,000+ combined subscribers across markets) positions Scott uniquely against generic marketing services, but scaling this personalized approach will require robust systems.</div>
+    </div>
+  </div>
 
   <!-- AI VISIBILITY -->
   <div class="section">
