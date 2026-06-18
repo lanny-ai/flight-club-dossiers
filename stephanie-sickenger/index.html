@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stephanie Sickenger // Strategic Intelligence Dossier</title>
+<meta name="description" content="Classified strategic intelligence dossier prepared exclusively for Stephanie Sickenger by OSCortex AI.">
+<meta property="og:title" content="Stephanie Sickenger // Classified Dossier">
+<meta property="og:description" content="Your personalized strategic intelligence report from AI Momentum Labs.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&family=Special+Elite&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #0a0a0f;
+    color: #d4d0c8;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .page-bg {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(180,40,40,0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(180,140,60,0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .top-bar {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #5c1010, #c41e1e, #d4a24c, #c41e1e, #5c1010);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(196,30,30,0.3);
+  }
+
+  .classification {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    color: #c41e1e;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .dossier-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #e8e4df;
+    line-height: 1.1;
+  }
+
+  .dossier-subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #d4a24c;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .header-meta {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    color: #4a4540;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    margin-top: 16px;
+  }
+
+  .stamp {
+    display: inline-block;
+    border: 2px solid #c41e1e;
+    padding: 4px 16px;
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    color: #c41e1e;
+    letter-spacing: 4px;
+    transform: rotate(-3deg);
+    margin-top: 12px;
+  }
+
+  .subject-bar {
+    background: linear-gradient(135deg, rgba(180,40,40,0.12), rgba(180,40,40,0.04));
+    border: 1px solid rgba(196,30,30,0.2);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 36px;
+    text-align: center;
+  }
+
+  .subject-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 600;
+    color: #f0ece6;
+    letter-spacing: 2px;
+  }
+
+  .subject-org {
+    font-size: 15px;
+    color: #d4a24c;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  .subject-url {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    color: #5a5550;
+    margin-top: 6px;
+  }
+
+  .video-section { margin-bottom: 40px; }
+
+  .video-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(180,40,40,0.1), rgba(20,20,30,0.8));
+    border: 1px solid rgba(196,30,30,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .video-placeholder .icon { font-size: 48px; opacity: 0.3; }
+  .video-placeholder .text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    color: #5a5550;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .video-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    color: #4a4540;
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 2px;
+  }
+
+  .section { margin-bottom: 32px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .section-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #c41e1e, #8b1a1a);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #c41e1e;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(196,30,30,0.3), transparent);
+  }
+
+  .section-body {
+    padding-left: 44px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #b0a898;
+  }
+
+  .section-body p { margin-bottom: 10px; }
+  .section-body strong { color: #d4d0c8; font-weight: 600; }
+
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .section-body li:last-child { border-bottom: none; }
+  .section-body li::before {
+    content: '\25B8';
+    position: absolute;
+    left: 0;
+    color: #c41e1e;
+    font-size: 11px;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(212,162,76,0.08), rgba(212,162,76,0.03));
+    border-left: 3px solid #d4a24c;
+    padding: 14px 18px;
+    margin: 12px 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .highlight-box .label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d4a24c;
+    margin-bottom: 6px;
+  }
+
+  .alert-box {
+    background: linear-gradient(135deg, rgba(180,40,40,0.1), rgba(180,40,40,0.04));
+    border-left: 3px solid #c41e1e;
+    padding: 14px 18px;
+    margin: 12px 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .alert-box .label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #c41e1e;
+    margin-bottom: 6px;
+  }
+
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 12px 0;
+  }
+
+  .comp-table th {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d4a24c;
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(212,162,76,0.2);
+  }
+
+  .comp-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: #b0a898;
+  }
+
+  .comp-table .status-win { color: #4caf50; font-weight: 600; }
+  .comp-table .status-lose { color: #c41e1e; font-weight: 600; }
+  .comp-table .status-neutral { color: #d4a24c; }
+
+  .visibility-meter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+  }
+
+  .meter-bar {
+    flex: 1;
+    height: 10px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .meter-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #c41e1e, #d4a24c, #4caf50);
+  }
+
+  .meter-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    color: #d4a24c;
+    min-width: 40px;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .meter-name {
+    font-size: 11px;
+    color: #6a6560;
+    min-width: 70px;
+  }
+
+  .multiplier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 12px 0;
+  }
+
+  @media (max-width: 600px) {
+    .multiplier-grid { grid-template-columns: 1fr; }
+    .section-body { padding-left: 0; }
+  }
+
+  .multiplier-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-top: 3px solid #c41e1e;
+    border-radius: 0 0 6px 6px;
+    padding: 16px 18px;
+  }
+
+  .multiplier-card .mc-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color: #c41e1e;
+    font-weight: 700;
+  }
+
+  .multiplier-card .mc-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #d4a24c;
+    margin: 4px 0;
+  }
+
+  .multiplier-card .mc-desc {
+    font-size: 12px;
+    color: #8a8078;
+    line-height: 1.6;
+  }
+
+  .oscortex-rec {
+    background: linear-gradient(135deg, rgba(30,58,95,0.15), rgba(30,58,95,0.05));
+    border: 1px solid rgba(30,80,140,0.2);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 10px 0;
+  }
+
+  .oscortex-rec .rec-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #5a9fd4;
+    margin-bottom: 4px;
+  }
+
+  .oscortex-rec .rec-agent { font-weight: 600; color: #d4d0c8; }
+  .oscortex-rec .rec-desc { font-size: 13px; color: #8a8078; margin-top: 4px; line-height: 1.6; }
+
+  .divider {
+    text-align: center;
+    margin: 48px 0;
+    color: #2a2520;
+    font-size: 12px;
+    letter-spacing: 6px;
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background: rgba(196,30,30,0.2);
+    vertical-align: middle;
+    margin: 0 16px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 48px 20px 32px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    margin-top: 48px;
+  }
+
+  .footer-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #2a2520;
+  }
+
+  .footer-brand span { color: #c41e1e; }
+
+  .footer-legal {
+    font-size: 10px;
+    color: #1a1815;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-bg"></div>
+<div class="top-bar"></div>
+
+<div class="container">
+
+  <div class="header">
+    <div class="classification">// TOP SECRET // OSCORTEX INTELLIGENCE //</div>
+    <div class="dossier-title">Strategic Intelligence Dossier</div>
+    <div class="dossier-subtitle">Flight Club Mastermind // June 2026</div>
+    <div class="header-meta">
+      FILE NO: FC-2026-SS-0617 &nbsp;|&nbsp; COMPILED: June 17, 2026 &nbsp;|&nbsp; CLASSIFICATION: EYES ONLY &nbsp;|&nbsp; ANALYST: OSCORTEX AI
+    </div>
+    <div class="stamp">Classified</div>
+  </div>
+
+  <div class="subject-bar">
+    <div class="subject-name">Stephanie Sickenger</div>
+    <div class="subject-org">Flight Club Mastermind &bull; GetQualifiedLeads.ai &bull; Speakeasy Mastermind</div>
+    <div class="subject-url">flightclubmastermind.com &nbsp;|&nbsp; getqualifiedleads.ai</div>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-section">
+    <div class="video-placeholder">
+        <div class="icon">🎬</div>
+        <div class="text">Personalized Briefing // Coming Soon</div>
+    </div>
+    <div class="video-label">// PERSONALIZED BRIEFING // PREPARED EXCLUSIVELY FOR STEPHANIE //</div>
+  </div>
+
+  <!-- SUBJECT PROFILE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">👤</div>
+      <div class="section-title">Subject Profile</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p><strong>Stephanie Sickenger</strong> is the person who makes Flight Club actually work. For six years she has been Glen Ledwell's partner in building and operating one of the most exclusive entrepreneur masterminds in the country — curating the member experience, running three premium Las Vegas events per year, and creating the environment where multi-million dollar deals, partnerships, and breakthroughs happen in real time. She is now co-host of Flight Club, not just coordinator — a distinction that reflects the reality that this community doesn't function without her.</p>
+
+      <p>But Flight Club is only one piece of a three-part empire. Stephanie is also a partner in <strong>Speakeasy Mastermind</strong> (a separate high-level invitation-only community) and <strong>GetQualifiedLeads.ai</strong> — a done-for-you AI-powered B2B outreach platform that leverages a 1 billion+ prospect database to deliver hyper-personalized email and LinkedIn campaigns. GQL claims 10-20% reply rates (roughly 10x industry average) and positions itself as a full SDR replacement at a fraction of the cost.</p>
+
+      <p>What makes Stephanie unusual in the mastermind world is that she operates <strong>behind the curtain by design</strong>. Her Instagram has ~220 followers. She doesn't chase speaking gigs. She doesn't build a public brand. Instead, she builds rooms — and the people in those rooms build empires. That's a rare and deliberate strategic choice, and it's also her single biggest untapped asset.</p>
+
+      <div class="highlight-box">
+        <div class="label">Intelligence Note</div>
+        Stephanie holds a BBA in Marketing from the University of New Mexico. Her approach to community-building is grounded in the same precision and structure that defines her event execution — every detail curated, every interaction intentional. Members consistently describe the Flight Club experience as "family-like," which doesn't happen by accident. It's engineered.
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPETITIVE INTELLIGENCE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div class="section-title">Competitive Intelligence</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Flight Club operates in the ultra-premium mastermind tier — invite-only, relationship-driven, and intentionally small. This segment doesn't compete on SEO or paid traffic. It competes on <strong>reputation, results, and member experience</strong>. That said, the landscape is crowded at every tier below.</p>
+
+      <table class="comp-table">
+        <thead>
+          <tr><th>Competitor</th><th>Their Strength</th><th>Your Edge</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>War Room (DigitalMarketer)</td>
+            <td>Brand recognition, large alumni network</td>
+            <td class="status-win">Intimacy + member retention over 6 years</td>
+          </tr>
+          <tr>
+            <td>Genius Network (Joe Polish)</td>
+            <td>Celebrity-tier roster, media presence</td>
+            <td class="status-neutral">Different price tier; FC competes on family culture vs. flex</td>
+          </tr>
+          <tr>
+            <td>Baby Bathwater / Rhodium</td>
+            <td>Experience-driven, strong word of mouth</td>
+            <td class="status-win">3x/year cadence + continuity vs. one-off retreats</td>
+          </tr>
+          <tr>
+            <td>GoBundance / Front Row Dads</td>
+            <td>Lifestyle branding, membership scale</td>
+            <td class="status-win">Practitioner depth — FC members are operators, not aspirational</td>
+          </tr>
+          <tr>
+            <td>Speakeasy Mastermind</td>
+            <td>Complementary positioning</td>
+            <td class="status-win">You're a partner in both — this is a moat, not a conflict</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="alert-box">
+        <div class="label">Competitive Threat</div>
+        AI-powered community platforms (Circle, Skool, Heartbeat) are making it easier for anyone to launch a "mastermind." The barrier to entry is dropping fast. What protects Flight Club is the curation and experience layer — the exact thing Stephanie delivers. That advantage is defensible only as long as it stays genuinely world-class and doesn't get diluted by scale.
+      </div>
+    </div>
+  </div>
+
+  <!-- AI VISIBILITY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🤖</div>
+      <div class="section-title">AI Visibility Assessment</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <div class="visibility-meter">
+        <span class="meter-name">ChatGPT</span>
+        <div class="meter-bar"><div class="meter-fill" style="width: 18%"></div></div>
+        <span class="meter-label">18%</span>
+      </div>
+      <div class="visibility-meter">
+        <span class="meter-name">Google AI</span>
+        <div class="meter-bar"><div class="meter-fill" style="width: 12%"></div></div>
+        <span class="meter-label">12%</span>
+      </div>
+      <div class="visibility-meter">
+        <span class="meter-name">Perplexity</span>
+        <div class="meter-bar"><div class="meter-fill" style="width: 22%"></div></div>
+        <span class="meter-label">22%</span>
+      </div>
+      <div class="visibility-meter">
+        <span class="meter-name">LinkedIn AI</span>
+        <div class="meter-bar"><div class="meter-fill" style="width: 15%"></div></div>
+        <span class="meter-label">15%</span>
+      </div>
+
+      <div class="highlight-box">
+        <div class="label">AI Visibility Analysis</div>
+        <strong>Intentionally low — but that's now a strategic liability.</strong> Stephanie's behind-the-curtain approach served the brand well when discovery was human-driven (referrals, word of mouth). But AI discovery is different. When someone asks ChatGPT or Perplexity "What are the best entrepreneur masterminds?", Flight Club barely surfaces — and Stephanie doesn't appear at all. The brand "Flight Club Mastermind" has a tiny organic footprint (12 ranking keywords, negligible traffic). Glen's personal brand carries most of the visibility load.
+      </div>
+
+      <div class="alert-box">
+        <div class="label">Critical Gap</div>
+        GetQualifiedLeads.ai has almost zero AI visibility despite operating in one of the hottest categories in B2B SaaS. When prospects ask AI tools for "AI-powered outreach platforms" or "done-for-you lead generation," GQL doesn't appear. This is a growth ceiling that will get worse as AI-driven discovery replaces traditional search.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">◆</div>
+
+  <!-- HIDDEN MULTIPLIERS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">💎</div>
+      <div class="section-title">Hidden Multipliers</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <div class="multiplier-grid">
+        <div class="multiplier-card">
+          <div class="mc-number">01</div>
+          <div class="mc-title">The Pattern Library</div>
+          <div class="mc-desc">Six years of curating 70+ high-ticket entrepreneurs means Stephanie has seen more business models, pivots, failures, and breakthroughs than almost any operator in this space. That pattern recognition is currently locked in her head. Captured and structured, it becomes a proprietary dataset — the foundation for member matching, deal recommendations, and predictive community intelligence that no competitor can replicate.</div>
+        </div>
+        <div class="multiplier-card">
+          <div class="mc-number">02</div>
+          <div class="mc-title">GQL × Flight Club Pipeline</div>
+          <div class="mc-desc">Flight Club members are exactly the profile that needs GetQualifiedLeads.ai — high-ticket offers, B2B focus, and limited time for outbound. There's a natural cross-sell pipeline hiding in plain sight: every Flight Club member is a potential GQL client, and every successful GQL client is a potential Flight Club applicant. An AI system that identifies and nurtures these cross-sell moments could significantly increase LTV on both sides.</div>
+        </div>
+        <div class="multiplier-card">
+          <div class="mc-number">03</div>
+          <div class="mc-title">Personal Brand Ignition</div>
+          <div class="mc-desc">Stephanie's deliberate low profile means she has almost zero competition for her own name in AI and search. One concentrated push — a handful of podcast appearances, a few long-form LinkedIn posts about the art of building premium communities, a speaking slot at a visible conference — would establish her as a recognized authority almost overnight. The territory is wide open and nobody else is claiming it.</div>
+        </div>
+        <div class="multiplier-card">
+          <div class="mc-number">04</div>
+          <div class="mc-title">Event Playbook as Product</div>
+          <div class="mc-desc">The Flight Club event experience is world-class by member consensus. That playbook — the curation methodology, the experience design, the logistics framework — has standalone value. Other mastermind operators would pay for a systematized version of how Stephanie builds these events. A course, a consulting offer, or even a white-labeled event management service could turn operational expertise into a separate revenue stream.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OSCORTEX RECOMMENDATIONS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⚡</div>
+      <div class="section-title">Recommended AI Workforce</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p><strong>Based on Stephanie's operational role across three businesses, here is what an OSCortex deployment would look like:</strong></p>
+
+      <div class="oscortex-rec">
+        <div class="rec-header">Navigator</div>
+        <div class="rec-agent">Member Intelligence & Matchmaker</div>
+        <div class="rec-desc">Holds deep context on every Flight Club member — their business model, current challenges, strengths, and goals. Before each event, Navigator identifies the highest-value introductions and collaboration opportunities between members, generates personalized connection briefs, and suggests seating arrangements and breakout pairings that maximize the chance of deals and partnerships forming organically.</div>
+      </div>
+
+      <div class="oscortex-rec">
+        <div class="rec-header">Concierge</div>
+        <div class="rec-agent">Event Operations & Experience Engine</div>
+        <div class="rec-desc">Manages the full logistics pipeline for each Las Vegas event — venue coordination, speaker scheduling, dietary preferences, travel logistics, and real-time issue resolution. Pre-generates run-of-show documents, member welcome packets, and post-event follow-up sequences. Learns from each event to improve the next one, building an institutional memory that makes every Flight Club better than the last.</div>
+      </div>
+
+      <div class="oscortex-rec">
+        <div class="rec-header">Sentinel</div>
+        <div class="rec-agent">Community Health & Retention Monitor</div>
+        <div class="rec-desc">Tracks engagement signals across the Flight Club community — event attendance patterns, member interaction frequency, content consumption, and sentiment. Identifies members at risk of disengagement before they lapse and recommends personalized re-engagement actions. Protects the community's retention rate by catching drift early, when a single touchpoint can make the difference.</div>
+      </div>
+
+      <div class="oscortex-rec">
+        <div class="rec-header">Broadcast</div>
+        <div class="rec-agent">Brand Visibility & Content Engine</div>
+        <div class="rec-desc">Builds Stephanie's personal brand and Flight Club's AI visibility simultaneously. Produces LinkedIn content, podcast pitch emails, and thought leadership pieces in her voice — focused on the art of building premium communities, curation methodology, and the behind-the-scenes reality of running world-class events. Optimized for AI discovery so that when someone asks "who runs the best entrepreneur masterminds," Flight Club appears.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">PREPARED BY <span>OSCORTEX</span> // AI MOMENTUM LABS // JUNE 2026</div>
+  <div class="footer-legal">This intelligence report was compiled using publicly available information and AI analysis.</div>
+</div>
+
+</body>
+</html>
