@@ -29,10 +29,9 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.75;
-      min-height: 100vh;
     }
 
-    /* ── TOP BAR ── */
+    /* TOP BAR */
     .top-bar {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
@@ -52,6 +51,32 @@
       text-transform: uppercase;
       color: var(--gold);
     }
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .live-badge {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: rgba(34,197,94,0.15);
+      border: 1px solid rgba(34,197,94,0.3);
+      color: #86efac;
+      padding: 4px 10px;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .live-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #22c55e;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
     .top-bar-label {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 11px;
@@ -59,7 +84,7 @@
       letter-spacing: 1px;
     }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       background: linear-gradient(135deg, #0a0c10 0%, #0d1220 40%, #111825 100%);
       border-bottom: 1px solid var(--border);
@@ -72,7 +97,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(200, 168, 75, 0.06) 0%, transparent 70%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(200,168,75,0.07) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-eyebrow {
@@ -92,15 +117,15 @@
       margin-bottom: 16px;
       letter-spacing: -0.5px;
     }
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
     .hero-subtitle {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 15px;
       color: var(--text-muted);
       margin-bottom: 48px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .hero-meta {
       display: flex;
@@ -108,9 +133,7 @@
       gap: 40px;
       flex-wrap: wrap;
     }
-    .hero-meta-item {
-      text-align: center;
-    }
+    .hero-meta-item { text-align: center; }
     .hero-meta-label {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 10px;
@@ -119,18 +142,14 @@
       color: var(--text-dim);
       margin-bottom: 4px;
     }
-    .hero-meta-value {
-      font-size: 15px;
-      color: var(--text-muted);
-    }
+    .hero-meta-value { font-size: 15px; color: var(--text-muted); }
     .hero-divider {
-      width: 60px;
-      height: 1px;
+      width: 60px; height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
       margin: 40px auto 0;
     }
 
-    /* ── BOARD MEMBERS ── */
+    /* BOARD STRIP */
     .board-strip {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
@@ -166,34 +185,41 @@
       border-radius: 100px;
     }
 
-    /* ── MAIN CONTENT ── */
+    /* SESSION NOTICE */
+    .session-notice {
+      background: rgba(34,197,94,0.05);
+      border-bottom: 1px solid rgba(34,197,94,0.15);
+      padding: 16px 32px;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      color: #86efac;
+    }
+
+    /* MAIN */
     .container {
       max-width: 860px;
       margin: 0 auto;
       padding: 0 24px 80px;
     }
 
-    /* ── SECTION ── */
+    /* SECTION */
     .section {
       margin-top: 64px;
       padding-top: 64px;
       border-top: 1px solid var(--border);
     }
-    .section:first-child {
-      border-top: none;
-      margin-top: 64px;
-    }
+    .section:first-child { border-top: none; margin-top: 64px; }
 
     .section-header {
       display: flex;
       align-items: flex-start;
       gap: 24px;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
     .section-badge {
       flex-shrink: 0;
-      width: 56px;
-      height: 56px;
+      width: 56px; height: 56px;
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -213,7 +239,6 @@
     .badge-cco { background: rgba(236,72,153,0.1); border-color: rgba(236,72,153,0.3); color: #f9a8d4; }
     .badge-cso { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.3); color: #fcd34d; }
 
-    .section-title-block {}
     .section-role {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 10px;
@@ -223,32 +248,22 @@
       color: var(--text-dim);
       margin-bottom: 6px;
     }
-    .section-title {
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--text);
-      line-height: 1.3;
-    }
+    .section-title { font-size: 22px; font-weight: 400; color: var(--text); line-height: 1.3; }
 
-    .section-body p {
+    /* TRANSCRIPT */
+    .transcript {
       font-size: 17px;
       color: #c8ccd8;
-      margin-bottom: 20px;
-      line-height: 1.8;
+      line-height: 1.85;
     }
-    .section-body p:last-child { margin-bottom: 0; }
-
-    .section-body strong {
-      color: var(--text);
-      font-weight: 600;
+    .transcript p {
+      margin-bottom: 22px;
     }
+    .transcript p:last-child { margin-bottom: 0; }
+    .transcript strong { color: var(--text); font-weight: 600; }
+    .transcript em { font-style: italic; color: var(--gold-light); }
 
-    .section-body em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-
-    /* ── CALLOUT BOX ── */
+    /* CALLOUT */
     .callout {
       background: var(--surface-2);
       border: 1px solid var(--border-light);
@@ -256,116 +271,16 @@
       border-radius: 8px;
       padding: 20px 24px;
       margin: 28px 0;
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
     }
     .callout.blue { border-left-color: var(--accent-blue); }
     .callout.green { border-left-color: var(--accent-green); }
     .callout.amber { border-left-color: var(--accent-amber); }
+    .callout.red { border-left-color: #ef4444; }
 
-    .callout p {
-      font-size: 16px !important;
-      margin-bottom: 0 !important;
-      color: var(--text-muted) !important;
-    }
-
-    /* ── NUMBERED LIST ── */
-    .priority-list {
-      list-style: none;
-      margin: 24px 0;
-    }
-    .priority-list li {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      margin-bottom: 16px;
-      font-size: 17px;
-      color: #c8ccd8;
-      line-height: 1.7;
-    }
-    .priority-num {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--surface-2);
-      border: 1px solid var(--border-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gold);
-      margin-top: 2px;
-    }
-
-    /* ── METRIC HIGHLIGHT ── */
-    .metric-block {
-      background: linear-gradient(135deg, rgba(200,168,75,0.06) 0%, rgba(200,168,75,0.02) 100%);
-      border: 1px solid rgba(200,168,75,0.2);
-      border-radius: 12px;
-      padding: 28px 32px;
-      margin: 32px 0;
-      text-align: center;
-    }
-    .metric-label {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 12px;
-    }
-    .metric-value {
-      font-size: 36px;
-      font-weight: 400;
-      color: var(--gold-light);
-      margin-bottom: 8px;
-    }
-    .metric-sub {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* ── PHASE TABLE ── */
-    .phase-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 28px 0;
-    }
-    @media (max-width: 600px) { .phase-grid { grid-template-columns: 1fr; } }
-    .phase-card {
-      background: var(--surface-2);
-      border: 1px solid var(--border-light);
-      border-radius: 10px;
-      padding: 20px;
-    }
-    .phase-label {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold-dim);
-      margin-bottom: 8px;
-    }
-    .phase-title {
-      font-size: 16px;
-      color: var(--text);
-      margin-bottom: 10px;
-      font-weight: 400;
-    }
-    .phase-items {
-      list-style: none;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    .phase-items li::before { content: '→ '; color: var(--gold-dim); }
-
-    /* ── CLOSING ── */
+    /* CLOSING */
     .closing {
       background: var(--surface);
       border: 1px solid var(--border-light);
@@ -382,11 +297,7 @@
       color: var(--text-dim);
       margin-bottom: 20px;
     }
-    .closing-title {
-      font-size: 26px;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
+    .closing-title { font-size: 26px; color: var(--text); margin-bottom: 16px; }
     .closing-body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 15px;
@@ -395,19 +306,9 @@
       margin: 0 auto 32px;
       line-height: 1.7;
     }
-    .closing-divider {
-      width: 40px;
-      height: 1px;
-      background: var(--gold-dim);
-      margin: 32px auto;
-    }
-    .closing-sig {
-      font-size: 14px;
-      color: var(--text-dim);
-      font-style: italic;
-    }
+    .closing-divider { width: 40px; height: 1px; background: var(--gold-dim); margin: 32px auto; }
+    .closing-sig { font-size: 14px; color: var(--text-dim); font-style: italic; }
 
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 24px 32px;
@@ -416,23 +317,31 @@
       font-size: 12px;
       color: var(--text-dim);
     }
+
+    @media (max-width: 600px) {
+      .top-bar-label { display: none; }
+      .hero { padding: 48px 20px 40px; }
+      .hero-meta { gap: 20px; }
+      .closing { padding: 32px 24px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- TOP BAR -->
   <div class="top-bar">
     <div class="top-bar-logo">OSCortex · AI Momentum Labs</div>
-    <div class="top-bar-label">Confidential · Prepared for Sheronda Ervin</div>
+    <div class="top-bar-right">
+      <div class="live-badge"><span class="live-dot"></span> Live Session</div>
+      <div class="top-bar-label">Confidential · Prepared for Sheronda Ervin</div>
+    </div>
   </div>
 
-  <!-- HERO -->
   <div class="hero">
-    <div class="hero-eyebrow">Executive Board Session</div>
+    <div class="hero-eyebrow">Executive Board Session · Live Transcript</div>
     <h1 class="hero-title">
       <em>TAXcellent</em> Financial Services<br>Strategic Operating Review
     </h1>
-    <p class="hero-subtitle">Eight executive advisors. One business. Every angle covered.</p>
+    <p class="hero-subtitle">Eight executive advisors ran this session in real time, each working independently from their own expertise and identity. What follows is the unedited transcript.</p>
     <div class="hero-meta">
       <div class="hero-meta-item">
         <div class="hero-meta-label">Client</div>
@@ -447,14 +356,13 @@
         <div class="hero-meta-value">June 21, 2026</div>
       </div>
       <div class="hero-meta-item">
-        <div class="hero-meta-label">Prepared By</div>
-        <div class="hero-meta-value">OSCortex · AI Momentum Labs</div>
+        <div class="hero-meta-label">Model</div>
+        <div class="hero-meta-value">Claude Opus · All 8 Agents</div>
       </div>
     </div>
     <div class="hero-divider"></div>
   </div>
 
-  <!-- BOARD MEMBERS STRIP -->
   <div class="board-strip">
     <div class="board-strip-label">Board in Session</div>
     <div class="board-members">
@@ -469,7 +377,10 @@
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
+  <div class="session-notice">
+    This is a live session transcript. Each advisor ran independently with full context about your business. These are their unedited words.
+  </div>
+
   <div class="container">
 
     <!-- CEO -->
@@ -477,27 +388,21 @@
       <div class="section-header">
         <div class="section-badge badge-ceo">CEO</div>
         <div class="section-title-block">
-          <div class="section-role">Chief Executive Officer · Strategic Synthesis</div>
-          <div class="section-title">The State of the Business</div>
+          <div class="section-role">Chief Executive Officer · Opening Address</div>
+          <div class="section-title">The State of Your Business</div>
         </div>
       </div>
-      <div class="section-body">
-        <p>Sheronda, before we go around the table, I want to name what's actually happening in your business — because it shapes everything the board is about to tell you.</p>
-        <p>You are running a federally licensed tax resolution practice — one of the most defensible service businesses in America — while simultaneously holding a DCMA federal job. You have built something real: 20+ years of Enrolled Agent expertise, former NATP board service, the ability to represent any taxpayer before the IRS nationwide. Your credentials are not common. Your scope of practice is not replicable without years of work and a federal license exam.</p>
-        <p>And you are running it with a three-person team where one person's hospitalization nearly broke the operation, using Trello as a CRM, writing every single client email from scratch, and holding the entire process in your head.</p>
-
+      <div class="transcript">
+        <p>Sheronda, thank you for being here. I want to start by telling you something you already know but haven't let yourself fully confront: you are running a quarter-million-dollar practice inside the cracks of someone else's schedule, and the only reason it works at all is because you are extraordinary. That is also the reason it will eventually break.</p>
+        <p>Let me tell you what I see when I look at your business. I see a federally licensed Enrolled Agent with two decades of experience, a former NATP board member, someone who can walk into any IRS office in this country and represent any taxpayer. That credential is rare. That experience is rarer. And right now, all of it lives inside one person who is also working a full-time DCMA job, writing every client email from scratch at eleven o'clock at night, and holding her entire pipeline in her head because Trello was never built to be a CRM.</p>
+        <p>When Circile went to the hospital during tax season, you almost lost the operation. Not because your team failed you, but because there was no operation to hold. There was just you, doing everything, with people helping at the edges. That is not a business. That is a woman performing miracles on a recurring basis and calling it a company.</p>
         <div class="callout">
-          <p>This is not a business that needs a new strategy. It needs operational infrastructure that matches the quality of its operator.</p>
+          Here is the number that should keep you up tonight: you are leaving at minimum sixty thousand dollars a year on the table. Not because the clients aren't out there. Resolution cases at five to twenty-five thousand dollars each are waiting for someone with your exact license and expertise. The reason you can't take them is not skill. It is not reputation. It is that your intake is manual, your document flow is chaos, your follow-up depends on your memory, and you have zero visibility where people are actually searching for help. When someone in Delaware types "IRS wage garnishment help" into Google or asks ChatGPT for a recommendation, you do not exist. Twenty years of expertise, invisible.
         </div>
-
-        <p>The strategic question is not <em>what should Sheronda do?</em> The answer to that is clear: IRS representation work — OIC, installment agreements, penalty abatement, the complex cases that smaller operators won't touch and that pay $5,000 to $25,000 per resolution. That is where your license, your experience, and your pricing power concentrate.</p>
-        <p>The strategic question is: <strong>how do you build an operating system around that expertise so it doesn't all run through your brain?</strong></p>
-
-        <div class="metric-block">
-          <div class="metric-label">The 90-Day North Star</div>
-          <div class="metric-value">+1 Resolution Case / Month</div>
-          <div class="metric-sub">One additional case at average pricing covers the entire deployment and generates surplus. Everything the board recommends today is filtered through this lens.</div>
-        </div>
+        <p>So here is what this board session is actually about. It is not about technology. It is not about AI agents, though we will discuss the six that were built specifically for your practice. This session is about one decision: whether you are going to keep being a brilliant solo practitioner who trades time for money until the DCMA job or your body decides you're done, or whether you are going to build the machine that lets TAXcellent operate as a real firm.</p>
+        <p>You paid nine thousand dollars for Platinum Control. You have a fifty-two thousand word specification already written. You have a January deadline that is not negotiable because tax season does not care about your readiness. The architecture is there. The question is execution, and execution is what we are here to plan.</p>
+        <p>But before we go any further, I need you to sit with this one question, and I need an honest answer, not the answer you give clients when you're projecting confidence. Sheronda, if Circile goes down again this January, or if you get sick for two weeks during filing season, what happens to your thirty-five active clients and every open resolution case? If the answer is "it all stops," then we are not here to discuss improvements today. We are here to discuss survival. And we should proceed accordingly.</p>
+        <p>Let's begin.</p>
       </div>
     </div>
 
@@ -507,30 +412,21 @@
         <div class="section-badge badge-coo">COO</div>
         <div class="section-title-block">
           <div class="section-role">Chief Operating Officer · Operations</div>
-          <div class="section-title">Three Things Quietly Eating This Business</div>
+          <div class="section-title">What Is Actually Broken and In What Order</div>
         </div>
       </div>
-      <div class="section-body">
-        <p>I'm going to be direct about what I see in the operations picture, because three things are quietly eating this business.</p>
-
-        <p><strong>First: the Drake Tax wall.</strong> Drake has no API. That means every tax return lives in a system OSCortex cannot touch. The document classifier, the checklist agent, the meeting notes agent — all of them operate up to the point where data needs to go into Drake, and then it's manual. This is not a failure of system design. It is a permanent structural seam you have to plan around, not fix. The operating discipline is: OSCortex owns everything except Drake. Drake is a sidecar. The handoff points between them need to be defined explicitly and made as low-friction as possible.</p>
-
-        <p><strong>Second: the staffing single point of failure.</strong> Circile manages documents and was hospitalized. That event exposed what happens when the one person who touches client files can't work. The document classifier agent solves this structurally — documents get categorized and filed automatically, no human required for routing. That is the highest-urgency operational build, not because it's the most exciting, but because it eliminates the fragility.</p>
-
-        <p><strong>Third: no visibility layer.</strong> During tax season, Sheronda holds client pipeline status in her head. That is a compression load that builds until something drops. The morning brief and dashboard are not a nice-to-have — they are mental offload infrastructure.</p>
-
+      <div class="transcript">
+        <p>Sheronda, I am going to be direct with you because you have earned that. You are running a business that bills between five and twenty-five thousand dollars per resolution case, and you are managing it with Trello boards and memory. That is not a business. That is a bottleneck with your name on it.</p>
+        <p>Three things are broken right now, and I want to name them plainly so we can stop dancing around them.</p>
+        <p>First, you have no intake system. You have a habit. Every new client starts a chain of manual steps that nobody else can replicate, which means when Circile went to the hospital, the entire front door of your business closed. A TaxBuzz reviewer called this out in 2022 and nothing changed. That is a four-year-old wound still bleeding.</p>
+        <p>Second, you have zero pipeline visibility. You hold thirty-five active clients in your head during season, and you are also working a full-time federal job. That is not discipline. That is risk. One missed CSED date does not just lose a client. It exposes you to malpractice.</p>
+        <p>Third, your document handling is chaos with a friendly face on it. W-2s, 1099s, K-1s, IRS notices all arriving into an unstructured pile with no prior year cross-check. You are one bad tax season away from a missed document that costs a client real money, and at that point your credentials do not protect you. Your process does. You do not have one.</p>
         <div class="callout blue">
-          <p>The morning brief should arrive before Sheronda's first DCMA work block: every client with an action pending, every IRS deadline in the next 30 days, every document upload still missing. That brief is the difference between a reactive day and a controlled one.</p>
+          Here is the build order I am recommending. The Intake Agent goes first. Every Calendly booking triggers an automatic folder in Drive, a structured intake record, and a draft welcome email in your voice. You stop touching intake entirely after this agent is live. The Document Classifier goes second. Then the Checklist Cross-Check, the Email Drafter, the Meeting Notes Agent, and last, when the foundation is solid, the Resolution Case Agent on Opus.
         </div>
-
-        <p><strong>Build order for the next 90 days:</strong></p>
-        <ol class="priority-list">
-          <li><span class="priority-num">1</span><span>Document Classifier — eliminates staffing fragility immediately</span></li>
-          <li><span class="priority-num">2</span><span>Morning Brief and Deadline Dashboard — mental offload, daily visibility</span></li>
-          <li><span class="priority-num">3</span><span>Client Onboarding Automation — intake to folder to engagement letter to deposit invoice, triggered on Calendly booking</span></li>
-          <li><span class="priority-num">4</span><span>Email Draft Queue — every client communication drafted by AI in Sheronda's voice, she approves before send</span></li>
-        </ol>
-        <p>Do not try to build all six agents at once. Build in this order and prove each one before moving to the next.</p>
+        <p>On Drake Tax, I need to be explicit because this is where systems die. Drake has no API. There is no integration path. The correct answer is to accept that reality and draw a clean boundary. OSCortex owns everything up to Drake and everything after Drake. The transfer in and out is manual and tracked by the system, but it is not automated. If anyone tells you we can bridge Drake programmatically, they are wrong, and building toward that assumption will break this entire deployment. Work cleanly at the Drake boundary. Pretending Drake integrates will break this entire system.</p>
+        <p>Here is what the first thirty days must produce. A working intake pipeline that takes a Calendly booking and produces a populated client folder and a draft welcome email without you touching it. The document classifier sorting inbound files into the right folders with the right labels. And a checklist that shows you, at a glance, which of your thirty-five clients are missing documents. If those three things are running by day thirty, you will feel the difference in your chest. You will open your laptop after your DCMA day and see order instead of chaos.</p>
+        <p>You built something real over twenty years, Sheronda. Now let us build the machine that lets it scale past you.</p>
       </div>
     </div>
 
@@ -540,25 +436,20 @@
         <div class="section-badge badge-cfo">CFO</div>
         <div class="section-title-block">
           <div class="section-role">Chief Financial Officer · Financial Strategy</div>
-          <div class="section-title">The Numbers Behind the Opportunity</div>
+          <div class="section-title">The Numbers Tell a Story You Need to Hear</div>
         </div>
       </div>
-      <div class="section-body">
-        <p>Let me put numbers on this business, because the board session is more useful when we're working with real economics.</p>
-        <p>Tax resolution cases typically range from $1,500 for penalty abatement to $25,000+ for complex OIC cases. Assume an average engagement value of $5,000 across resolution work. Tax prep for individuals runs $300–$800 per return. With approximately 35 concurrent clients during tax season and a mix of prep and resolution work, TAXcellent is operating somewhere between $150,000 and $350,000 in annual revenue. The wide range reflects the unknowns — but the economic picture is clear.</p>
-
-        <div class="metric-block">
-          <div class="metric-label">The Leverage Calculation</div>
-          <div class="metric-value">$60,000</div>
-          <div class="metric-sub">One additional resolution case per month at $5,000 average = $60,000 incremental annual revenue. That is a 20–40% revenue increase from a single improvement in capacity. The deployment pays for itself in the first additional case closed.</div>
-        </div>
-
-        <p><strong>The risk the CFO needs to name:</strong> Sheronda is the entire revenue engine. She bills because she has the EA license. Circile and Cheryl do not generate revenue — they enable Sheronda to generate revenue. This means the business has no revenue resilience if Sheronda is unavailable.</p>
-        <p>The OSCortex system does not solve this problem, but it can reduce the surface area of decisions that require Sheronda specifically. Every email that gets drafted without her, every document that gets classified without her, every onboarding step that runs without her — that is time she gets back to either close more cases or build the kind of team that can eventually support more than one licensed operator.</p>
-
+      <div class="transcript">
+        <p>Sheronda, let me put numbers on what we are looking at, because the numbers tell a story you need to hear before January.</p>
+        <p>Your tax preparation business generates roughly $300 to $800 per return across 35 concurrent clients in season. Call it $350 average after discounting the simpler returns. That is approximately $12,250 in gross revenue from prep during peak season. Now compare that to a single Offer in Compromise case that bills $10,000 to $25,000. One OIC engagement equals the revenue of 30 to 70 tax returns. One case. One client. I want you to sit with that ratio for a moment.</p>
+        <p>Your current model has a gross margin problem hiding inside a capacity problem. Every hour you spend on a $350 prep return is an hour you cannot spend closing a $5,000 to $15,000 resolution case. If we assume conservatively that a resolution case requires 20 billable hours and a prep return requires 3 to 4 hours, you are earning roughly $250 to $750 per hour on resolution work versus $87 to $200 per hour on prep. The spread is three to four times. That is not a small gap. That is the difference between a $150,000 practice and a $350,000 practice, and the only variable is how you allocate your hours.</p>
         <div class="callout green">
-          <p><strong>CFO flag:</strong> The prep work is what consumes the capacity that should go to resolution. Automating the prep workflow infrastructure so prep clients take less of Sheronda's decision-making time is the financial leverage move — not adding more prep clients.</p>
+          Here is the leverage point, stated plainly. One additional resolution case per month at a $5,000 average fee is $60,000 in incremental annual revenue. Two cases per month and you have added $120,000. You paid $9,000 for this program. The payback period is a single case. Everything after that is margin.
         </div>
+        <p>Now here is the risk the board needs to name. You are the single point of failure. Your EA license is the revenue engine. Circile has been hospitalized. Cheryl is part-time and unreliable. If you are unavailable for 30 days, revenue goes to zero. Not reduced. Zero. No one else can sign, represent, or bill. That is not a staffing issue. That is an existential business continuity risk, and it is unhedged right now. You need a documented delegation framework and a relationship with at least one contract EA who can cover representation work on 48 hours notice.</p>
+        <p>The dual career with DCMA compounds this. You are operating on constrained hours, which means every hour carries a higher opportunity cost. You cannot afford to spend 15 of your limited weekly hours on prep work that generates $3,000 when those same 15 hours applied to resolution work would generate $12,000 or more.</p>
+        <p>The metric the board is watching at 90 days is this: resolution cases closed per month and average case value. Not total clients. Not prep volume. Resolution cases closed. That number tells us whether you have shifted from a preparation practice to a resolution practice. If that number is not at two or above by day 90, we are leaving six figures on the table annually, and the economics of this investment do not compound the way they should.</p>
+        <p>The math is clear. The question is whether you will protect your highest-value hours or keep giving them away at a discount.</p>
       </div>
     </div>
 
@@ -568,31 +459,19 @@
         <div class="section-badge badge-cmo">CMO</div>
         <div class="section-title-block">
           <div class="section-role">Chief Marketing Officer · Market Position</div>
-          <div class="section-title">The Finding That Should Concern You Most</div>
+          <div class="section-title">Twenty Years of Expertise, Invisible</div>
         </div>
       </div>
-      <div class="section-body">
-        <p>I'll start with the finding that should concern Sheronda more than anything else we've seen in the data.</p>
-
+      <div class="transcript">
+        <p>Sheronda, I want to start with the finding that should keep you up tonight, because it is the single most important thing we uncovered.</p>
+        <p>You are a 20-year Enrolled Agent. You served on the NATP board. You have handled thousands of cases where people owed the IRS money they did not have, and you got them through it. And right now, if a taxpayer in Dover or anywhere in the country types "enrolled agent near me who handles IRS debt" into Google or asks ChatGPT "who can help me settle with the IRS," your name does not appear. Not once. We tested your brand name, your personal name, your service categories, buyer intent phrases, every angle. Zero. You are invisible to the systems that are now deciding who gets recommended to scared people at the worst moment of their financial lives. Your competitors are showing up. You are not.</p>
         <div class="callout amber">
-          <p><strong>TAXcellent Financial Services has zero AI visibility.</strong> Zero hits on Google AI Overview. Zero mentions on ChatGPT. For every query tested — brand name, personal name, service category, buyer intent terms — the AI returns nothing. Competitors do.</p>
+          This is not a branding problem or a logo problem. This is a plumbing problem. The AI models that power Google's AI Overview and ChatGPT build their recommendations from structured citations, directory listings, backlinks, and published content. You have almost none of that infrastructure. No referring domains pointing to taxcellentfs.com. No presence in the directories these models pull from. So the AI has nothing to work with. It cannot recommend someone it has never heard of.
         </div>
-
-        <p>This means that when someone types <em>"IRS tax resolution Delaware"</em> or <em>"enrolled agent OIC help"</em> into Google or ChatGPT today, Sheronda's name does not appear. For a practitioner with 20+ years of experience and a former NATP board seat, this is not a reflection of quality. It is a reflection of zero investment in the signals AI search reads.</p>
-
-        <p>AI search reads citations, backlinks from authoritative domains, structured content that answers buyer questions, and directory listings on sites AI trusts. TAXcellent has none of these in measurable quantity.</p>
-
-        <p><strong>Phase 1 — Foundation (this month, costs nothing):</strong> Get listed everywhere that matters. NATP member directory, ASTPS directory, NAEA directory, TaxCure, TaxBuzz, Avvo. These are the citations that AI reads when it decides who to name as a qualified practitioner. They take hours to set up and compound forever. This is where the zero AI visibility problem starts to get fixed.</p>
-
-        <p><strong>Phase 2 — Content (months 2–3):</strong> One piece of long-form content per month that answers a specific buyer question in Sheronda's voice:</p>
-        <ul class="priority-list">
-          <li><span class="priority-num">→</span><span>"What is an Offer in Compromise and do I qualify?"</span></li>
-          <li><span class="priority-num">→</span><span>"How long does IRS tax resolution actually take?"</span></li>
-          <li><span class="priority-num">→</span><span>"What's the difference between an Enrolled Agent and a CPA for IRS representation?"</span></li>
-        </ul>
-        <p>These are pages that get cited by AI when it answers buyer questions. Sheronda has 20 years of answers. The CMO's job is to get them indexed.</p>
-
-        <p><strong>The voice problem:</strong> Every piece of content, every email, every client communication needs to sound like Sheronda at her best — not Sheronda at 11pm in tax season. The fix is a 15-minute exercise: three emails she's proud of, three phrases she uses naturally with clients, three things she would never say. That becomes the training set for the email agent and the content voice guide. This is the single most important pre-build step that requires no technical work.</p>
+        <p>Here is what we fix and in what order. First, before we touch a single directory or write a single blog post, we capture your voice. I have seen the newsletter data. When you are rested and in command, your voice is warm, clear, and authoritative. When you are running on fumes, the tone drifts and you know it. We need to record three to four conversations where you are talking about real client situations, your philosophy on tax resolution, how you approach an OIC, what you tell someone who just got a CP2000. We transcribe those, and that becomes the voice library everything else gets built from. This is a two-hour investment that protects every piece of content and every client communication going forward.</p>
+        <p>Second, we get you listed this week on the IRS Tax Pro directory, NATP's Find a Tax Pro, NAEA's EA Search, the Better Business Bureau, and your Google Business Profile needs to be fully built out with services, service areas covering your virtual practice nationwide, and at least five client reviews. These are the structured sources the AI models trust. Each one is a vote that tells the machine you are real and credentialed.</p>
+        <p>Third, we publish three cornerstone articles on taxcellentfs.com. The topics are: "What is an Offer in Compromise and how does it actually work," "What to do when you get a wage garnishment notice from the IRS," and "How an Enrolled Agent is different from a CPA for tax resolution." These are the exact queries buyers type when they are terrified. They are high intent, low competition, and perfectly matched to your $5K to $25K cases. Each article needs to be 1,200 words, written in your captured voice, with your credentials clearly stated.</p>
+        <p>None of this is optional and none of it is cosmetic. You have earned the authority. We just need to make the machines see what your clients already know.</p>
       </div>
     </div>
 
@@ -602,62 +481,19 @@
         <div class="section-badge badge-cto">CTO</div>
         <div class="section-title-block">
           <div class="section-role">Chief Technology Officer · Systems Architecture</div>
-          <div class="section-title">What Gets Built and In What Order</div>
+          <div class="section-title">Compliance First, Then Everything Else</div>
         </div>
       </div>
-      <div class="section-body">
-        <p>The CTO has three things to say about this deployment.</p>
-
-        <p><strong>One: the compliance architecture is non-negotiable — and the good news is it's already designed.</strong> IRS Publication 4557 requires a Written Information Security Plan, encryption at rest and in transit, MFA for all users, immutable audit logging, and PII tokenization. A PTIN loss or IRS compliance failure ends the business. Build the compliance layer first, then build everything on top of it.</p>
-
-        <p><strong>Two: Google Workspace is the right integration anchor.</strong> Sheronda is already in Google's ecosystem — Gmail, Google Drive, Google Meet, Google Calendar. Build all integrations against Google Workspace APIs first. Calendar for scheduling, Drive for document storage and folder structure, Meet for recording ingestion and transcript generation, Gmail for the email draft queue. This is a coherent integration surface.</p>
-
-        <p><strong>Three: the six-agent architecture is sound, but sequence matters.</strong></p>
-
-        <div class="phase-grid">
-          <div class="phase-card">
-            <div class="phase-label">Deploy First</div>
-            <div class="phase-title">Document Classifier + Morning Brief</div>
-            <ul class="phase-items">
-              <li>No client communication risk</li>
-              <li>No write operations to IRS systems</li>
-              <li>Proves infrastructure is stable</li>
-              <li>Immediate visible impact</li>
-            </ul>
-          </div>
-          <div class="phase-card">
-            <div class="phase-label">Deploy Second</div>
-            <div class="phase-title">Email Drafter + Intake Agent</div>
-            <ul class="phase-items">
-              <li>Human-in-the-loop review</li>
-              <li>Sheronda approves every send</li>
-              <li>Built on proven foundation</li>
-              <li>Onboarding friction disappears</li>
-            </ul>
-          </div>
-          <div class="phase-card">
-            <div class="phase-label">Deploy Third</div>
-            <div class="phase-title">Checklist Cross-Check</div>
-            <ul class="phase-items">
-              <li>Prior year vs. current year</li>
-              <li>Flags missing documents</li>
-              <li>Reduces chase cycle</li>
-              <li>Feeds email drafter nudges</li>
-            </ul>
-          </div>
-          <div class="phase-card">
-            <div class="phase-label">Deploy Last</div>
-            <div class="phase-title">Resolution Case Agent (Opus)</div>
-            <ul class="phase-items">
-              <li>Highest-stakes work</li>
-              <li>Tracks CSED dates and IRS deadlines</li>
-              <li>Drafts IRS correspondence</li>
-              <li>Built on proven foundation</li>
-            </ul>
-          </div>
+      <div class="transcript">
+        <p>Sheronda, let me be direct with you. The compliance layer is not a feature of this system. It is the foundation. Everything we build sits on top of IRS Publication 4557, and if that foundation has a crack, you lose your PTIN and your practice stops. So here is how we have architected it.</p>
+        <p>Every AI call routes through a PII gateway service before it touches any model. SSNs, EINs, bank account numbers get tokenized on our side, replaced with opaque references, and only detokenized when the response comes back into your secure environment. The models never see cleartext PII. Period. Your Google Workspace enforces MFA through TOTP and WebAuthn for every user, no exceptions. All data at rest uses AES-256 encryption. All data in transit requires TLS 1.3 minimum. Every action, every AI draft, every human approval, every document access writes to an immutable audit log that you cannot edit and no one can delete. Session timeouts are automatic. This is your Written Information Security Plan made real in infrastructure, not a binder on a shelf.</p>
+        <div class="callout">
+          Google Workspace is your integration anchor. Gmail, Drive, Calendar, and Meet are where your data already lives, and that is where we build. Every agent connects through Google Workspace APIs. Client folders live in Drive. Email drafts stage in Gmail. Calendar events trigger workflows. Meet recordings feed transcription. We are not introducing a new platform. We are making the platform you already use dramatically smarter.
         </div>
-
-        <p>On Drake Tax: accept that Drake is outside the system boundary. Design the Drake handoff points explicitly. The system tracks what Drake has and hasn't received. Drake itself remains a black box.</p>
+        <p>Here is the deployment sequence and why it is in this order. Agent one is the Intake Agent. It catches the Calendly webhook when a consultation books, creates the client folder in Drive, and drops the consultation notes. This is low risk, high visibility, and it proves the pipeline works. Agent two is the Document Classifier. It watches the client folder and labels incoming files as W-2s, 1099s, K-1s, or IRS notices. Classification only, no extraction. This is the compliance-safe entry point for AI touching tax documents. Agent three is the Email Drafter, staged for your explicit approval before it sends. Human in the loop, always. Agent four is the Checklist Cross-Check. Agent five is the Meeting Notes Agent. Agent six, and last deliberately, is the Resolution Case Agent. This one runs on Opus because it tracks CSED dates, IRS deadlines, and drafts actual IRS correspondence for OIC, installment agreements, and penalty abatement. It is the most complex, the highest stakes, and it needs every upstream agent proven stable before it goes live.</p>
+        <p>On Drake Tax: Drake has no API and it never will. Accept that. Drake is a permanent sidecar. Data moves in and out of Drake manually, and we design every workflow to respect that boundary. The agents prepare everything up to Drake and organize everything after Drake, but the transfer itself is your hands on the keyboard. That is not a flaw. That is a clean architectural seam.</p>
+        <p>What does the CTO watch during deployment? Three things. Audit log integrity on every agent action. PII gateway performance to confirm zero leakage. And human approval rates on the Email Drafter, because if you are approving everything without changes, the voice model is working. If you are rewriting half of them, we retune before moving forward.</p>
+        <p>This architecture is sound, Sheronda. Let us build it in sequence and build it right.</p>
       </div>
     </div>
 
@@ -667,20 +503,19 @@
         <div class="section-badge badge-chro">CHRO</div>
         <div class="section-title-block">
           <div class="section-role">Chief Human Resources Officer · People</div>
-          <div class="section-title">Making the Workday Sustainable</div>
+          <div class="section-title">This Math Breaks People. It Should Not Break You.</div>
         </div>
       </div>
-      <div class="section-body">
-        <p>The CHRO has one job in this business: make Sheronda's workday sustainable.</p>
-        <p>She runs TAXcellent while holding a federal DCMA job. TAXcellent gets mornings before federal work, evenings, weekends, and whatever gaps exist in the federal schedule. It is not a full-time business with a full-time operator. It is a high-expertise practice being run in the margins of a full-time federal career. That context changes how the system must be designed.</p>
-
-        <div class="callout">
-          <p>Every interaction Sheronda has with OSCortex must be frictionless. The morning brief should arrive before her DCMA work block starts — 6:30 or 7 AM Eastern — and take under 3 minutes to read. The email review queue should be batchable: open it once, review and approve, close it. No system that requires her to be present continuously during the day will survive contact with a federal work schedule.</p>
+      <div class="transcript">
+        <p>Sheronda, I am going to be straight with you because that is what this moment requires.</p>
+        <p>You are running a firm with no staffing margin. Zero. When Circile was hospitalized, you did not have a backup plan. You had adrenaline. That is not a staffing model. That is a countdown to a failure you cannot recover from, because the next time it happens, it might be during an OIC deadline or a CSED window that does not reset. You survived tax season. You should not plan to survive the next one the same way.</p>
+        <p>Cheryl is part-time and unreliable. I am not saying that to be harsh. I am saying it because you already know it and you need someone at this table to say it out loud. A role you cannot depend on is not a filled role. It is a hope. And hope is not a people strategy.</p>
+        <div class="callout red">
+          Here is what has to change before January. You need one person, even part-time, who can execute document intake and client communication under a system that does not require you to train them from scratch every Monday. That means the system we are building has to carry the institutional knowledge. If OSCortex does its job, your next hire does not need to be an EA. They need to follow a playbook that already exists inside the system.
         </div>
-
-        <p><strong>The staffing situation is a people risk, not just an operations risk.</strong> Circile's hospitalization created a crisis. Cheryl is part-time and described as unreliable. The CHRO recommendation: use the capacity that OSCortex creates to interview and onboard one additional part-time preparer or admin — even at 10 hours per week — before January. The system can run most of the workflow. A human needs to own the pieces the system doesn't touch, primarily the Drake Tax preparation step and the client relationship moments that require a warm voice. Sheronda cannot be that human for every client touch.</p>
-
-        <p><strong>The 30-day retention signal:</strong> Sheronda paid $9,000 for this program because she is overwhelmed and smart enough to know the solution is systems, not more hours. If she doesn't feel it working by the end of week 4, she will question whether it's worth the time investment. Week 1 win: the morning brief arrives and she opens it without having to do anything. That one moment — <em>"the system knows what's happening today"</em> — is worth more than six agents that aren't live yet.</p>
+        <p>Now, the first 30 days. You paid $9,000 because you are drowning and you were smart enough to reach for a rope instead of just kicking harder. So the system has to prove one thing in 30 days: that your mornings get shorter, not longer. If your morning brief takes more than three minutes, we failed. If your email queue requires you to compose from scratch instead of reviewing and approving drafts, we failed. If anything requires you to be present and responsive during your DCMA hours, we failed completely. The standard is simple. You open it, you scan it, you approve or adjust, you close it. That is the only workflow that survives your life.</p>
+        <p>Sustainable looks like this: you hold the expertise. The system holds everything else. Client status, deadline tracking, document state, communication drafts. You stop carrying 35 situations in your head because the morning brief carries them for you. You stop writing every email because the system writes them in your voice and you just say yes or no.</p>
+        <p>You are doing the work of a full firm with the hours of a side hustle. That math breaks people. My job is to make sure it does not break you.</p>
       </div>
     </div>
 
@@ -690,21 +525,17 @@
         <div class="section-badge badge-cco">CCO</div>
         <div class="section-title-block">
           <div class="section-role">Chief Client Officer · Client Experience</div>
-          <div class="section-title">The Client Journey Has a Gap</div>
+          <div class="section-title">What It Feels Like to Be Your Client Right Now</div>
         </div>
       </div>
-      <div class="section-body">
-        <p>There is a 2022 TaxBuzz review on record flagging an ad-hoc intake process. That review is the single most useful piece of intelligence in this entire briefing. It tells us exactly what a client experienced when the process broke.</p>
-        <p>Clients who hire an Enrolled Agent for IRS work are often scared. They have an IRS notice, debt they can't pay, unfiled returns going back years. They are not buying a commodity. They are buying the certainty that someone knows what to do with their specific situation and will handle it professionally.</p>
-        <p><strong>The gap between what Sheronda delivers in expertise and what the intake experience communicates has to close.</strong></p>
-
-        <p><strong>Immediate priorities:</strong></p>
-        <ol class="priority-list">
-          <li><span class="priority-num">1</span><span><strong>Standardize the intake confirmation.</strong> The moment a client books a consultation, they should receive a confirmation that reads like a professional firm — specific, warm, tells them exactly what to bring, what to expect, and what happens next.</span></li>
-          <li><span class="priority-num">2</span><span><strong>Make document requests consistent.</strong> A client who receives a specific, clear, warm document request in Sheronda's voice is far more likely to upload what's needed promptly. Generic document request emails get ignored.</span></li>
-          <li><span class="priority-num">3</span><span><strong>The results letter matters more than you probably think.</strong> When a resolution is reached, the letter that summarizes what happened and what it means for the client is a retention and referral asset. A well-written results letter generates referrals. A rushed one doesn't.</span></li>
-          <li><span class="priority-num">4</span><span><strong>Generate new reviews systematically.</strong> Every client who receives a great results letter should get a review request within 48 hours. The TaxBuzz review gets addressed professionally, then buried under a flood of new ones. This is automated once the email drafter is live.</span></li>
-        </ol>
+      <div class="transcript">
+        <p>Sheronda, I want to talk to you about what it feels like to be your client. Not what you intend it to feel like. What it actually feels like.</p>
+        <p>Someone finds you because they are terrified. They owe the IRS money they do not have, or they have not filed in years and the shame has been compounding longer than the penalties. They finally decide to call someone. That moment is the most vulnerable they will be in your entire relationship. And right now, what meets them is improvised. The intake is different every time. The documents you ask for depend on what you remember to ask for that day. The emails you send are brilliant when you are rested and uneven when you are running on four hours of sleep during season. I am not guessing about this. A client said it publicly in 2022 on TaxBuzz, and that review is still sitting there, shaping first impressions for every prospect who searches your name before they book.</p>
+        <p>Here is what matters most. There are three moments that define whether a client trusts you, refers you, or quietly disappears. The first is initial contact through the first 48 hours. This has to feel like relief. They need to know immediately that a competent professional has taken control of their situation. The second is the document collection phase, where silence and confusion are trust killers. Every day a client wonders whether you received their paperwork is a day they question whether they hired the right person. The third is the resolution, when you deliver the outcome. This is the moment most practitioners throw away, and you are throwing it away too.</p>
+        <div class="callout">
+          That results letter is not a formality. It is the single highest-leverage asset in your practice. A client who receives a clear, warm, detailed summary of what you accomplished for them does three things: they feel the value of what they paid, they have language to describe what you do when someone asks, and they keep that letter. It becomes the artifact that generates your next referral. Right now you write these occasionally, when you have time, which means your best outcomes often end with a quiet invoice and nothing else.
+        </div>
+        <p>The system your team is building can fix all of this, but only if it sounds like you. Not corporate you. Not exhausted you. The real you, the Sheronda who writes those emails clients screenshot and send to their family members. Before you let an email drafter send a single message, you need to sit down and identify your three best client communications. Read them out loud. That is your voice standard. Skip this step and you will have a machine sending polished messages that feel like they came from a stranger, which is worse than the uneven emails you send now. Do the calibration first. Everything else depends on it.</p>
       </div>
     </div>
 
@@ -714,101 +545,34 @@
         <div class="section-badge badge-cso">CSO</div>
         <div class="section-title-block">
           <div class="section-role">Chief Sales Officer · Revenue Growth</div>
-          <div class="section-title">Two Untapped Revenue Directions</div>
+          <div class="section-title">The Pipeline That Does Not Exist Yet</div>
         </div>
       </div>
-      <div class="section-body">
-        <p>The CSO is looking at Sheronda's revenue model and seeing an underpriced offer with untapped upside in two directions.</p>
-
-        <p><strong>Direction one: the pipeline is leaky at the top.</strong> TAXcellent has zero AI visibility, a lightweight web presence, and no structured lead capture. People who would hire her right now if they could find her are hiring someone else because AI search doesn't name her. In the near term: make sure the clients who DO find her convert at a high rate.</p>
-
+      <div class="transcript">
+        <p>Sheronda, I am going to be direct with you because the numbers demand it.</p>
+        <p>You have a skill set that solves a problem most professionals in your region cannot touch. OIC work, audit representation, penalty abatement. An Enrolled Agent who actually handles IRS resolution is rare. And right now, you are invisible to every attorney, CPA, financial planner, and bankruptcy attorney sitting across from a client who owes the IRS $40,000 and needs exactly what you do. That is not a marketing problem. That is a pipeline problem, and it is the single largest revenue gap in your business.</p>
         <div class="callout amber">
-          <p>The Pre-Appointment Brief agent changes the quality of consultation calls. Sheronda walks into every call having already seen the client's situation summary, documents received, and stated problem. She is instantly the most prepared person in the conversation. Clients close faster when they feel understood from minute one.</p>
+          Here is what I want you to do in the next 30 days. Identify 20 professionals across Delaware, Philadelphia, and the DC corridor. Ten attorneys, five CPAs, five financial planners. Send each one a short letter on your letterhead. Three paragraphs: who you are, what you solve, and "When your client has an IRS problem you cannot resolve, I am the person to send them to." Follow up by phone 10 days later. If five of those 20 convert into active referral relationships sending two cases a year each, that is 10 new resolution cases. At an average of $10,000 per case, that is $100,000 in annual revenue from a channel that costs you postage and phone time.
         </div>
-
-        <p><strong>Direction two: resolution cases are underweighted relative to prep.</strong> The CSO sees a business generating meaningful revenue from tax preparation — a high-volume, high-time, moderate-margin service that runs through a narrow seasonal window. Resolution work runs year-round, commands significantly higher fees, and is the service that Sheronda's EA license makes uniquely defensible. An OIC that gets accepted by the IRS is worth $10,000 to $25,000 in fees and is a life-changing result for the client. There is no CPA down the street who can do what she does on the most complex cases.</p>
-
-        <p><strong>The referral machine the CSO wants to build:</strong> Every attorney, CPA, financial planner, and bankruptcy attorney in Delaware and the surrounding states is a potential referral source who has clients with IRS problems they cannot solve themselves. A one-page professional referral brief, an easy referral submission process, and an automated confirmation for every referral received. This is a pipeline Sheronda can build without advertising — pure relationship leverage on her existing professional network.</p>
-      </div>
-    </div>
-
-    <!-- CEO CLOSE -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-badge badge-ceo">CEO</div>
-        <div class="section-title-block">
-          <div class="section-role">Chief Executive Officer · 90-Day Operating Plan</div>
-          <div class="section-title">The Board's Verdict</div>
-        </div>
-      </div>
-      <div class="section-body">
-        <p>The board has been consistent. Here is the 90-day operating plan in plain language.</p>
-
-        <div class="phase-grid">
-          <div class="phase-card">
-            <div class="phase-label">Weeks 1–2</div>
-            <div class="phase-title">Voice and Compliance First</div>
-            <ul class="phase-items">
-              <li>Get Sheronda's 3 best client emails</li>
-              <li>Do the voice calibration exercise</li>
-              <li>Build the WISP, confirm security architecture</li>
-              <li>No agents built until voice is captured</li>
-            </ul>
-          </div>
-          <div class="phase-card">
-            <div class="phase-label">Weeks 3–4</div>
-            <div class="phase-title">Two Agents Live</div>
-            <ul class="phase-items">
-              <li>Document Classifier deployed</li>
-              <li>Morning Brief running daily</li>
-              <li>Sheronda feels relief by Day 30</li>
-              <li>Or we built the wrong thing first</li>
-            </ul>
-          </div>
-          <div class="phase-card">
-            <div class="phase-label">Weeks 5–8</div>
-            <div class="phase-title">The Communication Layer</div>
-            <ul class="phase-items">
-              <li>Email Drafter live (onboarding + doc requests)</li>
-              <li>TaxBuzz response published</li>
-              <li>5–10 directory listings live</li>
-              <li>First long-form content published</li>
-            </ul>
-          </div>
-          <div class="phase-card">
-            <div class="phase-label">Weeks 9–12</div>
-            <div class="phase-title">Resolution Infrastructure</div>
-            <ul class="phase-items">
-              <li>Intake Agent live</li>
-              <li>Checklist Cross-Check live</li>
-              <li>Pre-Appointment Brief running</li>
-              <li>Professional referral brief sent to 20 contacts</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="metric-block">
-          <div class="metric-label">The Metric That Matters</div>
-          <div class="metric-value">Week 12 Target</div>
-          <div class="metric-sub">By week 12, Sheronda has closed one resolution case she would not have had time to close without the system. Every other metric is secondary to this one.</div>
-        </div>
+        <p>Now, the Pre-Appointment Brief. When a prospect books a consultation, the system briefs you before you walk in. You already know their situation, what documents they sent, what they told intake. You sit down and start talking about their problem, not asking them to repeat it. That changes how they see you. You become the person who already understands. In complex resolution cases, that level of preparation compresses the decision from weeks to days. I would estimate a 20 to 30 percent improvement in consultation-to-engagement conversion.</p>
+        <p>But none of this works if your capacity is consumed by $500 tax returns from January through April. I need you to answer a question honestly. Are you choosing the mix between prep and resolution, or are you just accepting whatever walks in the door? Every prep return you take during tax season is a seat that a $12,000 resolution case cannot sit in. I am not saying drop prep entirely. I am saying decide on a number, cap it, and protect your resolution capacity deliberately.</p>
+        <p>Your 90-day pipeline target: five active referral partners, eight new resolution consultations sourced from referrals or inbound, and three signed resolution engagements. That is $30,000 to $50,000 in new revenue by September. The capability is already in your hands. The pipeline is what is missing. Build it.</p>
       </div>
     </div>
 
     <!-- CLOSING -->
     <div class="closing">
-      <div class="closing-label">Board Session Complete</div>
-      <h2 class="closing-title">You built something real, Sheronda.</h2>
-      <p class="closing-body">Twenty years of expertise, a federal license that most practitioners never obtain, and a client base that trusts you with some of the most stressful situations of their financial lives. The gap between where you are and where this business can go is not a strategy gap. It's an infrastructure gap — and that's the kind of gap that gets closed.</p>
+      <div class="closing-label">Board Session Complete · June 21, 2026</div>
+      <h2 class="closing-title">Eight advisors. One verdict.</h2>
+      <p class="closing-body">The expertise is real. The credentials are rare. The gap between what TAXcellent is today and what it can be is not a strategy problem. It is an infrastructure problem. And that is the kind of problem that gets solved.</p>
       <div class="closing-divider"></div>
-      <p class="closing-sig">Prepared by OSCortex · AI Momentum Labs · June 21, 2026</p>
+      <p class="closing-sig">Delivered by OSCortex · AI Momentum Labs · Platinum Control Program</p>
     </div>
 
   </div>
 
-  <!-- FOOTER -->
   <footer>
-    Confidential. Prepared exclusively for Sheronda Ervin / TAXcellent Financial Services, LLC. &copy; 2026 AI Momentum Labs.
+    Confidential. Prepared exclusively for Sheronda Ervin, MS, EA / TAXcellent Financial Services, LLC. &copy; 2026 AI Momentum Labs.
   </footer>
 
 </body>
