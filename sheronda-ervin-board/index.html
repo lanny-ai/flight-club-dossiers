@@ -309,6 +309,75 @@
     .closing-divider { width: 40px; height: 1px; background: var(--gold-dim); margin: 32px auto; }
     .closing-sig { font-size: 14px; color: var(--text-dim); font-style: italic; }
 
+    /* ROUND SEPARATOR */
+    .round-separator {
+      margin-top: 80px;
+      text-align: center;
+      position: relative;
+    }
+    .round-separator::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+    .round-separator-inner {
+      display: inline-block;
+      position: relative;
+      background: var(--bg);
+      padding: 0 24px;
+    }
+    .round-separator-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    /* DEBATE NOTICE */
+    .debate-notice {
+      background: rgba(200,168,75,0.05);
+      border: 1px solid rgba(200,168,75,0.2);
+      border-radius: 12px;
+      padding: 28px 36px;
+      margin-top: 48px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+    .debate-notice strong { color: var(--gold-light); }
+
+    /* DECISION BLOCK */
+    .decision-block {
+      background: var(--surface-2);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .decision-block-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 10px;
+    }
+    .decision-block p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 24px 32px;
@@ -560,11 +629,181 @@
       </div>
     </div>
 
-    <!-- CLOSING -->
+    <!-- ROUND 1 CLOSING -->
+    <div class="closing" style="margin-top:80px;">
+      <div class="closing-label">Round 1 Complete · June 21, 2026</div>
+      <h2 class="closing-title">Eight advisors. Eight independent assessments.</h2>
+      <p class="closing-body">Each advisor ran independently with no visibility into what the others were saying. The agreements and conflicts that emerged are real. What follows is the deliberation — where they push back, challenge each other's assumptions, and reach the decisions that matter.</p>
+      <div class="closing-divider"></div>
+      <p class="closing-sig">Delivered by OSCortex · AI Momentum Labs · Platinum Control Program</p>
+    </div>
+
+    <!-- ROUND 2 SEPARATOR -->
+    <div class="round-separator" style="margin-top:80px;">
+      <div class="round-separator-inner">
+        <div class="round-separator-label">Round 2 · Board Deliberation</div>
+      </div>
+    </div>
+
+    <div class="debate-notice">
+      The board has reviewed each other's assessments. Four real tensions emerged. What follows is the deliberation — advisors pushing back, challenging assumptions, and reaching agreements. <strong>The CEO closes with binding adjudication.</strong>
+    </div>
+
+    <!-- COO ROUND 2 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge badge-coo">COO</div>
+        <div class="section-title-block">
+          <div class="section-role">Chief Operating Officer · Responds to CFO</div>
+          <div class="section-title">Infrastructure Is Not Bureaucracy</div>
+        </div>
+      </div>
+      <div class="transcript">
+        <p>CFO made the case that resolution cases are the revenue engine and that my build order takes too long to get there. Let me be precise about what I am and am not arguing.</p>
+        <p>I am not arguing that operational infrastructure is more important than revenue. I am arguing that the infrastructure I am building is what makes resolution revenue possible. Here is the scenario CFO's model ignores: Sheronda takes on three new resolution cases in month one, before intake is systematized. She is also handling 35 prep clients, working a full-time federal job, and managing unreliable staff availability. One missed IRS deadline, one misrouted document, one OIC filing that goes out with an error because the tracking system is still a Trello board — that is not just a lost case. That is a malpractice exposure on a $15,000 engagement. The infrastructure is not bureaucracy. It is the floor that keeps one bad outcome from destroying everything the CFO is trying to build revenue on top of.</p>
+        <div class="callout blue">
+          I will accept one concession: if my build sequence requires 90 days to complete before the Resolution Case Agent is live, the timeline is wrong. The Intake Agent and Document Classifier can be live in 30 days. I will run the Resolution Case Agent architecture in parallel from day one. What I will not do is skip the compliance validation the CTO flagged as a prerequisite. That is not slowing down for process. That is not losing Sheronda's PTIN.
+        </div>
+      </div>
+    </div>
+
+    <!-- CFO ROUND 2 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge badge-cfo">CFO</div>
+        <div class="section-title-block">
+          <div class="section-role">Chief Financial Officer · Responds to COO</div>
+          <div class="section-title">The Metric Is the Commitment</div>
+        </div>
+      </div>
+      <div class="transcript">
+        <p>The COO's concession is the right one, and I accept it. I was not asking to skip infrastructure. I was asking to refuse to let infrastructure become the reason revenue gets deferred to month four. We agree: Intake Agent live in 30 days, Resolution Case Agent architected in parallel, 90-day metric stands.</p>
+        <p>The board's job is to watch one number. If we are at day 60 and the Resolution Case Agent is still in testing, every other agent except the Resolution Case Agent gets deprioritized until it is live. Not paused. Deprioritized. Resolution cases are the business model. Everything else serves that.</p>
+        <div class="callout green">
+          One number for the record. If Sheronda closes two resolution cases by day 90 at an average of $10,000 each, that is $20,000 in new revenue on a $9,000 investment, and the system is not even fully deployed yet. If she closes zero, we failed. Not because the technology failed — because we let sequencing become an excuse. The metric is the commitment.
+        </div>
+      </div>
+    </div>
+
+    <!-- CMO + CTO ROUND 2 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge badge-cto">CTO</div>
+        <div class="section-title-block">
+          <div class="section-role">Chief Technology Officer · Responds to CMO · Agreement on Record</div>
+          <div class="section-title">Build in Parallel. Deploy in Sequence.</div>
+        </div>
+      </div>
+      <div class="transcript">
+        <p>The CMO asked me directly which of her Week 1 deliverables are blocked by compliance and which can proceed. I owe her a precise answer, not a general one.</p>
+        <p>Voice capture: not a compliance event. Proceeds this week. Directory listings and Google Business Profile: not a compliance event. Proceeds this week. LinkedIn founder content: not a compliance event. Proceeds this week. The CMO's three cornerstone articles can be published during the same two weeks the CTO completes compliance validation. These run in parallel.</p>
+        <div class="callout">
+          What is blocked until compliance validation is complete: any agent that touches client data, sends email on Sheronda's behalf, creates Drive folders in client directories, or routes any tax document through any AI model. That covers the Intake Agent, Document Classifier, Email Drafter, Checklist Cross-Check, Meeting Notes Agent, and Resolution Case Agent. None of those go live until the PII gateway is validated and the audit log is running. Build in parallel. Deploy in sequence. That is the agreement.
+        </div>
+        <p>The CMO and I are aligned. The CEO does not need to adjudicate this one. We resolved it ourselves, which is how a functional board should work.</p>
+      </div>
+    </div>
+
+    <!-- CHRO ROUND 2 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge badge-chro">CHRO</div>
+        <div class="section-title-block">
+          <div class="section-role">Chief Human Resources Officer · Responds to CSO</div>
+          <div class="section-title">Capacity Is Not a Variable</div>
+        </div>
+      </div>
+      <div class="transcript">
+        <p>The CSO heard the constraint and reduced 20 calls to 10. That is not sufficient, and I need to explain why before the CEO rules.</p>
+        <p>Sheronda's available discretionary hours outside her DCMA job and sleep are approximately 15 to 20 per week. Right now those hours are fully consumed by existing client work: emails, documents, prep follow-up, IRS correspondence. The agents we are building will reclaim some of those hours. But the reclamation is not fully realized in month one — it builds over 60 to 90 days as the system learns her voice and earns her trust enough that she stops re-reviewing everything before it goes out.</p>
+        <div class="callout red">
+          In month one, Sheronda has maybe 5 to 8 hours of genuinely freed capacity. The CSO is asking her to spend those hours on outreach: reviewing research lists, approving letters, making phone calls. I am not saying that work is wrong. I am saying it must be sequenced against her real capacity, not an optimistic projection of it. My recommendation: the outreach campaign begins in week three, after the morning brief is live and she has seen it work for seven consecutive days without requiring her intervention. If we launch outreach in week one, it competes with system setup, overwhelms her, and she abandons both.
+        </div>
+      </div>
+    </div>
+
+    <!-- CSO ROUND 2 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge badge-cso">CSO</div>
+        <div class="section-title-block">
+          <div class="section-role">Chief Sales Officer · Responds to CHRO</div>
+          <div class="section-title">Week Three. With One Condition.</div>
+        </div>
+      </div>
+      <div class="transcript">
+        <p>Week three. I accept that. And I will accept the readiness gate: outreach does not begin until Sheronda has seen the morning brief run for seven consecutive days without requiring her active intervention. If the morning brief is still breaking in week two, outreach waits until it is stable. I will not build pipeline on top of a foundation that is still leaking.</p>
+        <p>What I will not reduce is the ambition of the referral network itself. Five active referral partners by day 90 is the right target for a practice with Sheronda's credentials. The CHRO is correct that the system does the research and drafts the letters. Sheronda approves, signs, and sends. The phone calls stay human — that is where the relationship forms and no agent replaces it. Ten calls, not twenty, focused on the five who responded to the letter and the five highest-probability cold contacts.</p>
+        <div class="callout amber">
+          Here is the one thing I need from the CHRO in return: the morning brief must track outreach status. Not just client status. If Sheronda approves a letter on Tuesday and the system does not surface that the follow-up call is due by Thursday, the pipeline dies quietly while everyone thinks they are on track. The system cannot just protect Sheronda from work. It has to actively run the pipeline on her behalf so she shows up to each call already knowing what to say.
+        </div>
+      </div>
+    </div>
+
+    <!-- CCO ROUND 2 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge badge-cco">CCO</div>
+        <div class="section-title-block">
+          <div class="section-role">Chief Client Officer · The Prerequisite Everyone Missed</div>
+          <div class="section-title">The Board Has Been Debating the Wrong Sequence</div>
+        </div>
+      </div>
+      <div class="transcript">
+        <p>The board has been debating build order and capacity and timelines. I need to say something that changes the frame before the CEO adjudicates.</p>
+        <p>Everything the COO builds — the intake agent, the email drafter, every touchpoint that reaches a client — sends a message to a person who is already afraid. They are afraid of the IRS, afraid of what they owe, afraid of making a decision they cannot afford to get wrong. The first communication they receive from TAXcellent after booking a consultation is not just an email. It is the moment they decide whether they trust Sheronda. If that email sounds like a form letter, they begin to wonder whether they called the right person. Some of them will not say so. They will simply not refer anyone when it is over.</p>
+        <div class="callout">
+          The voice calibration is not a marketing exercise. It is a condition of deployment. Without it, every communication the Email Drafter sends is a gamble. You might send Sheronda's voice or you might send a close approximation of it. You will not know which until a client tells you — and they will not tell you directly. Two hours. Sheronda reads three client emails she is proud of, out loud, recorded. That recording becomes the governing standard every agent is calibrated against. This happens before the Email Drafter sends a single message to a real client. Not after. Before.
+        </div>
+        <p>The COO and CSO are both planning around a voice system that has not been built yet. The CTO is architecting a compliance layer for communications that have no voice standard yet. I am asking for two hours before any of that matters. Schedule it in week one. Do not reschedule it.</p>
+      </div>
+    </div>
+
+    <!-- CEO ADJUDICATION -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge badge-ceo">CEO</div>
+        <div class="section-title-block">
+          <div class="section-role">Chief Executive Officer · Board Adjudication</div>
+          <div class="section-title">Four Tensions. Four Decisions. No Abstractions.</div>
+        </div>
+      </div>
+      <div class="transcript">
+        <p>The board has done exactly what this session is designed to produce. Round one identified the problems. Round two exposed where the solutions conflict. I close with decisions — not recommendations, decisions — that resolve each tension.</p>
+
+        <div class="decision-block">
+          <div class="decision-block-label">Decision 1 · Build Order With a Revenue Requirement</div>
+          <p>The COO's sequence is approved with a binding modification. Intake Agent goes live in 30 days. Document Classifier in 45 days. Checklist Cross-Check in 60 days. The Resolution Case Agent is architected in parallel from day one and goes live no later than day 60 — not day 90. The COO and CTO share accountability for that date. If anything upstream threatens it, they surface the conflict immediately and we decide together what to deprioritize. The CFO's 90-day metric stands: two resolution cases closed by day 90. That number is the governing test for whether the system is working.</p>
+        </div>
+
+        <div class="decision-block">
+          <div class="decision-block-label">Decision 2 · Outreach Campaign With a Readiness Gate</div>
+          <p>The CSO's referral strategy is approved. The system builds the research list and drafts the letters. Sheronda approves, signs, and sends. Sheronda makes 10 phone calls focused on the five who responded and the five highest-probability cold contacts. The CHRO sets the gate: outreach does not begin until the morning brief has run seven consecutive days without requiring Sheronda's active intervention. That gate protects her capacity and ensures she enters the outreach phase from a position of stability. The morning brief tracks outreach follow-up status alongside client status. CSO targets stand: five active referral partners, three signed resolution engagements by day 90.</p>
+        </div>
+
+        <div class="decision-block">
+          <div class="decision-block-label">Decision 3 · Parallel Tracks, Clear Dependency</div>
+          <p>CMO and CTO reached the right agreement. It is ratified here. Voice capture, directory listings, Google Business Profile, and LinkedIn content begin this week. They do not touch client data and do not require compliance validation. All agents that touch client data, send email on Sheronda's behalf, or route documents through AI models are blocked until the PII gateway is validated and the audit log is running. CTO owns that validation by end of week two. Build runs in parallel. Deployment does not.</p>
+        </div>
+
+        <div class="decision-block">
+          <div class="decision-block-label">Decision 4 · Voice Calibration Is a Prerequisite, Not a Preference</div>
+          <p>The CCO is correct. This is a condition of deployment for the Email Drafter — not a nice-to-have, a hard gate. Before that agent sends a single client communication, Sheronda completes a two-hour voice calibration session. Three emails she is proud of, read out loud, recorded and transcribed. That recording becomes the governing standard every communication agent is calibrated against. Scheduled in week one. Not rescheduled. Not abbreviated.</p>
+        </div>
+
+        <p>One more thing, and this one is for Sheronda directly rather than the board.</p>
+        <p>You now have seven people who spent the last two hours studying your business and disagreeing with each other about how to fix it. That is what this investment bought. Not one perspective — eight. Not consensus — deliberation. The fact that the COO and CFO had to reconcile their timelines is a feature of this format. The fact that the CSO accepted a constraint from the CHRO is what real boards produce. You would have paid a law firm $50,000 for a fraction of this rigor and received a report you would have read once.</p>
+        <div class="callout">
+          The CHRO said this math breaks people. I want to end by agreeing with that and adding one sentence: the system we are building is specifically designed to change the math. Not to make you work harder. To make the work you do count for more. January is not far. Let us build.
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL CLOSING -->
     <div class="closing">
       <div class="closing-label">Board Session Complete · June 21, 2026</div>
-      <h2 class="closing-title">Eight advisors. One verdict.</h2>
-      <p class="closing-body">The expertise is real. The credentials are rare. The gap between what TAXcellent is today and what it can be is not a strategy problem. It is an infrastructure problem. And that is the kind of problem that gets solved.</p>
+      <h2 class="closing-title">Two rounds. Four decisions. One direction.</h2>
+      <p class="closing-body">The expertise has always been real. The credentials have always been rare. What changes today is that both are backed by a system built to serve them — and a board that resolved the hard questions so you do not have to carry them alone.</p>
       <div class="closing-divider"></div>
       <p class="closing-sig">Delivered by OSCortex · AI Momentum Labs · Platinum Control Program</p>
     </div>
