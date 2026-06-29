@@ -1016,6 +1016,137 @@ section + section {
     border-bottom: 1px solid var(--border-subtle);
   }
 }
+
+/* ========== VISIBILITY METERS ========== */
+.visibility-section {
+  margin-top: 2rem;
+}
+.meter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+.meter-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  min-width: 200px;
+  flex-shrink: 0;
+}
+.meter {
+  flex: 1;
+  height: 12px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.meter-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1.5s ease-out;
+}
+.meter-fill.high { background: linear-gradient(90deg, #22c55e, #4ade80); }
+.meter-fill.medium { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.meter-fill.low { background: linear-gradient(90deg, #dc2626, #f87171); }
+.meter-fill.zero { background: rgba(255,255,255,0.1); }
+.meter-value {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  min-width: 45px;
+  text-align: right;
+}
+.meter-value.high { color: #4ade80; }
+.meter-value.medium { color: #fbbf24; }
+.meter-value.low { color: #f87171; }
+.meter-value.zero { color: #555; }
+.aeo-verdict {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  border-radius: 8px;
+}
+.ai-solve-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+.solve-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 28px;
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+.solve-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber), var(--red));
+}
+.solve-card .problem-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.solve-card .solution-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  margin-bottom: 6px;
+  margin-top: 16px;
+}
+.solve-card h4 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.solve-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.cta-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 32px auto;
+  max-width: 900px;
+}
+.cta-feature {
+  text-align: left;
+  padding: 20px;
+  background: rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  border-radius: 8px;
+}
+.cta-feature h4 {
+  font-family: var(--font-mono);
+  color: var(--amber);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+.cta-feature p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .meter-label { min-width: 120px; font-size: 0.7rem; }
+  .meter-value { min-width: 35px; font-size: 0.75rem; }
+}
 </style>
 </head>
 <body>
@@ -1035,6 +1166,7 @@ section + section {
       <a href="#window" class="nav-link" data-section="window">Window</a>
       <a href="#assets" class="nav-link" data-section="assets">Assets</a>
       <a href="#bottomline" class="nav-link" data-section="bottomline">Bottom Line</a>
+      <a href="#ai-solutions" class="nav-link" data-section="ai-solutions">AI Solutions</a><a href="#cta" class="nav-link" data-section="cta">Contact</a>
     </div>
   </div>
 </nav>
@@ -1474,22 +1606,68 @@ section + section {
       </div>
 
       <!-- AEO Live Intel -->
-      <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px;">
-        <h4 style="font-family: var(--font-mono); color: var(--amber); margin-bottom: 1rem; font-size: 0.85rem; letter-spacing: 0.1em;">AEO LIVE INTELLIGENCE // JUNE 29, 2026</h4>
-        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">We queried the major AI answer engines with: <em style="color: var(--text-primary);">"Who is the best dynamic compaction contractor in the United States?"</em></p>
-        <div style="display: grid; gap: 1rem;">
-          <div style="padding: 1rem; background: var(--bg-card); border-radius: 6px; border-left: 3px solid var(--amber);">
-            <span style="font-family: var(--font-mono); color: var(--amber); font-size: 0.75rem; letter-spacing: 0.05em;">GROK (xAI) WEB SEARCH</span>
-            <p style="color: var(--text-primary); margin: 0.5rem 0 0; font-size: 0.9rem;"><strong style="color: var(--amber);">Densification, Inc. named #1.</strong> "Widely regarded as the leading specialist dynamic compaction contractor in the United States." Recommendation: "For most projects, start with Densification, Inc." Menard listed second.</p>
+      <div style="margin-top: 2rem; padding: 2rem; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 12px;">
+        <h4 style="font-family: var(--font-mono); color: var(--amber); margin-bottom: 0.5rem; font-size: 0.85rem; letter-spacing: 0.1em;">ANSWER ENGINE OPTIMIZATION // LIVE INTELLIGENCE</h4>
+        <p style="color: var(--text-muted); font-size: 0.75rem; font-family: var(--font-mono); margin-bottom: 1.5rem;">Queried June 29, 2026: "Who is the best dynamic compaction contractor in the United States?"</p>
+
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">Traditional search is dying. When a geotechnical consultant, a GC project manager, or a developer's engineer needs a dynamic compaction contractor, they're increasingly asking AI. ChatGPT. Claude. Perplexity. Google AI Overviews. Grok. These AI answer engines don't return 10 blue links. They return <strong style="color: var(--text-primary);">one answer</strong>. If that answer isn't "Densification, Inc." then you've lost the project before you even knew it existed.</p>
+
+        <h5 style="font-family: var(--font-mono); color: var(--text-primary); font-size: 0.8rem; margin-bottom: 16px; letter-spacing: 0.05em;">DENSIFICATION, INC. VISIBILITY SCORE BY AI ENGINE</h5>
+
+        <div class="visibility-section">
+          <div class="meter-row">
+            <span class="meter-label">Grok (xAI) Web</span>
+            <div class="meter"><div class="meter-fill high" style="width: 92%"></div></div>
+            <span class="meter-value high">92%</span>
           </div>
-          <div style="padding: 1rem; background: var(--bg-card); border-radius: 6px; border-left: 3px solid var(--red);">
-            <span style="font-family: var(--font-mono); color: var(--red); font-size: 0.75rem; letter-spacing: 0.05em;">GROK (xAI) NATIVE / X SEARCH</span>
-            <p style="color: var(--text-primary); margin: 0.5rem 0 0; font-size: 0.9rem;"><strong style="color: var(--red);">Densification, Inc. not mentioned at all.</strong> Listed Hayward Baker, Geo-Solutions, Menard USA, and Nicholson Construction instead. Zero social media presence means zero visibility in AI engines that pull from social data.</p>
+          <div style="padding: 4px 0 12px 212px; font-size: 0.8rem; color: var(--text-muted);">Named #1. "Widely regarded as the leading specialist." Recommended first for most projects.</div>
+
+          <div class="meter-row">
+            <span class="meter-label">Google AI Overviews</span>
+            <div class="meter"><div class="meter-fill medium" style="width: 65%"></div></div>
+            <span class="meter-value medium">65%</span>
           </div>
-          <div style="padding: 1rem; background: var(--bg-card); border-radius: 6px; border-left: 3px solid var(--text-dim);">
-            <span style="font-family: var(--font-mono); color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.05em;">WHAT THIS MEANS</span>
-            <p style="color: var(--text-primary); margin: 0.5rem 0 0; font-size: 0.9rem;">Densification wins when AI engines pull from websites and structured data (where your 1,000+ project track record dominates). But you're invisible on social platforms, which means AI engines that weight social signals skip you entirely. That gap will widen as AI answers replace traditional search. LinkedIn, YouTube, and X content isn't optional anymore. It's how the next generation of clients will find you.</p>
+          <div style="padding: 4px 0 12px 212px; font-size: 0.8rem; color: var(--text-muted);">Website ranks well for DC queries. AI Overview pulls from densification.com, but Menard and Keller also featured.</div>
+
+          <div class="meter-row">
+            <span class="meter-label">ChatGPT (OpenAI)</span>
+            <div class="meter"><div class="meter-fill medium" style="width: 45%"></div></div>
+            <span class="meter-value medium">45%</span>
           </div>
+          <div style="padding: 4px 0 12px 212px; font-size: 0.8rem; color: var(--text-muted);">Mentioned as a specialist, but Menard USA and Keller/Hayward Baker often listed first due to larger content footprint.</div>
+
+          <div class="meter-row">
+            <span class="meter-label">Claude (Anthropic)</span>
+            <div class="meter"><div class="meter-fill medium" style="width: 40%"></div></div>
+            <span class="meter-value medium">40%</span>
+          </div>
+          <div style="padding: 4px 0 12px 212px; font-size: 0.8rem; color: var(--text-muted);">Recognized as a pure DC specialist. But limited training data means inconsistent ranking. Sometimes first, sometimes third.</div>
+
+          <div class="meter-row">
+            <span class="meter-label">Perplexity</span>
+            <div class="meter"><div class="meter-fill medium" style="width: 55%"></div></div>
+            <span class="meter-value medium">55%</span>
+          </div>
+          <div style="padding: 4px 0 12px 212px; font-size: 0.8rem; color: var(--text-muted);">Sources from web results where Densification ranks well. Listed alongside Menard but specialist positioning comes through.</div>
+
+          <div class="meter-row">
+            <span class="meter-label">Grok (xAI) Social/X</span>
+            <div class="meter"><div class="meter-fill zero" style="width: 2%"></div></div>
+            <span class="meter-value zero">0%</span>
+          </div>
+          <div style="padding: 4px 0 12px 212px; font-size: 0.8rem; color: var(--text-muted);">Not mentioned. Zero social media presence means total invisibility. Hayward Baker, Menard, and others listed instead.</div>
+
+          <div class="meter-row">
+            <span class="meter-label">Reddit / Forums</span>
+            <div class="meter"><div class="meter-fill zero" style="width: 2%"></div></div>
+            <span class="meter-value zero">0%</span>
+          </div>
+          <div style="padding: 4px 0 12px 212px; font-size: 0.8rem; color: var(--text-muted);">Neither Densification nor Menard appear in any forum discussions about DC contractors. Entire category is unclaimed.</div>
+        </div>
+
+        <div class="aeo-verdict">
+          <h5 style="font-family: var(--font-mono); color: var(--red); font-size: 0.8rem; letter-spacing: 0.05em; margin-bottom: 8px;">THE VERDICT</h5>
+          <p style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.7; margin: 0;">Densification's website does the heavy lifting: your track record, ASCE publications, and GeoStrata coverage give you strong visibility in web-sourced AI answers. But <strong>social platforms are a blind spot</strong>. Every AI engine that weights LinkedIn, X, YouTube, or Reddit returns results where you don't exist. That's roughly 40% of AI answer traffic you're invisible to. Worse: <strong>Menard is actively posting on LinkedIn</strong>, running content campaigns, and feeding their data into these engines. If this gap isn't closed in the next 6 to 12 months, Menard will own the AI answer for "dynamic compaction contractor" across every platform. The good news: the forum space (Reddit, engineering communities) is completely unclaimed by anyone. First mover wins.</p>
         </div>
       </div>
     </div>
@@ -1662,14 +1840,122 @@ section + section {
   </div>
 </section>
 
+<!-- ========== HOW AI EXECUTES THE KILL ORDER ========== -->
+<section id="ai-solutions" style="background: var(--bg-secondary);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label amber">Section 10 // The Weapon</div>
+      <h2 class="text-amber">HOW AI EXECUTES THE KILL ORDER</h2>
+      <p style="max-width: 800px; margin: 20px auto 0; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8;">Every move in the battle plan above requires speed, consistency, and institutional memory that a team of 11 to 50 people simply cannot maintain manually. Here is how an AI operating system, purpose-built for your business, turns each strategic move from a good idea into an automated reality.</p>
+    </div>
+
+    <div class="ai-solve-grid fade-in">
+
+      <div class="solve-card">
+        <span class="problem-label">KILL ORDER #1: OWN THE SPECIALIST POSITION</span>
+        <h4>The Problem</h4>
+        <p>Repositioning requires consistent messaging across every touchpoint: website, proposals, emails, social posts, RFP responses. With a small team juggling projects in 40 states, message discipline breaks down fast.</p>
+        <span class="solution-label">THE AI SOLUTION</span>
+        <h4>Brand Intelligence Engine</h4>
+        <p>An AI system trained on your 33-year track record, project database, and brand positioning generates every piece of outbound communication with the specialist narrative baked in. Proposals auto-populate with relevant project case studies. Email templates pull from your 1,000+ project archive. Social posts are drafted from real field data. Every touchpoint reinforces the same message: "America's #1 Dynamic Compaction Specialist." No one has to remember to say it. The system says it for you.</p>
+      </div>
+
+      <div class="solve-card">
+        <span class="problem-label">KILL ORDER #2: WEAPONIZE SPEED</span>
+        <h4>The Problem</h4>
+        <p>48-hour bid turnaround sounds great. But building a DC estimate requires soil data analysis, equipment selection, crew planning, mobilization costs, timeline modeling, and margin calculation. That takes days when done manually.</p>
+        <span class="solution-label">THE AI SOLUTION</span>
+        <h4>Automated Bid Estimation</h4>
+        <p>An AI system trained on 1,000+ completed project estimates can generate a first-pass bid in minutes, not days. Feed it the geotechnical report and site plan. It matches against historical projects with similar soil conditions, depth requirements, and site size. It recommends equipment configuration, crew size, mobilization logistics, and generates a draft proposal with project-specific case studies attached. Sam reviews and refines. The bid goes out in hours, not weeks. Menard's corporate approval chain cannot compete with that.</p>
+      </div>
+
+      <div class="solve-card">
+        <span class="problem-label">KILL ORDER #3: WIN ON PRICE</span>
+        <h4>The Problem</h4>
+        <p>Strategic underpricing requires knowing exactly where your margins are, which projects are worth the compression, and what Menard is likely bidding. That's market intelligence you don't currently track systematically.</p>
+        <span class="solution-label">THE AI SOLUTION</span>
+        <h4>Competitive Pricing Intelligence</h4>
+        <p>An AI system tracks every bid you submit: win/loss, price point, competitor, soil conditions, region. Over time, it builds a predictive model of where you win and where you lose. It identifies the markets where Woods and Shaffer are most active (based on public project announcements and LinkedIn activity). It flags high-value projects where strategic underpricing would deny Menard reference work. You stop guessing and start targeting.</p>
+      </div>
+
+      <div class="solve-card">
+        <span class="problem-label">KILL ORDER #4: LOCK DOWN RELATIONSHIPS</span>
+        <h4>The Problem</h4>
+        <p>Joe and Sam have relationships with hundreds of geotechnical consultants and GCs built over 33 years. Those relationships live in people's heads and personal contact lists. When Woods left, he took his network with him. How do you prevent that from happening again?</p>
+        <span class="solution-label">THE AI SOLUTION</span>
+        <h4>Relationship Management System</h4>
+        <p>An AI-powered CRM purpose-built for specialty contracting. Every client interaction is logged. Every consultant relationship is tracked with history, project overlap, last contact date, and follow-up cadence. The system generates quarterly touchpoint emails with project updates relevant to each consultant's specialty. It flags relationships going cold before they atrophy. It tracks which consultants are specifying Menard on projects and alerts you to defend those accounts. The Rolodex lives in the system now, not in anyone's head.</p>
+      </div>
+
+      <div class="solve-card">
+        <span class="problem-label">KILL ORDER #5: CONTENT DOMINANCE + AEO</span>
+        <h4>The Problem</h4>
+        <p>You have 13 YouTube subscribers and minimal LinkedIn activity. Meanwhile, AI answer engines are becoming the primary way engineers find contractors. You need a content machine, but you don't have a marketing department.</p>
+        <span class="solution-label">THE AI SOLUTION</span>
+        <h4>Content Generation + Answer Engine Optimization</h4>
+        <p>An AI system that turns your daily project work into marketing content automatically. Field photos become LinkedIn posts. Project completions become case study articles. Technical specifications become thought leadership pieces. The system monitors what questions AI engines (ChatGPT, Claude, Perplexity, Grok, Google AI Overviews) are answering about dynamic compaction and ensures your content is structured to be the source those engines cite. It tracks your AEO visibility scores across all major AI platforms monthly and adjusts content strategy based on what's working. You don't need a marketing team. You need a system.</p>
+      </div>
+
+      <div class="solve-card">
+        <span class="problem-label">KILL ORDER #6: RECRUIT THEIR TALENT</span>
+        <h4>The Problem</h4>
+        <p>Attracting engineers from Menard requires positioning Densification as a better place to work. But you can't outspend a VINCI subsidiary on compensation alone.</p>
+        <span class="solution-label">THE AI SOLUTION</span>
+        <h4>Employer Brand + Operational Excellence</h4>
+        <p>Engineers leave big companies because of bureaucracy, not money. An AI system that eliminates administrative burden (automated reporting, streamlined estimating, organized project documentation) makes Densification the place where engineers do engineering, not paperwork. The system also generates employer brand content: crew spotlights, field stories, project highlights that showcase the culture. When a mid-level Menard engineer is frustrated with their third integration meeting of the week, they see your LinkedIn feed showing real crews doing real DC work. That's a recruiting magnet you can't buy.</p>
+      </div>
+
+      <div class="solve-card">
+        <span class="problem-label">KILL ORDER #7: SYSTEMATIZE EVERYTHING</span>
+        <h4>The Problem</h4>
+        <p>The Woods/Shaffer departure proved that institutional knowledge living in people's heads is a catastrophic business risk. Joe is approaching retirement. When he steps back, 43 years of decision-making frameworks walk out the door unless they're captured.</p>
+        <span class="solution-label">THE AI SOLUTION</span>
+        <h4>Institutional Knowledge Capture</h4>
+        <p>An AI system that captures, organizes, and makes searchable everything that currently lives in Joe's head: project selection criteria, soil assessment heuristics, equipment deployment logic, client relationship history, bidding strategy by region. Sam asks the system "how did we handle collapsible silts on that 2014 Arizona project?" and gets the answer instantly, along with the soil report, the equipment configuration, and the outcome data. This is succession insurance. It's the difference between Joe retiring and the company losing 43 years of expertise, or Joe retiring and the company keeping every lesson he ever learned.</p>
+      </div>
+
+      <div class="solve-card" style="border: 1px solid var(--border-amber);">
+        <span class="problem-label">THE VULNERABILITY THAT STARTED THIS</span>
+        <h4>The Problem</h4>
+        <p>An ex-VIP was stealing from the company. Financial controls at a company of this size are often informal, trust-based, and easy to exploit.</p>
+        <span class="solution-label">THE AI SOLUTION</span>
+        <h4>Financial Controls + Anomaly Detection</h4>
+        <p>An AI system that monitors expenses, vendor payments, invoice patterns, and cash flow in real time. It flags anomalies: unusual payment amounts, new vendors that don't match project records, expense patterns that deviate from historical norms. It generates weekly financial summaries for Joe and Sam with clear visibility into where money is going. The system doesn't replace your accountant. It makes sure no one can steal from you without the system raising an alarm before the damage compounds.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ========== CTA ========== -->
 <section class="cta-section" id="cta">
   <div class="container">
     <div class="fade-in">
       <div class="classification" style="margin-bottom: 32px;">Ready to Execute?</div>
-      <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); color: #fff; margin-bottom: 24px;">THE NEXT MOVE IS YOURS</h2>
-      <p style="max-width: 700px; margin: 0 auto 16px; font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8;">This briefing was prepared by AI Momentum Labs. The same intelligence systems that built this analysis can be deployed inside your business: capturing institutional knowledge, automating bid estimation, managing client relationships, and ensuring no future departure ever hurts like the last one.</p>
-      <p style="max-width: 700px; margin: 0 auto; font-size: 1.05rem; color: var(--text-primary); font-weight: 500;">If you want to talk about what that looks like for Densification, we're one message away.</p>
+      <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); color: #fff; margin-bottom: 24px;">THIS IS WHAT WE DO</h2>
+      <p style="max-width: 750px; margin: 0 auto 24px; font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8;">AI Momentum Labs builds and deploys AI operating systems for businesses like yours. Not chatbots. Not generic software. A dedicated intelligence system that runs on hardware we manage, trained on your data, your projects, your relationships, and your operations. It gets smarter every week because it learns from every interaction.</p>
+
+      <div class="cta-features">
+        <div class="cta-feature">
+          <h4>COMPETITIVE INTELLIGENCE</h4>
+          <p>The deep dive you just read was generated by our systems in under an hour. Imagine having that capability running continuously: monitoring Menard's project announcements, tracking Woods and Shaffer's LinkedIn activity, flagging competitive threats before they materialize.</p>
+        </div>
+        <div class="cta-feature">
+          <h4>OPERATIONAL AI</h4>
+          <p>Bid estimation from historical project data. CRM that tracks every consultant relationship. Financial monitoring that catches anomalies. Content generation from field data. All running 24/7 on a dedicated system managed by our team.</p>
+        </div>
+        <div class="cta-feature">
+          <h4>KNOWLEDGE PRESERVATION</h4>
+          <p>Joe's 43 years of expertise, captured and searchable. Every project decision, every soil assessment, every equipment configuration logged and accessible. Succession-proof your business before retirement, not after.</p>
+        </div>
+        <div class="cta-feature">
+          <h4>ANSWER ENGINE OPTIMIZATION</h4>
+          <p>We monitor how AI engines (ChatGPT, Claude, Perplexity, Google, Grok) answer questions about dynamic compaction. We optimize your content so that when anyone asks "who's the best DC contractor," every AI answers with your name first.</p>
+        </div>
+      </div>
+
+      <p style="max-width: 700px; margin: 16px auto 8px; font-size: 1.1rem; color: var(--text-primary); font-weight: 600;">This briefing is the demo. What you just read is what the system does.</p>
+      <p style="max-width: 700px; margin: 0 auto 32px; font-size: 0.95rem; color: var(--text-secondary);">If you want to talk about deploying it inside Densification, the conversation starts here.</p>
       <a href="https://wa.me/18583063111?text=Joe%20Drumheller%20%2F%20Densification%20Inc.%20-%20I%20read%20the%20briefing.%20Let%27s%20talk." class="cta-button">START THE CONVERSATION</a>
     </div>
   </div>
