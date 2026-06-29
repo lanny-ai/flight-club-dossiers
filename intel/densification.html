@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPERATION GROUND ZERO // Competitive Intelligence Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ========== CSS CUSTOM PROPERTIES ========== */
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: #14141e;
+  --bg-card-hover: #1a1a28;
+  --red: #dc2626;
+  --red-dim: #991b1b;
+  --red-glow: rgba(220, 38, 38, 0.15);
+  --amber: #f59e0b;
+  --amber-dim: #b45309;
+  --amber-glow: rgba(245, 158, 11, 0.15);
+  --text-primary: #e5e5e5;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666;
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-red: rgba(220, 38, 38, 0.35);
+  --border-amber: rgba(245, 158, 11, 0.35);
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --nav-height: 56px;
+}
+
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 24px);
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ========== SCANLINE OVERLAY ========== */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--red-dim); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red); }
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3, h4 { font-family: var(--font-mono); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 1rem; }
+h3 { font-size: clamp(1.1rem, 3vw, 1.4rem); margin-bottom: 0.75rem; }
+p { margin-bottom: 1rem; color: var(--text-secondary); }
+
+.mono { font-family: var(--font-mono); }
+.text-red { color: var(--red); }
+.text-amber { color: var(--amber); }
+.text-muted { color: var(--text-muted); }
+.uppercase { text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ========== CLASSIFICATION MARKINGS ========== */
+.classification {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  padding: 6px 16px;
+  border: 1px solid var(--red);
+  display: inline-block;
+  background: rgba(220, 38, 38, 0.08);
+}
+
+/* ========== NAVIGATION ========== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  transition: border-color 0.3s;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--red);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+.nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+.nav-link.active { color: var(--red); background: var(--red-glow); }
+
+/* ========== LAYOUT ========== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 80px 0;
+  position: relative;
+}
+
+section + section {
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ========== FADE-IN ANIMATION ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: calc(var(--nav-height) + 40px) 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid background */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    linear-gradient(rgba(220, 38, 38, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+/* Crosshair center */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 200px; height: 200px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(220, 38, 38, 0.12);
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(220, 38, 38, 0.05);
+  animation: crosshairPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes crosshairPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.6; }
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin: 24px 0 16px;
+  letter-spacing: -0.03em;
+}
+
+.hero h1 span {
+  display: block;
+  background: linear-gradient(135deg, var(--red), #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.hero-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.hero-meta span { display: block; margin-bottom: 4px; }
+.hero-meta .prepared-for { color: var(--amber); font-weight: 600; font-size: 0.85rem; }
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 32px;
+  border: 2px solid var(--text-muted);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+.scroll-indicator::after {
+  content: '';
+  width: 3px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 2px;
+  margin-top: 6px;
+  animation: scrollBounce 2s infinite;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.3; }
+}
+
+/* ========== SECTION HEADERS ========== */
+.section-header {
+  margin-bottom: 48px;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--red);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.section-label.amber { color: var(--amber); }
+.section-label.amber::before { background: var(--amber); }
+
+/* ========== EXECUTIVE SUMMARY ========== */
+.exec-summary {
+  background: var(--bg-card);
+  border: 1px solid var(--border-red);
+  border-left: 3px solid var(--red);
+  padding: 32px;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.exec-summary::before {
+  content: 'SITREP';
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--red);
+  background: var(--bg-primary);
+  padding: 0 8px;
+  letter-spacing: 0.15em;
+}
+
+/* ========== STATS DASHBOARD ========== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 24px 20px;
+  border-radius: 4px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.stat-card:hover {
+  border-color: var(--amber-dim);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--amber);
+}
+
+.stat-number {
+  font-family: var(--font-mono);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: var(--amber);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+/* ========== CARDS ========== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 32px;
+  margin-bottom: 24px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+}
+
+.card.enemy {
+  border-color: var(--border-red);
+  border-left: 3px solid var(--red);
+}
+
+.card.friendly {
+  border-color: var(--border-amber);
+  border-left: 3px solid var(--amber);
+}
+
+/* Crosshair on enemy cards */
+.card.enemy::after {
+  content: '+';
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: var(--red);
+  opacity: 0.3;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.card-number {
+  font-family: var(--font-mono);
+  font-size: 3rem;
+  font-weight: 800;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  opacity: 0.08;
+  color: #fff;
+  line-height: 1;
+}
+
+.card h3 { color: #fff; }
+.card.enemy h3 { color: var(--red); }
+.card.friendly h3 { color: var(--amber); }
+
+.exploit-box {
+  background: rgba(220, 38, 38, 0.06);
+  border: 1px solid rgba(220, 38, 38, 0.15);
+  padding: 16px 20px;
+  margin-top: 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.exploit-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--red);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.move-box {
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  padding: 16px 20px;
+  margin-top: 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.move-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--amber);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ========== PROFILE SECTION ========== */
+.profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-red);
+  padding: 28px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.profile-card h3 {
+  color: var(--red);
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.profile-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.profile-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-card li {
+  color: var(--text-secondary);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.92rem;
+  position: relative;
+  padding-left: 16px;
+}
+
+.profile-card li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.profile-card li:last-child { border-bottom: none; }
+
+.impact-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--red);
+  background: var(--red-glow);
+  padding: 3px 10px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 12px;
+}
+
+.quote-block {
+  border-left: 2px solid var(--red);
+  padding: 12px 20px;
+  margin: 16px 0;
+  font-style: italic;
+  color: var(--text-secondary);
+  background: rgba(220, 38, 38, 0.04);
+}
+
+/* ========== CORPORATE HIERARCHY ========== */
+.hierarchy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 32px 0;
+}
+
+.hierarchy-node {
+  background: var(--bg-card);
+  border: 1px solid var(--border-red);
+  padding: 14px 28px;
+  border-radius: 4px;
+  text-align: center;
+  min-width: 260px;
+  position: relative;
+}
+
+.hierarchy-node .node-name {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--red);
+  font-size: 0.9rem;
+}
+
+.hierarchy-node .node-detail {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.hierarchy-connector {
+  width: 2px;
+  height: 24px;
+  background: var(--red-dim);
+  position: relative;
+}
+
+.hierarchy-connector::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--red-dim);
+}
+
+/* ========== COMPARISON TABLE ========== */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 0.88rem;
+}
+
+.comparison-table th {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 2px solid var(--border-subtle);
+}
+
+.comparison-table th:nth-child(2) { color: var(--red); }
+.comparison-table th:nth-child(3) { color: var(--amber); }
+
+.comparison-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.comparison-table td:first-child {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.comparison-table tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+
+/* ========== TIMELINE ========== */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  margin: 32px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--red-dim), var(--amber-dim));
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--red);
+  border: 2px solid var(--bg-primary);
+}
+
+.timeline-item.now::before {
+  background: var(--amber);
+  box-shadow: 0 0 12px var(--amber-glow), 0 0 24px var(--amber-glow);
+  animation: nowPulse 2s infinite;
+}
+
+.timeline-item.future::before {
+  background: var(--text-muted);
+  border: 2px solid var(--text-muted);
+}
+
+@keyframes nowPulse {
+  0%, 100% { box-shadow: 0 0 8px var(--amber-glow); }
+  50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.4); }
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.timeline-item.now .timeline-date { color: var(--amber); }
+.timeline-item.future .timeline-date { color: var(--text-muted); }
+
+.timeline-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ========== SERVICES LIST ========== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.service-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 8px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  color: var(--text-secondary);
+}
+
+.service-tag.flagship {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-glow);
+}
+
+/* ========== CALLOUT BOX ========== */
+.callout {
+  background: var(--bg-card);
+  border: 2px solid var(--red);
+  padding: 32px;
+  border-radius: 4px;
+  text-align: center;
+  margin: 40px 0;
+  position: relative;
+}
+
+.callout.amber {
+  border-color: var(--amber);
+}
+
+.callout-text {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ========== ADVANTAGES LIST ========== */
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.advantage-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-amber);
+  padding: 20px;
+  border-radius: 4px;
+  border-left: 3px solid var(--amber);
+}
+
+.advantage-item h4 {
+  color: var(--amber);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.advantage-item p {
+  font-size: 0.88rem;
+  margin-bottom: 0;
+}
+
+/* ========== BOTTOM LINE SECTION ========== */
+.bottom-line-text {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: var(--text-primary);
+}
+
+.comparison-lines {
+  margin: 32px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.comparison-lines li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.comparison-lines li .them {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.comparison-lines li .you {
+  color: var(--amber);
+  font-weight: 600;
+}
+
+/* ========== CTA SECTION ========== */
+.cta-section {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.cta-button {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  background: var(--amber);
+  padding: 18px 48px;
+  border-radius: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 32px;
+  position: relative;
+  transition: all 0.3s;
+  animation: ctaPulse 3s ease-in-out infinite;
+}
+
+.cta-button:hover {
+  background: #fbbf24;
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.3);
+}
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.3); }
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer p {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.footer a {
+  color: var(--amber);
+  text-decoration: none;
+}
+
+/* ========== ACQUISITION TIMELINE ========== */
+.acq-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.acq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-red);
+  padding: 16px;
+  border-radius: 4px;
+  border-top: 2px solid var(--red);
+}
+
+.acq-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.acq-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* ========== KEY STATS TABLE ========== */
+.key-stats {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+}
+
+.key-stats td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.88rem;
+}
+
+.key-stats td:first-child {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 40%;
+}
+
+.key-stats td:last-child {
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* ========== BULLET LISTS ========== */
+.intel-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.intel-list li {
+  padding: 10px 0 10px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  position: relative;
+}
+
+.intel-list li::before {
+  content: '\25B8';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-size: 0.8rem;
+}
+
+.intel-list li:last-child { border-bottom: none; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  section { padding: 60px 0; }
+  .container { padding: 0 16px; }
+  .nav-links { display: none; }
+  .card { padding: 24px 20px; }
+  .exec-summary { padding: 24px 20px; }
+  .profile-card { padding: 20px; }
+  .hierarchy-node { min-width: 200px; padding: 12px 16px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .advantage-grid { grid-template-columns: 1fr; }
+  .comparison-table { font-size: 0.78rem; }
+  .comparison-table td, .comparison-table th { padding: 10px 8px; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-card { padding: 18px 12px; }
+  .hero h1 { font-size: 2rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .acq-timeline { grid-template-columns: 1fr; }
+}
+
+/* ========== MOBILE NAV TOGGLE ========== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: rgba(10, 10, 15, 0.98);
+    padding: 16px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">OGZ // INTEL</div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">SECTIONS</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#summary" class="nav-link" data-section="summary">Summary</a>
+      <a href="#dashboard" class="nav-link" data-section="dashboard">Intel</a>
+      <a href="#defection" class="nav-link" data-section="defection">Defection</a>
+      <a href="#enemy" class="nav-link" data-section="enemy">Enemy</a>
+      <a href="#vulnerabilities" class="nav-link" data-section="vulnerabilities">Kill Shots</a>
+      <a href="#battleplan" class="nav-link" data-section="battleplan">Battle Plan</a>
+      <a href="#window" class="nav-link" data-section="window">Window</a>
+      <a href="#assets" class="nav-link" data-section="assets">Assets</a>
+      <a href="#bottomline" class="nav-link" data-section="bottomline">Bottom Line</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="classification">COMPETITIVE INTELLIGENCE BRIEFING // CLASSIFIED</div>
+    <h1>OPERATION<br><span>GROUND ZERO</span></h1>
+    <p class="hero-subtitle">How Densification, Inc. Destroys Menard USA's Dynamic Compaction Division</p>
+    <div class="hero-meta">
+      <span>June 29, 2026</span>
+      <span class="prepared-for">Prepared for Joe &amp; Sam Drumheller</span>
+      <span style="margin-top: 8px; font-size: 0.65rem;">Prepared by AI Momentum Labs Intelligence Division</span>
+    </div>
+  </div>
+  <div class="scroll-indicator"></div>
+</section>
+
+<!-- ========== EXECUTIVE SUMMARY ========== -->
+<section id="summary">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Section 01 // Executive Summary</div>
+      <h2>SITUATION REPORT</h2>
+    </div>
+    <div class="exec-summary fade-in">
+      Two of your senior executives walked out the door and straight into your biggest competitor. They took 45+ years of combined institutional knowledge with them. Menard USA is using YOUR playbook to build THEIR dynamic compaction division. This briefing contains everything you need to stop them cold and take back your market.
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS DASHBOARD ========== -->
+<section id="dashboard">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label amber">Section 02 // Intelligence Dashboard</div>
+      <h2>KEY METRICS</h2>
+    </div>
+    <div class="stats-grid fade-in">
+      <div class="stat-card">
+        <span class="stat-number" data-target="33" data-suffix="">0</span>
+        <span class="stat-label">Years of DC<br>Experience</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="1000" data-suffix="+" data-prefix="">0</span>
+        <span class="stat-label">Projects<br>Completed</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="9.8" data-suffix="B" data-prefix="$" data-decimals="1">0</span>
+        <span class="stat-label">Ground Improvement<br>Market (2025)</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="6.8" data-suffix="%" data-decimals="1">0</span>
+        <span class="stat-label">Market<br>CAGR</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="5" data-suffix="" data-prefix="">0</span>
+        <span class="stat-label">Total DC Specialists<br>in the US</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="12" data-suffix=" mo" data-prefix="">0</span>
+        <span class="stat-label">Window<br>to Act</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THE DEFECTION ========== -->
+<section id="defection">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Section 03 // The Situation</div>
+      <h2>THE DEFECTION</h2>
+    </div>
+
+    <div class="card enemy fade-in">
+      <p>Two senior VPs left Densification and joined Menard USA, your biggest competitor with corporate backing from VINCI (French conglomerate, $65B+ revenue). This was not two guys starting a garage shop. They walked into a ~$250M subsidiary with 15+ offices and 200 to 400 employees. They took your institutional knowledge and handed it to a company with the resources to weaponize it.</p>
+    </div>
+
+    <div class="profile-card fade-in">
+      <h3>CHRIS WOODS, P.E., G.E.</h3>
+      <div class="profile-title">Former VP / Chief Engineer at Densification (~15 years)</div>
+      <ul>
+        <li>Prior to Densification: 13 years at Langan Engineering</li>
+        <li>Licensed Professional Engineer (P.E.) in 25+ states</li>
+        <li>Board-Certified Geotechnical Engineer (D.GE)</li>
+        <li>GeoStrata editorial board member; leadership roles in ASCE and DFI</li>
+        <li>Now: VP of Business Development at Menard USA (appointed October 7, 2025)</li>
+      </ul>
+      <div class="quote-block">
+        "During the past 15 years, I've worked to carve a path in the industry in dynamic compaction... Having the opportunity to join Menard, whose founder invented the process, is a bit of a full-circle moment."
+      </div>
+      <div class="impact-tag">Impact: Took client relationships, industry connections, technical credibility pipeline</div>
+    </div>
+
+    <div class="profile-card fade-in">
+      <h3>ROB SHAFFER, P.E.</h3>
+      <div class="profile-title">Former VP at Densification (30+ years, starting 1994)</div>
+      <ul>
+        <li>Joined one year after the company was founded</li>
+        <li>B.S. Civil Engineering, George Mason University</li>
+        <li>Rose through every level: field superintendent, project manager, estimator, engineer, equipment director, VP</li>
+        <li>Managed 500+ projects across 40 states and the Caribbean</li>
+        <li>Active with National Commission for Certification of Crane Operators (CCO)</li>
+        <li>Now: Director of Dynamic Compaction Operations at Menard USA</li>
+      </ul>
+      <div class="impact-tag">Impact: 30 years of operational knowledge, equipment expertise, crew management, project playbooks</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ENEMY PROFILE ========== -->
+<section id="enemy">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Section 04 // Know Your Enemy</div>
+      <h2 class="text-red">MENARD USA<span style="font-weight: 300; font-size: 0.5em; display: block; color: var(--text-muted); margin-top: 4px;">TARGET PROFILE</span></h2>
+    </div>
+
+    <!-- Corporate Hierarchy -->
+    <div class="fade-in">
+      <h3 style="text-align: center; color: var(--text-muted); margin-bottom: 24px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em;">Corporate Hierarchy</h3>
+      <div class="hierarchy">
+        <div class="hierarchy-node">
+          <div class="node-name">VINCI S.A.</div>
+          <div class="node-detail">$65B+ French multinational</div>
+        </div>
+        <div class="hierarchy-connector"></div>
+        <div class="hierarchy-node">
+          <div class="node-name">Soletanche Freyssinet</div>
+          <div class="node-detail">Specialty contracting division</div>
+        </div>
+        <div class="hierarchy-connector"></div>
+        <div class="hierarchy-node">
+          <div class="node-name">Menard Group</div>
+          <div class="node-detail">80+ countries, ~1,900 employees</div>
+        </div>
+        <div class="hierarchy-connector"></div>
+        <div class="hierarchy-node" style="border-color: var(--red); box-shadow: 0 0 20px var(--red-glow);">
+          <div class="node-name">MENARD USA</div>
+          <div class="node-detail">Pittsburgh, PA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Stats -->
+    <div class="fade-in" style="margin-top: 40px;">
+      <h3 style="color: var(--red);">Key Statistics</h3>
+      <table class="key-stats">
+        <tr><td>Revenue (est.)</td><td>~$250M</td></tr>
+        <tr><td>YoY Growth (peak)</td><td>32%</td></tr>
+        <tr><td>Employees</td><td>200 to 400</td></tr>
+        <tr><td>ENR Ranking (2025)</td><td>#156 (up from #177 in 2024)</td></tr>
+        <tr><td>Offices</td><td>15+ nationwide</td></tr>
+        <tr><td>CEO</td><td>Hubert Scache (French corporate executive)</td></tr>
+        <tr><td>Chairman</td><td>Seth Pearlman</td></tr>
+      </table>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;">Office locations: Pittsburgh, Baltimore/DC, Boston, Charleston SC, Chicago, Cleveland, Houston, Minneapolis, New Orleans, Philadelphia, Richmond VA, Syracuse, Tampa, Wilmington NC</p>
+    </div>
+
+    <!-- Side-by-Side Comparison -->
+    <div class="fade-in" style="margin-top: 48px;">
+      <h3 style="color: #fff;">Side-by-Side Comparison</h3>
+      <div style="overflow-x: auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Menard USA</th>
+              <th>Densification, Inc.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Revenue</td>
+              <td>$250M</td>
+              <td>$6.4M</td>
+            </tr>
+            <tr>
+              <td>Employees</td>
+              <td>200 to 400</td>
+              <td>11 to 50</td>
+            </tr>
+            <tr>
+              <td>ENR Ranking</td>
+              <td>#156</td>
+              <td>Dropped off (was #591)</td>
+            </tr>
+            <tr>
+              <td>Offices</td>
+              <td>15+</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Parent Company</td>
+              <td>VINCI ($65B conglomerate)</td>
+              <td>Independent, family-owned</td>
+            </tr>
+            <tr>
+              <td>DC Focus</td>
+              <td>One of 10+ techniques</td>
+              <td>Pure specialist, DC only</td>
+            </tr>
+            <tr>
+              <td>DC Track Record</td>
+              <td>"Since 1978" (via parent, in France)</td>
+              <td>1,000+ U.S. projects since 1993 (founder-led)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Acquisitions Timeline -->
+    <div class="fade-in" style="margin-top: 48px;">
+      <h3 style="color: var(--red);">Recent Acquisitions &amp; Hires</h3>
+      <div class="acq-timeline">
+        <div class="acq-item">
+          <div class="acq-date">Dec 2021</div>
+          <p class="acq-text">Acquired Farrell Design-Build (West Coast expansion)</p>
+        </div>
+        <div class="acq-item">
+          <div class="acq-date">Apr 2022</div>
+          <p class="acq-text">Acquired Earth Tech, LLC (Florida/Southeast)</p>
+        </div>
+        <div class="acq-item">
+          <div class="acq-date">Oct 2025</div>
+          <p class="acq-text">Hired Chris Woods as VP of Business Development</p>
+        </div>
+        <div class="acq-item">
+          <div class="acq-date">2025-2026</div>
+          <p class="acq-text">Hired Rob Shaffer as Director of DC Operations</p>
+        </div>
+        <div class="acq-item">
+          <div class="acq-date">Jan 2026</div>
+          <p class="acq-text">Rebranded Farrell &amp; Earth Tech under Menard name (integration in progress)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="fade-in" style="margin-top: 48px;">
+      <h3 style="color: var(--text-muted);">Services Offered (10+ techniques; DC is just one)</h3>
+      <div class="services-grid">
+        <div class="service-tag flagship">CMC Rigid Inclusions (flagship)</div>
+        <div class="service-tag">Stone Columns</div>
+        <div class="service-tag">Dynamic Compaction</div>
+        <div class="service-tag">Rapid Impact Compaction</div>
+        <div class="service-tag">Vibrocompaction</div>
+        <div class="service-tag">Wick Drains</div>
+        <div class="service-tag">Vacuum Consolidation</div>
+        <div class="service-tag">Aggregate Piers</div>
+        <div class="service-tag">Grouting</div>
+        <div class="service-tag">Soil Mixing</div>
+        <div class="service-tag">Dynamic Replacement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7 VULNERABILITIES ========== -->
+<section id="vulnerabilities">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Section 05 // Vulnerabilities</div>
+      <h2 class="text-red">SEVEN KILL SHOTS</h2>
+    </div>
+
+    <!-- Vuln 1 -->
+    <div class="card enemy fade-in">
+      <span class="card-number">01</span>
+      <h3>DC IS THEIR SIDE HUSTLE</h3>
+      <p>CMC rigid inclusions are Menard's proprietary flagship product, not dynamic compaction. When their sales team fields a call, they have a financial incentive to steer prospects toward CMC (proprietary, higher margin, lock-in). DC is generic with no lock-in. It will always get less corporate attention, less marketing spend, and less priority in their pipeline.</p>
+      <div class="exploit-box">
+        <span class="exploit-label">Exploit</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">"We don't have 10 techniques competing for our attention. We have one. When you call us, you talk to people who've done nothing but DC for 33 years. When you call Menard, you talk to a salesperson deciding whether to pitch you DC or sell you something more profitable for them."</p>
+      </div>
+    </div>
+
+    <!-- Vuln 2 -->
+    <div class="card enemy fade-in">
+      <span class="card-number">02</span>
+      <h3>CORPORATE OVERHEAD = HIGHER PRICES</h3>
+      <p>200 to 400 employees. 15+ offices. French parent company. Layers of management: Chairman, CEO, CFO, multiple SVPs, VPs, Directors. All of it baked into their bids. On a pure DC project, Densification can undercut them by 10-20% while maintaining healthy margins.</p>
+      <div class="exploit-box">
+        <span class="exploit-label">Exploit</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">Every dollar of corporate overhead is a dollar you don't carry. On a $500K project, that's $50K to $100K in difference. Your lean structure is a pricing weapon they cannot match without bleeding margin.</p>
+      </div>
+    </div>
+
+    <!-- Vuln 3 -->
+    <div class="card enemy fade-in">
+      <span class="card-number">03</span>
+      <h3>DIGESTING TWO ACQUISITIONS</h3>
+      <p>Farrell Design-Build (2021) and Earth Tech (2022) were just rebranded under the Menard name as of January 2026. Cultural integration takes 2 to 3 years minimum. They are in the messy middle right now. Senior management attention is split. Systems are being unified. Employees are uncertain about roles and culture.</p>
+      <div class="exploit-box">
+        <span class="exploit-label">Exploit</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">While Menard is focused inward on integration headaches, Densification focuses outward on clients. Their distraction is your opportunity.</p>
+      </div>
+    </div>
+
+    <!-- Vuln 4 -->
+    <div class="card enemy fade-in">
+      <span class="card-number">04</span>
+      <h3>DC EXPERTISE IS TWO PEOPLE DEEP</h3>
+      <p>Menard's entire DC capability rests on Woods and Shaffer. Their existing staff is trained in CMC and vibro techniques, not dynamic compaction. If either hire leaves, gets promoted into a corporate role, or underperforms, the DC division crumbles. Meanwhile, Densification still has Joe (33 years), Sam (9 years), Robert Fulton (29 years), and the field crews who actually do the work.</p>
+      <div class="exploit-box">
+        <span class="exploit-label">Exploit</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">"They hired the generals but don't have the army. We kept both."</p>
+      </div>
+    </div>
+
+    <!-- Vuln 5 -->
+    <div class="card enemy fade-in">
+      <span class="card-number">05</span>
+      <h3>FRENCH CORPORATE DECISION-MAKING</h3>
+      <p>Every significant decision flows through Soletanche Freyssinet to VINCI S.A. Pricing approvals, capital investments, equipment purchases, new market entries: all require corporate approval chains across time zones and management layers. Joe Drumheller says yes on the spot.</p>
+      <div class="exploit-box">
+        <span class="exploit-label">Exploit</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">Speed kills in construction bidding. Respond faster. Mobilize faster. Decide faster. Every hour of corporate delay is an hour you're already onsite.</p>
+      </div>
+    </div>
+
+    <!-- Vuln 6 -->
+    <div class="card enemy fade-in">
+      <span class="card-number">06</span>
+      <h3>THE "INVENTOR" NARRATIVE IS HOLLOW</h3>
+      <p>Menard claims Louis Menard invented dynamic compaction in France in the 1970s. Technically true. But in the U.S. market, what matters is not who invented the technique in a European research lab. What matters is who has done the most work, in American soil, on American projects.</p>
+      <div class="exploit-box">
+        <span class="exploit-label">Exploit</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">"They invented it in a French lab. We perfected it in American dirt. 1,000+ projects. 33 years. One focus."</p>
+      </div>
+    </div>
+
+    <!-- Vuln 7 -->
+    <div class="card enemy fade-in">
+      <span class="card-number">07</span>
+      <h3>STAFFING PRESSURE</h3>
+      <p>Glassdoor rating: 4.3 out of 5, but reviews tell a different story. Employees mention "hectic stressful atmosphere," insufficient staffing, difficulty joining learning opportunities, and at least one review describes a "toxic" culture. Integrating three companies under one brand will intensify every one of those pressures.</p>
+      <div class="exploit-box">
+        <span class="exploit-label">Exploit</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">Recruit their talent. Engineers who want focused specialist work, not corporate meetings and integration chaos. Be the lifeboat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THE BATTLE PLAN ========== -->
+<section id="battleplan">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label amber">Section 06 // The Battle Plan</div>
+      <h2 class="text-amber">THE KILL ORDER</h2>
+      <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">Seven moves. Six to twelve months. Complete market dominance.</p>
+    </div>
+
+    <!-- Move 1 -->
+    <div class="card friendly fade-in">
+      <span class="card-number">01</span>
+      <h3>OWN THE SPECIALIST POSITION</h3>
+      <ul class="intel-list">
+        <li>Update website headline: "America's #1 Dynamic Compaction Specialist"</li>
+        <li>Build comparison content: specialist vs. generalist (why it matters)</li>
+        <li>Launch "1,000 Projects" campaign across all channels</li>
+        <li>Position Joe's 43-year career as an unreplicable asset no competitor can buy</li>
+      </ul>
+      <div class="move-box">
+        <span class="move-label">Key Message</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">In medicine, you want a cardiologist for heart surgery, not a general practitioner who also does hearts. The same logic applies here.</p>
+      </div>
+    </div>
+
+    <!-- Move 2 -->
+    <div class="card friendly fade-in">
+      <span class="card-number">02</span>
+      <h3>WEAPONIZE SPEED</h3>
+      <ul class="intel-list">
+        <li>48-hour bid turnaround on standard DC projects</li>
+        <li>Same-day responses to all RFPs and inquiries</li>
+        <li>No corporate approval chain; Joe and Sam approve on the spot</li>
+        <li>Pre-position equipment in key regional markets</li>
+        <li>Standardize bid templates using data from 1,000+ project history</li>
+      </ul>
+      <div class="move-box">
+        <span class="move-label">Key Message</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">The contractor who responds fastest gets the job. While Menard's bid is waiting in someone's inbox in Paris, yours is already signed.</p>
+      </div>
+    </div>
+
+    <!-- Move 3 -->
+    <div class="card friendly fade-in">
+      <span class="card-number">03</span>
+      <h3>WIN ON PRICE (STRATEGICALLY)</h3>
+      <ul class="intel-list">
+        <li>Identify markets where Woods and Shaffer are actively selling</li>
+        <li>Bid 10-15% below Menard on targeted, high-visibility projects</li>
+        <li>Accept short-term margin compression to deny them reference projects</li>
+        <li>When Menard's DC pipeline stalls, corporate deprioritizes the division</li>
+      </ul>
+      <div class="move-box">
+        <span class="move-label">Key Message</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">You can be profitable at prices they cannot match. Use that surgically on the projects that matter most for pipeline credibility.</p>
+      </div>
+    </div>
+
+    <!-- Move 4 -->
+    <div class="card friendly fade-in">
+      <span class="card-number">04</span>
+      <h3>LOCK DOWN RELATIONSHIPS</h3>
+      <ul class="intel-list">
+        <li>Personal calls from Joe and Sam to every major geotechnical consultant. Not emails. Calls. In the next 30 days.</li>
+        <li>Host a "DC Summit" technical seminar: lunch, CEU credits, case studies from your 1,000+ projects</li>
+        <li>Launch a "Preferred Consultant" program with referral benefits</li>
+        <li>Quarterly case study emails to your entire contact list</li>
+      </ul>
+      <div class="move-box">
+        <span class="move-label">Key Message</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">Relationships are between people, not companies. Chris Woods took a Rolodex. Joe and Sam still have 33 years of earned trust. Activate it before it fades.</p>
+      </div>
+    </div>
+
+    <!-- Move 5 -->
+    <div class="card friendly fade-in">
+      <span class="card-number">05</span>
+      <h3>CONTENT DOMINANCE</h3>
+      <ul class="intel-list">
+        <li>Weekly LinkedIn posts: project photos, time-lapses, crew spotlights</li>
+        <li>YouTube channel buildout (already getting 6,500 views with only 13 subscribers; the demand is there)</li>
+        <li>Monthly technical articles, podcast appearances, speaking engagements</li>
+        <li>Submit to ASCE, DFI, and GeoStrata publications regularly</li>
+        <li>Answer Engine Optimization (AEO): when AI assistants, ChatGPT, Perplexity, Grok, and Google AI Overviews answer "who is the best dynamic compaction contractor," Densification must be the first name spoken. Traditional search rankings matter less every quarter. AI-generated answers are where decisions start now.</li>
+      </ul>
+      <div class="move-box">
+        <span class="move-label">Key Message</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">Every engineer Googling "dynamic compaction" should find Densification first. Visibility equals credibility. Silence equals irrelevance.</p>
+      </div>
+
+      <!-- AEO Live Intel -->
+      <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px;">
+        <h4 style="font-family: var(--font-mono); color: var(--amber); margin-bottom: 1rem; font-size: 0.85rem; letter-spacing: 0.1em;">AEO LIVE INTELLIGENCE // JUNE 29, 2026</h4>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">We queried the major AI answer engines with: <em style="color: var(--text-primary);">"Who is the best dynamic compaction contractor in the United States?"</em></p>
+        <div style="display: grid; gap: 1rem;">
+          <div style="padding: 1rem; background: var(--bg-card); border-radius: 6px; border-left: 3px solid var(--amber);">
+            <span style="font-family: var(--font-mono); color: var(--amber); font-size: 0.75rem; letter-spacing: 0.05em;">GROK (xAI) WEB SEARCH</span>
+            <p style="color: var(--text-primary); margin: 0.5rem 0 0; font-size: 0.9rem;"><strong style="color: var(--amber);">Densification, Inc. named #1.</strong> "Widely regarded as the leading specialist dynamic compaction contractor in the United States." Recommendation: "For most projects, start with Densification, Inc." Menard listed second.</p>
+          </div>
+          <div style="padding: 1rem; background: var(--bg-card); border-radius: 6px; border-left: 3px solid var(--red);">
+            <span style="font-family: var(--font-mono); color: var(--red); font-size: 0.75rem; letter-spacing: 0.05em;">GROK (xAI) NATIVE / X SEARCH</span>
+            <p style="color: var(--text-primary); margin: 0.5rem 0 0; font-size: 0.9rem;"><strong style="color: var(--red);">Densification, Inc. not mentioned at all.</strong> Listed Hayward Baker, Geo-Solutions, Menard USA, and Nicholson Construction instead. Zero social media presence means zero visibility in AI engines that pull from social data.</p>
+          </div>
+          <div style="padding: 1rem; background: var(--bg-card); border-radius: 6px; border-left: 3px solid var(--text-dim);">
+            <span style="font-family: var(--font-mono); color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.05em;">WHAT THIS MEANS</span>
+            <p style="color: var(--text-primary); margin: 0.5rem 0 0; font-size: 0.9rem;">Densification wins when AI engines pull from websites and structured data (where your 1,000+ project track record dominates). But you're invisible on social platforms, which means AI engines that weight social signals skip you entirely. That gap will widen as AI answers replace traditional search. LinkedIn, YouTube, and X content isn't optional anymore. It's how the next generation of clients will find you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Move 6 -->
+    <div class="card friendly fade-in">
+      <span class="card-number">06</span>
+      <h3>RECRUIT THEIR TALENT</h3>
+      <ul class="intel-list">
+        <li>Position Densification as the destination for DC-focused engineers</li>
+        <li>Offer competitive compensation (Menard's Glassdoor reviews show staffing pressure)</li>
+        <li>Sell the culture: family-owned, direct leadership access, no corporate meetings</li>
+        <li>Target mid-level engineers frustrated with integration chaos</li>
+      </ul>
+      <div class="move-box">
+        <span class="move-label">Key Message</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">Be the lifeboat for talented people who would rather work at a focused specialist than sit through another corporate town hall about synergies.</p>
+      </div>
+    </div>
+
+    <!-- Move 7 -->
+    <div class="card friendly fade-in">
+      <span class="card-number">07</span>
+      <h3>SYSTEMATIZE EVERYTHING</h3>
+      <ul class="intel-list">
+        <li>Build a digital "project brain" from 1,000+ completed projects</li>
+        <li>Automate bid estimation using historical project data</li>
+        <li>Implement CRM workflows for consultant and GC relationships</li>
+        <li>Deploy financial controls and anomaly detection</li>
+        <li>Generate marketing content automatically from project data</li>
+        <li>Capture Joe's decision-making frameworks and operational knowledge before retirement</li>
+      </ul>
+      <div class="move-box">
+        <span class="move-label">Key Message</span>
+        <p style="margin-bottom: 0; color: var(--text-primary);">"What if the next person who leaves can't take your business with them because the knowledge stays in the system?" That's the goal. Make the company smarter than any single employee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THE WINDOW ========== -->
+<section id="window">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Section 07 // Timing Analysis</div>
+      <h2>THE WINDOW</h2>
+    </div>
+
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-date">October 2025</div>
+        <div class="timeline-text">Chris Woods hired as VP of Business Development (8 months ago; still building pipeline)</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2025-2026</div>
+        <div class="timeline-text">Rob Shaffer hired as Director of DC Operations (building operational capability)</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">January 2026</div>
+        <div class="timeline-text">Farrell &amp; Earth Tech rebranded under Menard name (integration in progress, management distracted)</div>
+      </div>
+      <div class="timeline-item now">
+        <div class="timeline-date">Now: June 2026</div>
+        <div class="timeline-text" style="color: var(--amber); font-weight: 600;">Menard DC division is still in startup mode. Woods is selling but hasn't built a deep pipeline yet. Shaffer is building ops but hasn't proven the team. This is the window.</div>
+      </div>
+      <div class="timeline-item future">
+        <div class="timeline-date">Late 2026 to 2027</div>
+        <div class="timeline-text">If nothing changes, Menard establishes a DC pipeline, wins reference projects, and builds credibility</div>
+      </div>
+      <div class="timeline-item future">
+        <div class="timeline-date">2027+</div>
+        <div class="timeline-text">Much harder to compete. Menard will have their own track record, established client relationships, and corporate backing that's difficult to outspend</div>
+      </div>
+    </div>
+
+    <div class="callout fade-in">
+      <div class="callout-text">The next <span class="text-amber" style="font-weight: 800; font-size: 1.4em;">6 to 12 months</span> is the window.<br>After that, Menard's DC division will have its own track record, client relationships, and corporate backing that's hard to outspend.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHAT YOU ALREADY HAVE ========== -->
+<section id="assets">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label amber">Section 08 // Your Arsenal</div>
+      <h2 class="text-amber">WHAT YOU ALREADY HAVE</h2>
+    </div>
+
+    <h3 class="fade-in" style="color: var(--amber); margin-bottom: 24px;">Existing Advantages</h3>
+    <div class="advantage-grid fade-in">
+      <div class="advantage-item">
+        <h4>Joe Drumheller</h4>
+        <p>43+ years in ground improvement. 1,000+ projects. ASCE published author. GeoStrata cover feature. The most experienced DC specialist in the United States.</p>
+      </div>
+      <div class="advantage-item">
+        <h4>Sam Drumheller</h4>
+        <p>Virginia Tech M.S., Silver Line Metro experience, 9 years rising through the company. The succession plan is already in place.</p>
+      </div>
+      <div class="advantage-item">
+        <h4>Robert Fulton</h4>
+        <p>29 years of field experience. The kind of operational depth that no corporate hire can replicate.</p>
+      </div>
+      <div class="advantage-item">
+        <h4>Field Crews</h4>
+        <p>The people who actually do the work stayed. Menard got two executives. You kept the army.</p>
+      </div>
+      <div class="advantage-item">
+        <h4>Track Record</h4>
+        <p>Flight 93 Memorial. Prudential Center. JFK Airport. Bahia Beach Resort. Projects that define credibility.</p>
+      </div>
+      <div class="advantage-item">
+        <h4>Industry Recognition</h4>
+        <p>ENR Top 600 (2022-23). GeoStrata cover (2023). DFI Journal cover. The industry already knows who you are.</p>
+      </div>
+    </div>
+
+    <h3 class="fade-in" style="color: var(--amber); margin-top: 48px; margin-bottom: 24px;">Market Tailwinds</h3>
+    <div class="advantage-grid fade-in">
+      <div class="advantage-item">
+        <h4>$9.8B Market, Growing</h4>
+        <p>Ground improvement market at 6.8% CAGR, projected to hit $17.6B by 2034. The pie is getting bigger every year.</p>
+      </div>
+      <div class="advantage-item">
+        <h4>DC Machine Market</h4>
+        <p>$846M dynamic compaction machine market growing to $1.5B by 2035. Equipment demand is surging.</p>
+      </div>
+      <div class="advantage-item">
+        <h4>Infrastructure Boom</h4>
+        <p>Data centers, transportation, energy projects: all driving demand for ground improvement on a massive scale.</p>
+      </div>
+      <div class="advantage-item">
+        <h4>Sustainability Push</h4>
+        <p>DC aligns perfectly: no chemicals, minimal environmental impact, natural soil densification. It sells itself to ESG-conscious clients.</p>
+      </div>
+      <div class="advantage-item">
+        <h4>Marginal Site Construction</h4>
+        <p>Rising construction on landfill sites, brownfields, and marginal ground. These are DC's sweet spot, and demand is accelerating.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THE BOTTOM LINE ========== -->
+<section id="bottomline">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Section 09 // The Bottom Line</div>
+      <h2>FINAL ASSESSMENT</h2>
+    </div>
+
+    <div class="fade-in">
+      <p class="bottom-line-text">You didn't lose to a better company. You lost two people who took your playbook to a company with deeper pockets. That's a gut punch. But it's a solvable problem.</p>
+
+      <p class="bottom-line-text">Menard USA is a $250M corporate subsidiary that just started caring about dynamic compaction because they hired your people. You're a $6.4M specialist that's been doing nothing else for 33 years. That's not a weakness. That's a weapon.</p>
+
+      <ul class="comparison-lines">
+        <li><span class="them">They have more money.</span> <span class="you">You have more knowledge.</span></li>
+        <li><span class="them">They have more offices.</span> <span class="you">You have more projects.</span></li>
+        <li><span class="them">They have more employees.</span> <span class="you">You have more focus.</span></li>
+        <li><span class="them">They have your former VP's Rolodex.</span> <span class="you">You have 33 years of earned trust.</span></li>
+      </ul>
+
+      <p class="bottom-line-text">The companies that win in specialty contracting are not the biggest. They're the most focused, the most responsive, and the most trusted. Menard can buy scale. They can't buy your reputation.</p>
+
+      <div class="callout" style="margin-top: 40px;">
+        <div class="callout-text" style="font-size: 1.3rem; font-weight: 700; color: #fff;">But you have to move. Now.<br><span style="color: var(--red);">Before the window closes.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="fade-in">
+      <div class="classification" style="margin-bottom: 32px;">Ready to Execute?</div>
+      <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); color: #fff; margin-bottom: 24px;">THE NEXT MOVE IS YOURS</h2>
+      <p style="max-width: 700px; margin: 0 auto 16px; font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8;">This briefing was prepared by AI Momentum Labs. The same intelligence systems that built this analysis can be deployed inside your business: capturing institutional knowledge, automating bid estimation, managing client relationships, and ensuring no future departure ever hurts like the last one.</p>
+      <p style="max-width: 700px; margin: 0 auto; font-size: 1.05rem; color: var(--text-primary); font-weight: 500;">If you want to talk about what that looks like for Densification, we're one message away.</p>
+      <a href="https://wa.me/18583063111?text=Joe%20Drumheller%20%2F%20Densification%20Inc.%20-%20I%20read%20the%20briefing.%20Let%27s%20talk." class="cta-button">START THE CONVERSATION</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <p>Prepared by AI Momentum Labs Intelligence Division // June 2026</p>
+  <p>All data compiled from public sources. No proprietary or classified information was accessed.</p>
+  <p style="margin-top: 12px;"><a href="https://aimomentumlabs.com">aimomentumlabs.com</a></p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+(function() {
+  'use strict';
+
+  // ===== INTERSECTION OBSERVER: FADE-IN =====
+  const fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(function(el) {
+    fadeObserver.observe(el);
+  });
+
+  // ===== ANIMATED COUNTERS =====
+  var countersAnimated = false;
+
+  function animateCounters() {
+    if (countersAnimated) return;
+    countersAnimated = true;
+
+    document.querySelectorAll('.stat-number').forEach(function(counter) {
+      var target = parseFloat(counter.getAttribute('data-target'));
+      var suffix = counter.getAttribute('data-suffix') || '';
+      var prefix = counter.getAttribute('data-prefix') || '';
+      var decimals = parseInt(counter.getAttribute('data-decimals') || '0', 10);
+      var duration = 2000;
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        // Ease out cubic
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = eased * target;
+
+        if (decimals > 0) {
+          counter.textContent = prefix + current.toFixed(decimals) + suffix;
+        } else {
+          counter.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          if (decimals > 0) {
+            counter.textContent = prefix + target.toFixed(decimals) + suffix;
+          } else {
+            counter.textContent = prefix + target.toLocaleString() + suffix;
+          }
+        }
+      }
+
+      requestAnimationFrame(step);
+    });
+  }
+
+  var statsSection = document.getElementById('dashboard');
+  if (statsSection) {
+    var counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCounters();
+        }
+      });
+    }, { threshold: 0.3 });
+    counterObserver.observe(statsSection);
+  }
+
+  // ===== STICKY NAV: SECTION HIGHLIGHTING =====
+  var navLinks = document.querySelectorAll('.nav-link[data-section]');
+  var sections = [];
+
+  navLinks.forEach(function(link) {
+    var id = link.getAttribute('data-section');
+    var section = document.getElementById(id);
+    if (section) {
+      sections.push({ id: id, el: section, link: link });
+    }
+  });
+
+  function updateActiveNav() {
+    var scrollY = window.scrollY + 120;
+    var current = '';
+
+    sections.forEach(function(s) {
+      if (s.el.offsetTop <= scrollY) {
+        current = s.id;
+      }
+    });
+
+    navLinks.forEach(function(link) {
+      if (link.getAttribute('data-section') === current) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  var navTicking = false;
+  window.addEventListener('scroll', function() {
+    if (!navTicking) {
+      requestAnimationFrame(function() {
+        updateActiveNav();
+        navTicking = false;
+      });
+      navTicking = true;
+    }
+  });
+
+  // ===== MOBILE NAV: CLOSE ON CLICK =====
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+
+  // Initial call
+  updateActiveNav();
+
+})();
+</script>
+</body>
+</html>
