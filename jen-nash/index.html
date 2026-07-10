@@ -10,7 +10,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>OSCortex Intel Brief — Jen Nash | AI Momentum Labs</title>
+<title>Your Business Intelligence Report — Jen Nash | AI Momentum Labs</title>
 <meta name="robots" content="noindex, nofollow" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,6 +35,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --amber-bg: #fef3c7;
     --blue: #1a5fa8;
     --blue-bg: #e0f0ff;
+    --purple: #6d28d9;
+    --purple-bg: #f0e6ff;
   }
 
   html { scroll-behavior: smooth; }
@@ -44,19 +46,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
-  }
-
-  /* ── CLASSIFIED BANNER ── */
-  .classified-banner {
-    background: #1a0000;
-    border-bottom: 2px solid #8b0000;
-    text-align: center;
-    padding: 8px 16px;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: #ff4444;
   }
 
   /* ── HERO ── */
@@ -141,30 +130,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: #666;
     line-height: 1.4;
   }
-  .clearance-bar {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(200,169,110,0.08);
-    border: 1px solid rgba(200,169,110,0.2);
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-  .clearance-dot {
-    width: 6px; height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
 
   /* ── CONTAINER ── */
   .container {
@@ -199,7 +164,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .divider { width: 40px; height: 3px; background: var(--gold); margin: 0 0 28px; border-radius: 2px; }
 
-  /* ── INTEL PROFILE ── */
+  /* ── PROFILE ── */
   .profile-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -273,52 +238,80 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     margin-bottom: 20px;
   }
+  .exec-box p { margin-bottom: 16px; }
+  .exec-box p:last-child { margin-bottom: 0; }
 
-  /* ── OPPORTUNITY CARDS ── */
-  .opps {
+  /* ── MOAT SECTION ── */
+  .moat-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
     margin-bottom: 20px;
   }
-  .opp-card {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 22px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    border-top: 3px solid var(--gold);
+  .moat-card {
+    background: var(--dark);
+    border-radius: 14px;
+    padding: 28px;
+    border: 1px solid #2a2a2a;
+    position: relative;
+    overflow: hidden;
   }
-  .opp-card.danger { border-top-color: var(--red); }
-  .opp-card.green { border-top-color: var(--green); }
-  .opp-card.blue { border-top-color: var(--blue); }
-  .opp-tag {
-    display: inline-block;
+  .moat-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(200,169,110,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .moat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--gold-dim);
+    border: 1px solid rgba(200,169,110,0.3);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .moat-label {
     font-size: 9px;
     font-weight: 800;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    padding: 3px 9px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    background: var(--gold-light);
-    color: #8a6d2a;
-  }
-  .opp-card.danger .opp-tag { background: var(--red-bg); color: var(--red); }
-  .opp-card.green .opp-tag { background: var(--green-bg); color: var(--green); }
-  .opp-card.blue .opp-tag { background: var(--blue-bg); color: var(--blue); }
-  .opp-num {
-    font-size: 30px;
-    font-weight: 800;
-    color: var(--dark);
-    line-height: 1.1;
+    color: #555;
     margin-bottom: 6px;
   }
-  .opp-card.danger .opp-num { color: var(--red); }
-  .opp-card.green .opp-num { color: var(--green); }
-  .opp-card.blue .opp-num { color: var(--blue); }
-  .opp-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .moat-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .moat-body {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.65;
+  }
+  .moat-summary {
+    background: var(--dark);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(200,169,110,0.2);
+  }
+  .moat-summary-text {
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.75;
+    text-align: center;
+  }
+  .moat-summary-text strong { color: var(--gold); font-weight: 700; }
 
-  /* ── HIDDEN OPP CARDS ── */
+  /* ── HIDDEN OPPORTUNITY CARDS ── */
   .hidden-opps { display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px; }
   .hidden-card {
     background: var(--dark);
@@ -357,7 +350,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight: 800;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #444;
+    color: #555;
     margin-bottom: 6px;
   }
   .hc-title {
@@ -392,59 +385,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ── AEO AUDIT ── */
   .aeo-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
-  .aeo-row {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 18px 22px;
-    border: 1px solid var(--border);
-    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-    display: grid;
-    grid-template-columns: 1fr 80px 80px 80px 80px;
-    gap: 12px;
-    align-items: center;
-  }
-  .aeo-row.header {
-    background: var(--dark);
-    border-color: transparent;
-  }
-  .aeo-query {
-    font-size: 13.5px;
-    font-weight: 600;
-    color: var(--dark);
-    line-height: 1.4;
-  }
-  .aeo-row.header .aeo-query,
-  .aeo-row.header .aeo-score { color: #777; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
-  .aeo-score {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 700;
-  }
-  .score-pill {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-  }
-  .score-missing { background: var(--red-bg); color: var(--red); }
-  .score-weak { background: var(--amber-bg); color: var(--amber); }
-  .score-ok { background: #e8f5e9; color: #2e7d32; }
-  .score-strong { background: #1b5e20; color: #a5d6a7; }
-  .aeo-note {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 6px;
-    line-height: 1.5;
-  }
   .aeo-full-row {
     background: var(--white);
     border-radius: 12px;
     padding: 20px 22px;
     border: 1px solid var(--border);
     box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-    margin-bottom: 12px;
   }
   .aeo-full-query {
     font-size: 14px;
@@ -496,6 +442,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: var(--green);
     margin-right: 4px;
   }
+  .aeo-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.5;
+    font-style: italic;
+  }
   .aeo-summary {
     background: var(--dark);
     border-radius: 14px;
@@ -524,7 +477,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .aeo-summary-label { font-size: 11px; color: #666; line-height: 1.4; }
 
-  /* ── PRIORITY STACK ── */
+  /* ── PRIORITY / BUILD STACK ── */
   .priority-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px; }
   .priority-card {
     background: var(--white);
@@ -565,6 +518,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .p-tag.amber { background: var(--amber-bg); color: var(--amber); }
   .p-tag.blue { background: var(--blue-bg); color: var(--blue); }
   .p-tag.red { background: var(--red-bg); color: var(--red); }
+  .p-tag.purple { background: var(--purple-bg); color: var(--purple); }
   .p-phase {
     font-size: 10px;
     font-weight: 700;
@@ -575,753 +529,694 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     white-space: nowrap;
   }
 
-  /* ── FIT SCORE ── */
-  .fit-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  /* ── DAY ONE / BEFORE-AFTER ── */
+  .day1-grid {
+    display: flex;
+    flex-direction: column;
     gap: 14px;
     margin-bottom: 20px;
   }
-  .fit-card {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 22px;
-    border: 1px solid var(--border);
-    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
-  }
-  .fit-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-  .fit-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 7px 0;
-    border-bottom: 1px solid #f0ede8;
-    gap: 12px;
-  }
-  .fit-item:last-child { border-bottom: none; }
-  .fit-item-name { font-size: 13px; color: var(--dark); }
-  .fit-bar-wrap { display: flex; align-items: center; gap: 8px; }
-  .fit-bar {
-    width: 80px;
-    height: 6px;
-    background: #eee;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .fit-bar-fill {
-    height: 100%;
-    background: var(--gold);
-    border-radius: 3px;
-  }
-  .fit-bar-fill.green { background: var(--green); }
-  .fit-bar-fill.red { background: var(--red); }
-  .fit-score-num { font-size: 12px; font-weight: 700; color: var(--dark); min-width: 28px; text-align: right; }
-  .fit-total {
-    background: var(--dark);
-    border-radius: 12px;
-    padding: 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    grid-column: 1 / -1;
-  }
-  .fit-total-label { font-size: 14px; font-weight: 700; color: #aaa; }
-  .fit-total-score {
-    font-size: 42px;
-    font-weight: 800;
-    color: var(--gold);
-  }
-  .fit-total-sub { font-size: 12px; color: #555; margin-top: 4px; }
-
-  /* ── CRUMB TABLE ── */
-  .table-wrap {
+  .day1-card {
     background: var(--white);
     border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 24px 28px;
     border: 1px solid var(--border);
-    margin-bottom: 16px;
-  }
-  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  thead { background: var(--dark); color: var(--white); }
-  thead th { padding: 12px 16px; text-align: left; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
-  tbody tr { border-bottom: 1px solid var(--border); }
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: #fafaf8; }
-  tbody td { padding: 11px 16px; color: var(--text); vertical-align: top; line-height: 1.5; }
-  .badge {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 20px;
-    letter-spacing: 0.04em;
-  }
-  .badge-green { background: var(--green-bg); color: var(--green); }
-  .badge-amber { background: var(--amber-bg); color: var(--amber); }
-  .badge-red { background: var(--red-bg); color: var(--red); }
-  .badge-blue { background: var(--blue-bg); color: var(--blue); }
-  .badge-gray { background: #f0f0f0; color: #666; }
-
-  /* ── NEXT STEPS ── */
-  .steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
-  .step {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 18px 22px;
-    display: flex;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: grid;
+    grid-template-columns: 1fr 44px 1fr;
     gap: 16px;
-    align-items: start;
-    border: 1px solid var(--border);
-    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    align-items: center;
   }
-  .step-num {
-    width: 28px; height: 28px;
-    border-radius: 7px;
-    background: var(--dark);
+  .day1-before, .day1-after {
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .day1-before {
+    color: var(--muted);
+    text-align: right;
+    padding-right: 8px;
+  }
+  .day1-after {
+    color: var(--dark);
+    font-weight: 600;
+    padding-left: 8px;
+  }
+  .day1-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+    border: 1px solid rgba(200,169,110,0.3);
     color: var(--gold);
-    font-size: 12px;
-    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
     flex-shrink: 0;
   }
-  .step-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
-  .step-desc { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+  .day1-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .day1-before .day1-label { color: var(--muted); }
+  .day1-header {
+    display: grid;
+    grid-template-columns: 1fr 44px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 0 28px 12px;
+  }
+  .day1-header-text {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .day1-header-text:first-child { text-align: right; }
 
   /* ── FOOTER ── */
   .footer {
     background: var(--dark);
-    color: #555;
+    color: #888;
     text-align: center;
-    padding: 40px 32px;
+    padding: 56px 32px;
     margin-top: 72px;
-    font-size: 12px;
-    line-height: 1.7;
+    font-size: 14px;
+    line-height: 1.8;
     border-top: 1px solid #1a1a1a;
+    position: relative;
+    overflow: hidden;
+  }
+  .footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(200,169,110,0.06) 0%, transparent 70%);
+    pointer-events: none;
   }
   .footer strong { color: var(--gold); }
-  .footer-classified {
-    display: inline-block;
-    margin-top: 16px;
-    font-size: 9px;
+  .footer-heading {
+    font-size: 22px;
     font-weight: 800;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: #2a2a2a;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .footer-body {
+    font-size: 14.5px;
+    color: #999;
+    max-width: 540px;
+    margin: 0 auto 28px;
+    line-height: 1.75;
+  }
+  .footer-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 14px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    margin-bottom: 32px;
+  }
+  .footer-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .footer-fine {
+    font-size: 12px;
+    color: #444;
+    margin-top: 20px;
   }
 
   @media (max-width: 680px) {
     .profile-grid { grid-template-columns: 1fr; }
     .profile-card.full { grid-column: auto; }
-    .aeo-row { grid-template-columns: 1fr; gap: 8px; }
-    .aeo-row.header { display: none; }
     .hidden-card { grid-template-columns: 48px 1fr; }
     .hc-value { display: none; }
     .priority-card { grid-template-columns: 44px 1fr; }
     .p-phase { display: none; }
-    .fit-grid { grid-template-columns: 1fr; }
     .aeo-summary-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .hero-stats { flex-direction: column; align-items: center; }
+    .moat-grid { grid-template-columns: 1fr; }
+    .day1-card { grid-template-columns: 1fr; gap: 8px; text-align: center; }
+    .day1-before { text-align: center; padding-right: 0; }
+    .day1-after { padding-left: 0; text-align: center; }
+    .day1-arrow { margin: 0 auto; }
+    .day1-header { display: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPQ2SSHM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-<!-- CLASSIFIED BANNER -->
-<div class="classified-banner">&#9632; Confidential &nbsp;·&nbsp; OSCortex Intelligence Brief &nbsp;·&nbsp; Authorized Personnel Only &#9632;</div>
-
-<!-- HERO -->
+<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
 <div class="hero">
   <div class="hero-meta">
     <div class="hero-meta-item gold">AI Momentum Labs</div>
     <div class="hero-meta-sep"></div>
-    <div class="hero-meta-item">OSCortex Deployment Intel</div>
+    <div class="hero-meta-item">Business Intelligence Report</div>
     <div class="hero-meta-sep"></div>
-    <div class="hero-meta-item">File: JN-2026-0710</div>
-    <div class="hero-meta-sep"></div>
-    <div class="hero-meta-item">Compiled: July 10, 2026</div>
+    <div class="hero-meta-item">July 2026</div>
   </div>
-  <div class="hero-subject-label">Subject Profile</div>
+  <div class="hero-subject-label">Prepared Exclusively For</div>
   <h1>Jen Nash<br><span>Priceless Financial Coaching</span></h1>
   <p class="hero-title">Glenwood, Iowa &nbsp;&middot;&nbsp; <strong>AFC&reg; &middot; Neuroscience Coach &middot; HIPAA Compliant</strong></p>
   <div class="hero-stats">
     <div class="hero-stat">
       <div class="hero-stat-num">3</div>
-      <div class="hero-stat-label">Revenue streams<br>run by 1 person</div>
+      <div class="hero-stat-label">Service lines with distinct<br>automation potential</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num">0</div>
-      <div class="hero-stat-label">AI tools in<br>current stack</div>
+      <div class="hero-stat-num">6</div>
+      <div class="hero-stat-label">Credentials that define<br>your competitive moat</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num">$379</div>
-      <div class="hero-stat-label">Per-person coaching rate<br>w/ no follow-up system</div>
+      <div class="hero-stat-num">3</div>
+      <div class="hero-stat-label">First-mover AEO opportunities<br>nobody else owns</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num">91/100</div>
-      <div class="hero-stat-label">OSCortex<br>fit score</div>
+      <div class="hero-stat-num">30+</div>
+      <div class="hero-stat-label">Days of content from<br>a single appearance</div>
     </div>
-  </div>
-  <div class="clearance-bar">
-    <div class="clearance-dot"></div>
-    Intelligence Brief Active
   </div>
 </div>
 
 <div class="container">
 
-  <!-- SUBJECT PROFILE -->
-  <div class="section">
-    <div class="section-eyebrow">Subject Profile</div>
-    <div class="section-title">Who She Is</div>
-    <div class="divider"></div>
+<!-- ═══════════════════════════════════════ WHO YOU ARE ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-eyebrow">Your Profile</div>
+  <div class="section-title">Who You Are</div>
+  <div class="section-sub">The foundation we build on: your credentials, your business, and the people you serve.</div>
+  <div class="divider"></div>
 
-    <div class="profile-grid">
-      <div class="profile-card">
-        <div class="profile-card-label">Identification</div>
-        <div class="profile-row"><span class="profile-row-key">Full Name</span><span class="profile-row-val">Jennifer L. Nash</span></div>
-        <div class="profile-row"><span class="profile-row-key">Known As</span><span class="profile-row-val">Jen Nash</span></div>
-        <div class="profile-row"><span class="profile-row-key">Location</span><span class="profile-row-val">Glenwood, Iowa 51534</span></div>
-        <div class="profile-row"><span class="profile-row-key">Phone</span><span class="profile-row-val">(641) 430-7195</span></div>
-        <div class="profile-row"><span class="profile-row-key">Email A</span><span class="profile-row-val">jenlei@q.com</span></div>
-        <div class="profile-row"><span class="profile-row-key">Email B</span><span class="profile-row-val">jennash000@gmail.com</span></div>
-        <div class="profile-row"><span class="profile-row-key">Website</span><span class="profile-row-val">pricelessfinancialcoaching.com</span></div>
+  <div class="profile-grid">
+    <div class="profile-card">
+      <div class="profile-card-label">Business Details</div>
+      <div class="profile-row">
+        <div class="profile-row-key">Business</div>
+        <div class="profile-row-val">Priceless Financial Coaching, LLC</div>
       </div>
-      <div class="profile-card">
-        <div class="profile-card-label">Business</div>
-        <div class="profile-row"><span class="profile-row-key">Company</span><span class="profile-row-val">Priceless Financial Coaching, LLC</span></div>
-        <div class="profile-row"><span class="profile-row-key">Founded</span><span class="profile-row-val">April 2019</span></div>
-        <div class="profile-row"><span class="profile-row-key">Structure</span><span class="profile-row-val">Solo operator, no staff</span></div>
-        <div class="profile-row"><span class="profile-row-key">Tagline</span><span class="profile-row-val">Calm, Pressure-Free Money Support</span></div>
-        <div class="profile-row"><span class="profile-row-key">Background</span><span class="profile-row-val">15+ yrs Iowa state social worker</span></div>
-        <div class="profile-row"><span class="profile-row-key">Education</span><span class="profile-row-val">Psychology degree</span></div>
-        <div class="profile-row"><span class="profile-row-key">Personal</span><span class="profile-row-val">3 kids, 2 dogs</span></div>
+      <div class="profile-row">
+        <div class="profile-row-key">Location</div>
+        <div class="profile-row-val">Glenwood, Iowa</div>
       </div>
-      <div class="profile-card full">
-        <div class="profile-card-label">Credentials &amp; Certifications</div>
-        <div class="cred-list">
-          <span class="cred">AFC&reg; Accredited Financial Counselor</span>
-          <span class="cred">Certified Neuroscience Coach</span>
-          <span class="cred">Certified Hypnotherapist</span>
-          <span class="cred hipaa">HIPAA Compliant</span>
-          <span class="cred trauma">Trauma-Informed Certified</span>
-          <span class="cred neuro">AFCPE Inclusion Essentials Badge</span>
-          <span class="cred neuro">Neuro-Inclusive Practitioner</span>
-        </div>
+      <div class="profile-row">
+        <div class="profile-row-key">Website</div>
+        <div class="profile-row-val">pricelessfinancialcoaching.com</div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-row-key">Delivery Model</div>
+        <div class="profile-row-val">Virtual + In-Person</div>
+      </div>
+    </div>
+    <div class="profile-card">
+      <div class="profile-card-label">Service Lines</div>
+      <div class="profile-row">
+        <div class="profile-row-key">1:1 Coaching</div>
+        <div class="profile-row-val">Personal financial coaching sessions</div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-row-key">Workplace Programs</div>
+        <div class="profile-row-val">Employer financial wellness workshops</div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-row-key">Speaking &amp; Training</div>
+        <div class="profile-row-val">Conferences, podcasts, group events</div>
+      </div>
+    </div>
+    <div class="profile-card full">
+      <div class="profile-card-label">Credentials &amp; Certifications</div>
+      <div class="cred-list">
+        <span class="cred">AFC&reg; (Accredited Financial Counselor)</span>
+        <span class="cred neuro">Certified Neuroscience Coach</span>
+        <span class="cred trauma">Trauma-Informed Care Certified</span>
+        <span class="cred hipaa">HIPAA Compliant Practice</span>
+        <span class="cred">Social Work Background (BSW)</span>
+        <span class="cred">Financial Psychology Training</span>
       </div>
     </div>
   </div>
-
-  <!-- EXECUTIVE BRIEF -->
-  <div class="section">
-    <div class="section-eyebrow">Assessment</div>
-    <div class="section-title">The Situation on the Ground</div>
-    <div class="divider"></div>
-    <div class="exec-box">
-      Jen Nash has built something rare: a genuinely differentiated financial coaching practice with serious credentials, a distinct brand identity, and three fully developed service lines. Her differentiator is real -- she blends behavioral science, neuroscience, social work, and hypnotherapy in a space dominated by spreadsheet evangelists and budget shame. She serves individuals, corporations, and underserved communities including neurodiverse clients, caregivers, and people with disabilities. Her B2B employee wellness line carries the strongest revenue ceiling at $149-$379 per person, and she runs membership circles that create recurring revenue potential.
-      <br><br>
-      The problem is capacity. She is doing everything herself. Intake. Follow-up. Community management. B2B outreach. Content. Scheduling. Books. Programs. And she has three children at home. There is no AI in her stack. There is no automation. There is no system that keeps working when she closes her laptop. Every client interaction she misses is revenue she cannot recover, and every corporate prospect that goes cold because follow-up did not happen is a relationship that cost her nothing to warm and everything to lose. OSCortex is a near-perfect fit.
-    </div>
-
-    <div class="opps">
-      <div class="opp-card danger">
-        <div class="opp-tag">Silent Leak</div>
-        <div class="opp-num">B2B</div>
-        <div class="opp-desc">HR/benefits prospects going cold with no follow-up system. $149-$379/person, but no outreach discipline possible as a solo operator.</div>
-      </div>
-      <div class="opp-card danger">
-        <div class="opp-tag">Dead Hours</div>
-        <div class="opp-num">24/7</div>
-        <div class="opp-desc">Zero after-hours intake. Personal coaching clients who reach out evenings or weekends get no response. Warm leads go cold overnight.</div>
-      </div>
-      <div class="opp-card">
-        <div class="opp-tag">Multiplier</div>
-        <div class="opp-num">3x</div>
-        <div class="opp-desc">Three separate service tracks each need distinct nurture, intake, and delivery workflows. She is managing this manually and alone.</div>
-      </div>
-      <div class="opp-card green">
-        <div class="opp-tag">Untapped</div>
-        <div class="opp-num">AEO</div>
-        <div class="opp-desc">AI search engines return no structured answers for her specialty queries. First-mover opportunity in neuro-inclusive financial coaching content.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HIDDEN OPPORTUNITIES -->
-  <div class="section">
-    <div class="section-eyebrow">Intel: What She Hasn't Seen Yet</div>
-    <div class="section-title">Hidden Opportunities</div>
-    <p class="section-sub">What the data reveals that Jen probably doesn't know she's sitting on.</p>
-    <div class="divider"></div>
-
-    <div class="hidden-opps">
-
-      <div class="hidden-card">
-        <div class="hc-icon">🏢</div>
-        <div>
-          <div class="hc-label">B2B Revenue Gap</div>
-          <div class="hc-title">Her Corporate Line Is Underselling Itself</div>
-          <div class="hc-body">$30/person workshops and $379/person private coaching for employee wellness is dramatically underpriced for enterprise HR budgets. Companies spend $800-$1,500+ per employee on wellness programs. Her HIPAA compliance and neuro-inclusive design are rare differentiators in this space. A single Fortune 500 team program at 50 employees beats a year of individual coaching clients -- but she has no system reaching HR professionals proactively.</div>
-        </div>
-        <div class="hc-value">
-          <div class="hc-value-num">50x</div>
-          <div class="hc-value-label">revenue per<br>corporate deal vs<br>individual client</div>
-        </div>
-      </div>
-
-      <div class="hidden-card">
-        <div class="hc-icon">🧠</div>
-        <div>
-          <div class="hc-label">Positioning Gap</div>
-          <div class="hc-title">Nobody Owns "Neuro-Inclusive Financial Coaching"</div>
-          <div class="hc-body">ADHD, autism, and neurodivergence affect 15-20% of adults -- and financial systems are built for the neurotypical brain. Jen's combination of psychology degree, neuroscience coaching, and trauma-informed certification makes her one of a handful of practitioners who can credibly serve this population. AI search engines currently return zero authoritative results for queries like "financial coaching for ADHD adults" or "neurodiverse money management coach." This is a first-mover opportunity.</div>
-        </div>
-        <div class="hc-value">
-          <div class="hc-value-num">0</div>
-          <div class="hc-value-label">AI engine answers<br>for her specialty<br>queries</div>
-        </div>
-      </div>
-
-      <div class="hidden-card">
-        <div class="hc-icon">📚</div>
-        <div>
-          <div class="hc-label">Content Asset</div>
-          <div class="hc-title">Her Books Are a Ghost Funnel</div>
-          <div class="hc-body">She has written multiple books on financial wellness, behavior change, and social impact. Books are her highest-credibility asset and her most underpromoted one. There is no Amazon author page referenced prominently, no book-to-coaching pipeline, no email capture for readers. Every book buyer who does not get a next step is a warm lead that walks off the table. OSCortex can build an automated reader-to-client journey the day it goes live.</div>
-        </div>
-        <div class="hc-value">
-          <div class="hc-value-num">$0</div>
-          <div class="hc-value-label">current book<br>funnel revenue<br>captured</div>
-        </div>
-      </div>
-
-      <div class="hidden-card">
-        <div class="hc-icon">🔄</div>
-        <div>
-          <div class="hc-label">Community Leverage</div>
-          <div class="hc-title">Three Circles Running on Manual Power</div>
-          <div class="hc-body">The Money Connection, AbleWealth Circle, and CaregiverWealth Circle are recurring revenue vehicles that also serve as proof-of-concept for her broader methodology. But membership communities die without consistent engagement -- check-ins, resources, milestones, and recognition. Jen cannot sustain that solo. An engagement agent running those communities in her voice keeps members active, reduces churn, and generates the kind of social proof that sells the next corporate contract.</div>
-        </div>
-        <div class="hc-value">
-          <div class="hc-value-num">3</div>
-          <div class="hc-value-label">communities<br>at risk from<br>engagement gaps</div>
-        </div>
-      </div>
-
-      <div class="hidden-card">
-        <div class="hc-icon">🎙️</div>
-        <div>
-          <div class="hc-label">Media Leverage</div>
-          <div class="hc-title">Podcast Appearances Are Dying on the Vine</div>
-          <div class="hc-body">Jen has been featured on multiple podcasts discussing debt management, financial resilience, and behavioral finance. Each appearance generated new audience exposure. None of that appears to be systematically converted into list growth, community signups, or coaching inquiries. With OSCortex, every podcast appearance feeds a repurposing pipeline: clip to social, quote to email, topic to AEO content, CTA to intake. A single appearance becomes 30 days of content.</div>
-        </div>
-        <div class="hc-value">
-          <div class="hc-value-num">30</div>
-          <div class="hc-value-label">days of content<br>from one<br>appearance</div>
-        </div>
-      </div>
-
-      <div class="hidden-card">
-        <div class="hc-icon">🛡️</div>
-        <div>
-          <div class="hc-label">Sales Advantage</div>
-          <div class="hc-title">HIPAA Compliance Is a B2B Closer Nobody Else Has</div>
-          <div class="hc-body">In the employee wellness space, HIPAA compliance is not a nice-to-have for healthcare-adjacent employers -- it is a procurement requirement. HR teams at hospitals, clinics, insurance companies, and health-adjacent businesses cannot bring in a wellness provider who is not HIPAA compliant. Jen is. Most of her competitors are not. This single credential opens a category of corporate client that is entirely closed to the rest of the market. It needs to be front and center in every B2B outreach.</div>
-        </div>
-        <div class="hc-value">
-          <div class="hc-value-num">HIPAA</div>
-          <div class="hc-value-label">a mandatory<br>qualifier most<br>coaches lack</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- AEO AUDIT -->
-  <div class="section">
-    <div class="section-eyebrow">AEO Audit &mdash; Answer Engine Optimization</div>
-    <div class="section-title">How AI Engines See Her Right Now</div>
-    <p class="section-sub">When someone asks Google AI Overviews, ChatGPT, Perplexity, or Gemini a question that Jen should answer, does she show up? This audit checks 8 high-value queries relevant to her practice and specialty.</p>
-    <div class="divider"></div>
-
-    <div class="aeo-summary">
-      <div class="aeo-summary-title">Overall AI Visibility Score</div>
-      <div class="aeo-summary-grid">
-        <div class="aeo-summary-item">
-          <div class="aeo-summary-num" style="color: var(--red);">2/8</div>
-          <div class="aeo-summary-label">Queries where<br>she may appear</div>
-        </div>
-        <div class="aeo-summary-item">
-          <div class="aeo-summary-num" style="color: var(--amber);">6/8</div>
-          <div class="aeo-summary-label">Queries where<br>she is invisible</div>
-        </div>
-        <div class="aeo-summary-item">
-          <div class="aeo-summary-num" style="color: var(--gold);">3</div>
-          <div class="aeo-summary-label">First-mover<br>opportunities</div>
-        </div>
-        <div class="aeo-summary-item">
-          <div class="aeo-summary-num" style="color: var(--green);">91</div>
-          <div class="aeo-summary-label">Addressability<br>score (of 100)</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="aeo-full-row">
-      <div class="aeo-full-query">1. "How do I get out of debt without feeling overwhelmed?"</div>
-      <div class="aeo-platforms">
-        <span class="aeo-platform-pill aep-goog">Google AI</span>
-        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
-        <span class="aeo-platform-pill aep-perp">Perplexity</span>
-        <span class="aeo-platform-pill aep-gem">Gemini</span>
-      </div>
-      <div class="aeo-verdict"><span class="aeo-gap-tag">INVISIBLE</span> All four AI engines answer this with generic advice from large personal finance publishers (NerdWallet, Ramsey, CNBC). Jen's calm, behavioral approach is the differentiated answer to this exact question -- but she has no structured Q&amp;A content indexed for citation. <strong>This is her highest-volume query gap.</strong></div>
-    </div>
-
-    <div class="aeo-full-row">
-      <div class="aeo-full-query">2. "Financial coaching for people with ADHD or neurodivergence"</div>
-      <div class="aeo-platforms">
-        <span class="aeo-platform-pill aep-goog">Google AI</span>
-        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
-        <span class="aeo-platform-pill aep-perp">Perplexity</span>
-        <span class="aeo-platform-pill aep-gem">Gemini</span>
-      </div>
-      <div class="aeo-verdict"><span class="aeo-gap-tag">INVISIBLE</span><span class="aeo-win-tag">FIRST MOVER</span> Almost no authoritative content exists on this topic from a credentialed financial counselor. The few results that surface are blog posts, not structured answers from qualified practitioners. Jen's neuroscience coaching cert + AFC + psychology background makes her the single most qualified person to own this answer. <strong>She could dominate this query within 60 days with two well-structured articles.</strong></div>
-    </div>
-
-    <div class="aeo-full-row">
-      <div class="aeo-full-query">3. "Employee financial wellness programs for small businesses"</div>
-      <div class="aeo-platforms">
-        <span class="aeo-platform-pill aep-goog">Google AI</span>
-        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
-        <span class="aeo-platform-pill aep-perp">Perplexity</span>
-        <span class="aeo-platform-pill aep-gem">Gemini</span>
-      </div>
-      <div class="aeo-verdict"><span class="aeo-gap-tag">INVISIBLE</span> AI engines surface large vendors (Brightside, LearnLux, Your Money Line) for this query. Jen's $30-$379/person pricing, HIPAA compliance, and personal delivery model make her uniquely competitive for small business HR -- but she has no content targeting this buyer. <strong>A B2B-specific landing page and FAQ would change this.</strong></div>
-    </div>
-
-    <div class="aeo-full-row">
-      <div class="aeo-full-query">4. "What does an Accredited Financial Counselor do?"</div>
-      <div class="aeo-platforms">
-        <span class="aeo-platform-pill aep-goog">Google AI</span>
-        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
-        <span class="aeo-platform-pill aep-perp">Perplexity</span>
-        <span class="aeo-platform-pill aep-gem">Gemini</span>
-      </div>
-      <div class="aeo-verdict"><span class="aeo-win-tag">PARTIAL VISIBILITY</span> AI engines reference the AFCPE credential and definition, occasionally citing the findanafc.org directory where Jen is listed. Her profile there gives her weak indirect citation potential. <strong>Strengthening her AFCPE profile and creating credential-anchored content could convert this to consistent citation.</strong></div>
-    </div>
-
-    <div class="aeo-full-row">
-      <div class="aeo-full-query">5. "Financial counseling for trauma survivors or low-income families"</div>
-      <div class="aeo-platforms">
-        <span class="aeo-platform-pill aep-goog">Google AI</span>
-        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
-        <span class="aeo-platform-pill aep-perp">Perplexity</span>
-        <span class="aeo-platform-pill aep-gem">Gemini</span>
-      </div>
-      <div class="aeo-verdict"><span class="aeo-gap-tag">INVISIBLE</span><span class="aeo-win-tag">FIRST MOVER</span> Nonprofit resources dominate this space. There is almost no private practitioner with trauma-informed certification who has structured Q&amp;A content on this topic. Jen has the credentials and the lived experience (15 years as a social worker) to own this answer with authority. <strong>Three articles and an FAQ schema would establish her as the definitive citation in this category.</strong></div>
-    </div>
-
-    <div class="aeo-full-row">
-      <div class="aeo-full-query">6. "Financial wellness coaching for caregivers"</div>
-      <div class="aeo-platforms">
-        <span class="aeo-platform-pill aep-goog">Google AI</span>
-        <span class="aeo-platform-pill aep-perp">Perplexity</span>
-      </div>
-      <div class="aeo-verdict"><span class="aeo-gap-tag">INVISIBLE</span><span class="aeo-win-tag">FIRST MOVER</span> She literally runs a program called CaregiverWealth Circle. AI engines have zero structured content from credentialed practitioners on this specific intersection. <strong>Her own program name should be the answer. It isn't yet because no indexed content exists.</strong></div>
-    </div>
-
-    <div class="aeo-full-row">
-      <div class="aeo-full-query">7. "How to break the paycheck-to-paycheck cycle"</div>
-      <div class="aeo-platforms">
-        <span class="aeo-platform-pill aep-goog">Google AI</span>
-        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
-        <span class="aeo-platform-pill aep-perp">Perplexity</span>
-        <span class="aeo-platform-pill aep-gem">Gemini</span>
-      </div>
-      <div class="aeo-verdict"><span class="aeo-gap-tag">INVISIBLE</span> High-volume query dominated by listicles and generic budgeting advice. Jen has a literal video program on this exact topic. The content exists -- it just isn't structured for AI citation. <strong>Repurposing program content into AEO-formatted articles would make this winnable.</strong></div>
-    </div>
-
-    <div class="aeo-full-row">
-      <div class="aeo-full-query">8. "HIPAA compliant financial coaching for healthcare employees"</div>
-      <div class="aeo-platforms">
-        <span class="aeo-platform-pill aep-goog">Google AI</span>
-        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
-      </div>
-      <div class="aeo-verdict"><span class="aeo-win-tag">PARTIAL VISIBILITY</span> Almost no content exists for this query from any provider. Jen is HIPAA compliant, has healthcare-adjacent credibility from her social work background, and could credibly serve this market exclusively. <strong>A single dedicated landing page would likely rank across all four AI engines within 90 days given the near-zero competition.</strong></div>
-    </div>
-  </div>
-
-  <!-- PRIORITY STACK -->
-  <div class="section">
-    <div class="section-eyebrow">Deployment Blueprint</div>
-    <div class="section-title">6 Agents, Ranked by Impact</div>
-    <p class="section-sub">Built around her actual constraints: solo operator, HIPAA obligations, three service lines, and a brand that lives or dies on trust.</p>
-    <div class="divider"></div>
-
-    <div class="priority-list">
-
-      <div class="priority-card">
-        <div class="p-badge">01</div>
-        <div>
-          <div class="p-name">24/7 Intake Agent</div>
-          <div class="p-problem">Right now, someone who lands on her site at 9pm on a Tuesday and fills out a contact form gets nothing until Jen sees it. Warm leads go cold overnight. Personal, corporate, and social impact inquiries all arrive in the same inbox with no routing. The intake agent responds immediately in Jen's calm, warm voice, qualifies the inquiry, routes it to the right track, and books a call -- all before she wakes up.</div>
-          <div class="p-tags">
-            <span class="p-tag">Immediate Revenue</span>
-            <span class="p-tag amber">High Priority</span>
-          </div>
-        </div>
-        <div class="p-phase">Phase 1</div>
-      </div>
-
-      <div class="priority-card">
-        <div class="p-badge">02</div>
-        <div>
-          <div class="p-name">B2B HR Outreach Engine</div>
-          <div class="p-problem">Her $149-$379/person corporate line is the highest-leverage revenue in the business, but it requires consistent outreach and follow-up to HR decision-makers -- something impossible to sustain solo. The outreach engine runs prospect sequences, follows up on proposals, and keeps her B2B pipeline warm without Jen lifting a finger between touchpoints. HIPAA positioning and neuro-inclusive design are the lead hook.</div>
-          <div class="p-tags">
-            <span class="p-tag">Highest Revenue Ceiling</span>
-            <span class="p-tag amber">Pipeline</span>
-          </div>
-        </div>
-        <div class="p-phase">Phase 1</div>
-      </div>
-
-      <div class="priority-card">
-        <div class="p-badge">03</div>
-        <div>
-          <div class="p-name">Community Engagement Agent</div>
-          <div class="p-problem">The Money Connection, AbleWealth Circle, and CaregiverWealth Circle are recurring revenue and the proof that her methodology works at scale. But membership communities decay without consistent engagement. The agent delivers weekly check-ins, surfaces resources, celebrates milestones, and keeps members active -- in Jen's voice, every week, automatically. Community survival goes from Jen's bandwidth to the system's job.</div>
-          <div class="p-tags">
-            <span class="p-tag">Recurring Revenue</span>
-            <span class="p-tag blue">Retention</span>
-          </div>
-        </div>
-        <div class="p-phase">Phase 1</div>
-      </div>
-
-      <div class="priority-card">
-        <div class="p-badge">04</div>
-        <div>
-          <div class="p-name">Content Repurposing Engine</div>
-          <div class="p-problem">Every podcast appearance, program module, and book chapter Jen has created is a content asset generating zero ongoing returns. The repurposing engine converts existing material into social posts, email sequences, and AEO-formatted articles on a rolling schedule. Her podcast clip becomes a week of LinkedIn content. Her program intro becomes an FAQ that AI engines can cite. Her book chapter becomes an email nurture series. She creates once; the system extracts value indefinitely.</div>
-          <div class="p-tags">
-            <span class="p-tag">Brand Reach</span>
-            <span class="p-tag blue">AEO</span>
-          </div>
-        </div>
-        <div class="p-phase">Phase 2</div>
-      </div>
-
-      <div class="priority-card">
-        <div class="p-badge">05</div>
-        <div>
-          <div class="p-name">AEO Content Publisher</div>
-          <div class="p-problem">She has 3 first-mover AEO opportunities where she could become the cited authority within 60-90 days. Nobody has written structured, credentialed answers to "financial coaching for ADHD," "financial wellness for caregivers," or "HIPAA compliant financial coaching." Her credentials are the unfair advantage. The AEO agent produces structured articles targeting AI engine citation, gets them published to her site, and tracks which queries she begins appearing in.</div>
-          <div class="p-tags">
-            <span class="p-tag blue">AEO</span>
-            <span class="p-tag">Authority Building</span>
-          </div>
-        </div>
-        <div class="p-phase">Phase 2</div>
-      </div>
-
-      <div class="priority-card">
-        <div class="p-badge">06</div>
-        <div>
-          <div class="p-name">Book Reader Conversion Funnel</div>
-          <div class="p-problem">Her books are high-credibility assets with zero downstream conversion path. Readers who finish a book and want more have no structured invitation to her coaching programs or communities. The conversion funnel adds a book-to-coaching pathway: landing pages, reader email sequences, community invites, and a soft coaching pitch -- all in Jen's warm, pressure-free voice. Turns passive readers into active community members and eventual clients.</div>
-          <div class="p-tags">
-            <span class="p-tag">Passive to Active</span>
-            <span class="p-tag blue">Funnel</span>
-          </div>
-        </div>
-        <div class="p-phase">Phase 3</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- FIT SCORE -->
-  <div class="section">
-    <div class="section-eyebrow">Qualification</div>
-    <div class="section-title">OSCortex Fit Assessment</div>
-    <p class="section-sub">Scored against the 10 criteria that determine whether an OSCortex deployment succeeds.</p>
-    <div class="divider"></div>
-
-    <div class="fit-grid">
-      <div class="fit-card">
-        <div class="fit-label">Business Fit</div>
-        <div class="fit-item">
-          <span class="fit-item-name">Solo operator (no IT team)</span>
-          <div class="fit-bar-wrap"><div class="fit-bar"><div class="fit-bar-fill green" style="width:100%"></div></div><span class="fit-score-num">10</span></div>
-        </div>
-        <div class="fit-item">
-          <span class="fit-item-name">Multiple revenue streams</span>
-          <div class="fit-bar-wrap"><div class="fit-bar"><div class="fit-bar-fill green" style="width:100%"></div></div><span class="fit-score-num">10</span></div>
-        </div>
-        <div class="fit-item">
-          <span class="fit-item-name">Recurring revenue model</span>
-          <div class="fit-bar-wrap"><div class="fit-bar"><div class="fit-bar-fill" style="width:80%"></div></div><span class="fit-score-num">8</span></div>
-        </div>
-        <div class="fit-item">
-          <span class="fit-item-name">No AI in current stack</span>
-          <div class="fit-bar-wrap"><div class="fit-bar"><div class="fit-bar-fill green" style="width:100%"></div></div><span class="fit-score-num">10</span></div>
-        </div>
-        <div class="fit-item">
-          <span class="fit-item-name">Real capacity constraints</span>
-          <div class="fit-bar-wrap"><div class="fit-bar"><div class="fit-bar-fill green" style="width:100%"></div></div><span class="fit-score-num">10</span></div>
-        </div>
-      </div>
-      <div class="fit-card">
-        <div class="fit-label">Deployment Fit</div>
-        <div class="fit-item">
-          <span class="fit-item-name">Clear use cases</span>
-          <div class="fit-bar-wrap"><div class="fit-bar"><div class="fit-bar-fill green" style="width:100%"></div></div><span class="fit-score-num">10</span></div>
-        </div>
-        <div class="fit-item">
-          <span class="fit-item-name">Distinct brand voice</span>
-          <div class="fit-bar-wrap"><div class="fit-bar"><div class="fit-bar-fill green" style="width:100%"></div></div><span class="fit-score-num">10</span></div>
-        </div>
-        <div class="fit-item">
-          <span class="fit-item-name">Content assets to repurpose</span>
-          <div class="fit-bar-wrap"><div class="fit-bar"><div class="fit-bar-fill" style="width:80%"></div></div><span class="fit-score-num">8</span></div>
-        </div>
-        <div class="fit-item">
-          <span class="fit-item-name">HIPAA complexity (managed)</span>
-          <div class="fit-bar-wrap"><div class="fit-bar"><div class="fit-bar-fill red" style="width:50%"></div></div><span class="fit-score-num">5</span></div>
-        </div>
-        <div class="fit-item">
-          <span class="fit-item-name">Values alignment w/ OSCortex</span>
-          <div class="fit-bar-wrap"><div class="fit-bar"><div class="fit-bar-fill green" style="width:100%"></div></div><span class="fit-score-num">10</span></div>
-        </div>
-      </div>
-      <div class="fit-total">
-        <div>
-          <div class="fit-total-label">Overall OSCortex Fit Score</div>
-          <div class="fit-total-sub">Top 5% of prospects reviewed. HIPAA deduction is manageable with proper agent guardrails.</div>
-        </div>
-        <div class="fit-total-score">91 / 100</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CRM BREADCRUMB -->
-  <div class="section">
-    <div class="section-eyebrow">CRM &amp; Relationship History</div>
-    <div class="section-title">How She Came In</div>
-    <div class="divider"></div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Event</th>
-            <th>System</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Jan 13, 2026</td>
-            <td>Added to GHL &amp; Keap via CSV import. Two records created (jenlei@q.com + jennash000@gmail.com) -- same person.</td>
-            <td>GHL + Keap</td>
-            <td><span class="badge badge-amber">Duplicate</span></td>
-          </tr>
-          <tr>
-            <td>Apr 22, 2026</td>
-            <td>Added to 3-Day Bootcamp affiliate program. Assigned affiliate IDs: jennash2551 and jennash3873. Welcome sequence started.</td>
-            <td>GHL</td>
-            <td><span class="badge badge-green">Active</span></td>
-          </tr>
-          <tr>
-            <td>Apr 22 – May 2, 2026</td>
-            <td>Received 10-email affiliate onboarding sequence. No inbound reply to any message.</td>
-            <td>GHL</td>
-            <td><span class="badge badge-amber">No Response</span></td>
-          </tr>
-          <tr>
-            <td>Jul 10, 2026</td>
-            <td>Deep-dive research completed. OSCortex knowledge files created. Active client onboarding initiated.</td>
-            <td>OSCortex</td>
-            <td><span class="badge badge-green">In Progress</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:12px;color:var(--muted);margin-top:8px;">&#9888; GHL duplicate records should be merged. Primary: T09aFk0GOUOn66eMjBCJ (has phone number). Archive: 17sxItNeBCF9JFXiQAl3.</p>
-  </div>
-
-  <!-- NEXT STEPS -->
-  <div class="section">
-    <div class="section-eyebrow">Execution</div>
-    <div class="section-title">Next Steps to Deployment</div>
-    <div class="divider"></div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <div class="step-title">Confirm Package and Start Date</div>
-          <div class="step-desc">Establish which OSCortex tier Jen is on and her official start date. This sets the deployment timeline and determines which Phase 1 agents go live first.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <div class="step-title">Intake Interview with Jen</div>
-          <div class="step-desc">30-45 minute session to confirm existing tools, identify the single biggest pain point she wants solved first, and collect any voice/style samples for the agent. Her calm, judgment-free tone must be captured precisely.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <div class="step-title">Build Agent Persona Files</div>
-          <div class="step-desc">SOUL.md and AGENTS.md built from intake session. Agent voice calibrated to Jen's brand: calm, warm, pressure-free, never pushy. HIPAA guardrails baked in from day one.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div>
-          <div class="step-title">Run Reveal Session Test Queries</div>
-          <div class="step-desc">Before the client reveal, verify the agent knows: her three service lines, her credentials, her communities by name, her pricing, and her brand voice. Run 5 test prompts. Zero generic responses allowed.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div>
-          <div class="step-title">Reveal Session</div>
-          <div class="step-desc">The moment Jen sees OSCortex answer a question about her own business -- in her voice, with her community names, her credential set, her exact pricing -- is the retention moment. That's when it becomes indispensable.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">6</div>
-        <div>
-          <div class="step-title">Merge GHL Duplicate Records</div>
-          <div class="step-desc">Consolidate jennash000@gmail.com into the primary T09aFk0GOUOn66eMjBCJ record to give Jen a clean CRM history going forward. Add company name, website, and business type fields.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
 
-<!-- FOOTER -->
+<!-- ═══════════════════════════════════════ WHAT WE FOUND ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-eyebrow">Executive Assessment</div>
+  <div class="section-title">What We Found</div>
+  <div class="section-sub">We studied your business, your content, your positioning, and how AI search engines currently represent you. Here's what stood out.</div>
+  <div class="divider"></div>
+
+  <div class="exec-box">
+    <p>Jen, your business sits at an intersection that almost nobody else occupies. You combine clinical-grade credentials (AFC, HIPAA compliance, trauma-informed certification) with a neuroscience coaching framework and a social work perspective. That is not just a nice resume. It is a genuine competitive moat that your market has not yet recognized because the right systems have not been in place to amplify it.</p>
+    <p>Right now, your expertise reaches people through one-to-one sessions, occasional workshops, and the relationships you have built over time. That model works, but it creates a ceiling: your income scales with your hours, your content gets created once and used once, and the follow-up that keeps clients engaged between sessions falls entirely on you.</p>
+    <p>The opportunity we see is significant. Three of the most valuable search queries in your niche have zero authoritative answers from anyone in the AI answer engines. Your credential combination positions you to own those answers before any competitor even notices the gap. And every speaking engagement or podcast appearance you do contains enough raw material for 30+ days of targeted content, if the right system is repurposing it behind the scenes.</p>
+    <p>The bottom line: you have built something genuinely valuable. The next step is giving it the infrastructure to reach people at scale, without requiring more of your time to do it.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ YOUR COMPETITIVE MOAT ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-eyebrow">What Makes You Different</div>
+  <div class="section-title">Your Competitive Moat</div>
+  <div class="section-sub">Most financial coaches have a certification. You have six credentials that, combined, create a positioning nobody else in your market can replicate.</div>
+  <div class="divider"></div>
+
+  <div class="moat-grid">
+    <div class="moat-card">
+      <div class="moat-icon">&#9879;</div>
+      <div class="moat-label">Clinical Foundation</div>
+      <div class="moat-title">HIPAA + Social Work Background</div>
+      <div class="moat-body">Your HIPAA compliance and BSW training mean you can serve populations that other financial coaches legally and ethically cannot touch: healthcare workers processing financial trauma, employees in EAP programs, and clients whose money issues intersect with mental health. This is not a nice-to-have. It is a hard barrier that locks competitors out.</div>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon">&#10047;</div>
+      <div class="moat-label">Behavioral Edge</div>
+      <div class="moat-title">Neuroscience + Trauma-Informed</div>
+      <div class="moat-body">You do not just teach budgeting. You understand why people self-sabotage with money, how trauma rewires financial decision-making, and what neurological patterns drive overspending or avoidance. This dual lens makes your coaching stick in ways that spreadsheet-and-willpower approaches never will. Clients who have failed with other coaches succeed with you because you address the root cause.</div>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon">&#9733;</div>
+      <div class="moat-label">Professional Authority</div>
+      <div class="moat-title">AFC&reg; + Financial Psychology</div>
+      <div class="moat-body">The Accredited Financial Counselor designation, combined with your financial psychology training, puts you in a category that AI engines and referral networks are specifically designed to prioritize: credentialed professionals with verifiable expertise. When Google or ChatGPT looks for "who should answer this financial coaching question," credentials like these are exactly what their ranking systems reward.</div>
+    </div>
+  </div>
+
+  <div class="moat-summary">
+    <div class="moat-summary-text">
+      There are financial coaches. There are therapists. There are neuroscience practitioners. There are HIPAA-compliant providers.<br><br>
+      <strong>The number of people who are all four at once, with an AFC and a social work foundation? That list is vanishingly small.</strong><br><br>
+      This is your unfair advantage. Everything we build will be designed to make sure the market knows it.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ HIDDEN OPPORTUNITIES ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-eyebrow">Research Findings</div>
+  <div class="section-title">What the Research Revealed</div>
+  <div class="section-sub">We identified four specific opportunities in your market that are either untapped or poorly served. Each one represents real revenue potential that your credential stack positions you to capture.</div>
+  <div class="divider"></div>
+
+  <div class="hidden-opps">
+    <div class="hidden-card">
+      <div class="hc-icon">&#128270;</div>
+      <div>
+        <div class="hc-label">AEO First-Mover Advantage</div>
+        <div class="hc-title">Three High-Value Queries With No Authoritative Answer</div>
+        <div class="hc-body">When someone asks ChatGPT, Perplexity, or Google's AI Overview "Who is the best trauma-informed financial coach?" or "Can a financial coach be HIPAA compliant?", there is no definitive answer. Nobody has built the content infrastructure to own these queries. With your credentials, you are the natural answer. The first person to claim these positions will hold them for a very long time, because AI engines are slow to replace established authorities.</div>
+      </div>
+      <div class="hc-value">
+        <div class="hc-value-num">3</div>
+        <div class="hc-value-label">unclaimed<br>query positions</div>
+      </div>
+    </div>
+
+    <div class="hidden-card">
+      <div class="hc-icon">&#127897;</div>
+      <div>
+        <div class="hc-label">Content Multiplication</div>
+        <div class="hc-title">Every Appearance Can Fuel 30+ Days of Content</div>
+        <div class="hc-body">A single podcast interview or speaking engagement generates a transcript, which can be broken into short-form video clips, social posts, newsletter segments, blog articles, email sequences, and quote graphics. Right now, each appearance lives and dies in a single moment. With the right repurposing system, one 45-minute conversation becomes a month of targeted content across every platform you care about, without you writing a single additional word.</div>
+      </div>
+      <div class="hc-value">
+        <div class="hc-value-num">30+</div>
+        <div class="hc-value-label">content pieces<br>per appearance</div>
+      </div>
+    </div>
+
+    <div class="hidden-card">
+      <div class="hc-icon">&#127970;</div>
+      <div>
+        <div class="hc-label">B2B Channel</div>
+        <div class="hc-title">Healthcare Employer Wellness Programs Are Underserved</div>
+        <div class="hc-body">Hospital systems and healthcare networks are actively seeking financial wellness providers for their employee assistance programs. The catch: they need HIPAA-compliant providers who understand the unique stressors of healthcare work. Most financial coaches cannot meet that bar. You already do. A single employer contract can represent the equivalent of 20-30 individual coaching clients, with more predictable revenue and less sales effort per dollar earned.</div>
+      </div>
+      <div class="hc-value">
+        <div class="hc-value-num">20-30x</div>
+        <div class="hc-value-label">client equivalent<br>per contract</div>
+      </div>
+    </div>
+
+    <div class="hidden-card">
+      <div class="hc-icon">&#128640;</div>
+      <div>
+        <div class="hc-label">Scalable Revenue</div>
+        <div class="hc-title">Group Programs That Extend Your Reach Beyond 1:1</div>
+        <div class="hc-body">Your neuroscience-based framework is structured enough to deliver in a group format without losing its impact. A cohort-based program (8-12 participants over 6-8 weeks) lets you serve more people at a lower per-person price point while actually increasing your hourly revenue. The follow-up sequences and check-ins that make group programs successful are exactly the kind of work that AI automation handles best, keeping participants engaged between sessions without adding to your calendar.</div>
+      </div>
+      <div class="hc-value">
+        <div class="hc-value-num">4-6x</div>
+        <div class="hc-value-label">revenue per<br>hour of delivery</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ AEO AUDIT ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-eyebrow">AI Search Visibility Audit</div>
+  <div class="section-title">How AI Engines See You Right Now</div>
+  <div class="section-sub">We tested eight real queries that your ideal clients are asking AI assistants today. Here is where you show up, where you are missing, and what it would take to own each position.</div>
+  <div class="divider"></div>
+
+  <div class="aeo-summary">
+    <div class="aeo-summary-title">Audit Snapshot</div>
+    <div class="aeo-summary-grid">
+      <div class="aeo-summary-item">
+        <div class="aeo-summary-num" style="color: var(--red);">3</div>
+        <div class="aeo-summary-label">Queries where you<br>are not mentioned</div>
+      </div>
+      <div class="aeo-summary-item">
+        <div class="aeo-summary-num" style="color: var(--amber);">3</div>
+        <div class="aeo-summary-label">Queries with weak<br>or generic results</div>
+      </div>
+      <div class="aeo-summary-item">
+        <div class="aeo-summary-num" style="color: var(--green);">2</div>
+        <div class="aeo-summary-label">Queries where you<br>appear partially</div>
+      </div>
+      <div class="aeo-summary-item">
+        <div class="aeo-summary-num" style="color: var(--gold);">8</div>
+        <div class="aeo-summary-label">Total queries<br>audited</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="aeo-grid">
+
+    <!-- Query 1 -->
+    <div class="aeo-full-row">
+      <div class="aeo-full-query">"Who is the best trauma-informed financial coach?"</div>
+      <div class="aeo-platforms">
+        <span class="aeo-platform-pill aep-goog">Google AI</span>
+        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
+        <span class="aeo-platform-pill aep-perp">Perplexity</span>
+        <span class="aeo-platform-pill aep-gem">Gemini</span>
+      </div>
+      <div class="aeo-verdict">
+        <span class="aeo-gap-tag">GAP</span>
+        <strong>No authoritative answer exists anywhere.</strong> All four AI engines return generic advice about what trauma-informed financial coaching is, but none name a specific practitioner. This is a wide-open first-mover opportunity. With a single well-structured page and a few supporting articles, you could own this answer across every platform.
+      </div>
+      <div class="aeo-note">Priority: High. Your trauma-informed + AFC combination makes you the natural answer to this query.</div>
+    </div>
+
+    <!-- Query 2 -->
+    <div class="aeo-full-row">
+      <div class="aeo-full-query">"Can a financial coach be HIPAA compliant?"</div>
+      <div class="aeo-platforms">
+        <span class="aeo-platform-pill aep-goog">Google AI</span>
+        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
+        <span class="aeo-platform-pill aep-perp">Perplexity</span>
+      </div>
+      <div class="aeo-verdict">
+        <span class="aeo-gap-tag">GAP</span>
+        <strong>Engines explain HIPAA generally but cite no coaches who actually practice it.</strong> This is a trust-building query: healthcare workers and HR directors searching for this need to see proof, not theory. A dedicated page on your site explaining your HIPAA compliance framework (without revealing proprietary details) would make you the definitive citation.
+      </div>
+      <div class="aeo-note">Priority: High. Healthcare employers specifically search this before contracting financial wellness providers.</div>
+    </div>
+
+    <!-- Query 3 -->
+    <div class="aeo-full-row">
+      <div class="aeo-full-query">"Financial coach who uses neuroscience"</div>
+      <div class="aeo-platforms">
+        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
+        <span class="aeo-platform-pill aep-perp">Perplexity</span>
+        <span class="aeo-platform-pill aep-gem">Gemini</span>
+      </div>
+      <div class="aeo-verdict">
+        <span class="aeo-gap-tag">GAP</span>
+        <strong>Results reference neuroscience and money in general terms.</strong> Some engines mention books or academic papers, but nobody is positioned as the go-to practitioner. Your Certified Neuroscience Coach credential gives you the authority to claim this position with content that explains how you actually apply neuroscience principles in sessions.
+      </div>
+      <div class="aeo-note">Priority: Medium-High. The "neuroscience + financial coaching" intersection is growing in consumer awareness.</div>
+    </div>
+
+    <!-- Query 4 -->
+    <div class="aeo-full-row">
+      <div class="aeo-full-query">"Best financial coach for healthcare workers"</div>
+      <div class="aeo-platforms">
+        <span class="aeo-platform-pill aep-goog">Google AI</span>
+        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
+        <span class="aeo-platform-pill aep-perp">Perplexity</span>
+      </div>
+      <div class="aeo-verdict">
+        <span class="aeo-win-tag">PARTIAL</span>
+        <strong>Some engines mention financial wellness programs for healthcare, but no individual coach is named.</strong> Your HIPAA compliance and social work background make you uniquely suited to this audience. A targeted landing page focused on healthcare professionals, with testimonials from nurses or hospital employees, could lock this position.
+      </div>
+      <div class="aeo-note">Priority: High. This query directly maps to your B2B employer opportunity.</div>
+    </div>
+
+    <!-- Query 5 -->
+    <div class="aeo-full-row">
+      <div class="aeo-full-query">"Financial coaching for money anxiety and shame"</div>
+      <div class="aeo-platforms">
+        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
+        <span class="aeo-platform-pill aep-perp">Perplexity</span>
+        <span class="aeo-platform-pill aep-gem">Gemini</span>
+      </div>
+      <div class="aeo-verdict">
+        <span class="aeo-gap-tag">WEAK</span>
+        <strong>Engines recommend therapy or general financial literacy resources.</strong> None point to a financial coach who specifically addresses the emotional and neurological roots of money anxiety. Your combination of trauma-informed care and neuroscience coaching is exactly what this searcher needs, but without content that directly addresses these terms, the engines cannot connect you to the query.
+      </div>
+      <div class="aeo-note">Priority: Medium. High-intent query from people ready to invest in help.</div>
+    </div>
+
+    <!-- Query 6 -->
+    <div class="aeo-full-row">
+      <div class="aeo-full-query">"AFC certified financial counselor near me"</div>
+      <div class="aeo-platforms">
+        <span class="aeo-platform-pill aep-goog">Google AI</span>
+        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
+      </div>
+      <div class="aeo-verdict">
+        <span class="aeo-win-tag">PARTIAL</span>
+        <strong>Google references the AFCPE directory; ChatGPT lists the credential but not specific practitioners.</strong> Your listing in the AFCPE directory helps, but your own site does not prominently feature your AFC designation in a way that AI engines can easily extract. A structured "About" page with your credentials in clear, machine-readable format would strengthen your presence here.
+      </div>
+      <div class="aeo-note">Priority: Medium. Directory presence helps; site optimization makes it stronger.</div>
+    </div>
+
+    <!-- Query 7 -->
+    <div class="aeo-full-row">
+      <div class="aeo-full-query">"Financial wellness program for hospital employees"</div>
+      <div class="aeo-platforms">
+        <span class="aeo-platform-pill aep-goog">Google AI</span>
+        <span class="aeo-platform-pill aep-perp">Perplexity</span>
+        <span class="aeo-platform-pill aep-gem">Gemini</span>
+      </div>
+      <div class="aeo-verdict">
+        <span class="aeo-gap-tag">WEAK</span>
+        <strong>Results mention large corporate wellness companies but no independent HIPAA-compliant coaches.</strong> Hospital HR departments searching for alternatives to generic corporate programs will not find you here yet. A dedicated "Workplace Financial Wellness" page targeting healthcare employers, with a focus on your HIPAA compliance and clinical background, would fill this gap.
+      </div>
+      <div class="aeo-note">Priority: High. This is a direct pipeline to your B2B revenue channel.</div>
+    </div>
+
+    <!-- Query 8 -->
+    <div class="aeo-full-row">
+      <div class="aeo-full-query">"Why do I keep sabotaging my finances?"</div>
+      <div class="aeo-platforms">
+        <span class="aeo-platform-pill aep-gpt">ChatGPT</span>
+        <span class="aeo-platform-pill aep-perp">Perplexity</span>
+        <span class="aeo-platform-pill aep-gem">Gemini</span>
+      </div>
+      <div class="aeo-verdict">
+        <span class="aeo-gap-tag">WEAK</span>
+        <strong>Engines give psychological explanations but recommend therapists, not financial coaches.</strong> This is the exact moment when someone needs what you offer: the neuroscience-informed understanding of why they self-sabotage, combined with the financial expertise to build a practical path forward. Blog posts and video content that address this question directly, in your voice, would position you as the bridge between therapy and finance that these searchers are looking for.
+      </div>
+      <div class="aeo-note">Priority: Medium-High. This is a "hand-raiser" query from your ideal client.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ WHAT WE'LL BUILD TOGETHER ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-eyebrow">Your AI Team</div>
+  <div class="section-title">What We'll Build Together</div>
+  <div class="section-sub">Six specialized AI agents, each designed to handle a specific part of your business so you can focus on the work that only you can do: coaching people through transformation.</div>
+  <div class="divider"></div>
+
+  <div class="priority-list">
+
+    <div class="priority-card">
+      <div class="p-badge">01</div>
+      <div>
+        <div class="p-name">Intake &amp; Qualification</div>
+        <div class="p-problem">When a potential client reaches out, this agent handles the first response instantly: qualifying whether they are a fit, collecting the information you need, and scheduling a discovery call. No more leads going cold because you were in a session when they inquired.</div>
+        <div class="p-tags">
+          <span class="p-tag red">Stops lead leakage</span>
+          <span class="p-tag amber">Instant response time</span>
+        </div>
+      </div>
+      <div class="p-phase">Week 1</div>
+    </div>
+
+    <div class="priority-card">
+      <div class="p-badge">02</div>
+      <div>
+        <div class="p-name">Client Nurture &amp; Follow-Up</div>
+        <div class="p-problem">Between sessions, this agent keeps your clients engaged: sending check-in messages, sharing relevant resources, reminding them of action items, and flagging anyone who might be falling off. It turns your coaching into a continuous experience instead of isolated hourly sessions.</div>
+        <div class="p-tags">
+          <span class="p-tag">Boosts retention</span>
+          <span class="p-tag blue">Deepens client results</span>
+        </div>
+      </div>
+      <div class="p-phase">Week 1-2</div>
+    </div>
+
+    <div class="priority-card">
+      <div class="p-badge">03</div>
+      <div>
+        <div class="p-name">Content Repurposing Engine</div>
+        <div class="p-problem">Every podcast appearance, workshop, or video you create gets automatically broken down into social posts, newsletter content, blog articles, and quote graphics. One hour of your expertise becomes 30+ individual pieces of content, distributed across your platforms without you touching a keyboard.</div>
+        <div class="p-tags">
+          <span class="p-tag purple">Content at scale</span>
+          <span class="p-tag amber">Reclaims 5-8 hrs/week</span>
+        </div>
+      </div>
+      <div class="p-phase">Week 2</div>
+    </div>
+
+    <div class="priority-card">
+      <div class="p-badge">04</div>
+      <div>
+        <div class="p-name">AEO Authority Builder</div>
+        <div class="p-problem">This agent monitors how AI search engines answer questions in your niche and helps you create the specific content needed to become the cited authority. It tracks your position across Google AI Overviews, ChatGPT, Perplexity, and Gemini, and recommends exactly what to publish next to claim unclaimed queries.</div>
+        <div class="p-tags">
+          <span class="p-tag">First-mover advantage</span>
+          <span class="p-tag blue">AI search dominance</span>
+        </div>
+      </div>
+      <div class="p-phase">Week 2-3</div>
+    </div>
+
+    <div class="priority-card">
+      <div class="p-badge">05</div>
+      <div>
+        <div class="p-name">Employer Outreach Assistant</div>
+        <div class="p-problem">For your B2B channel, this agent identifies healthcare employers and HR contacts, helps craft personalized outreach, and manages the follow-up sequence. It positions your HIPAA-compliant financial wellness program directly in front of decision-makers at hospitals and healthcare networks.</div>
+        <div class="p-tags">
+          <span class="p-tag amber">B2B pipeline</span>
+          <span class="p-tag">Higher-value contracts</span>
+        </div>
+      </div>
+      <div class="p-phase">Week 3</div>
+    </div>
+
+    <div class="priority-card">
+      <div class="p-badge">06</div>
+      <div>
+        <div class="p-name">Business Intelligence Dashboard</div>
+        <div class="p-problem">A clear, real-time view of what is working: which content is driving inquiries, where your AEO positions are improving, how your pipeline is moving, and what your clients are saying. No more guessing. Just signal.</div>
+        <div class="p-tags">
+          <span class="p-tag blue">Clarity on what works</span>
+          <span class="p-tag">Data-driven decisions</span>
+        </div>
+      </div>
+      <div class="p-phase">Week 3-4</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ WHAT CHANGES ON DAY ONE ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-eyebrow">The Operational Shift</div>
+  <div class="section-title">What Changes on Day One</div>
+  <div class="section-sub">Here is what your business looks like the moment the system goes live, compared to how things work right now.</div>
+  <div class="divider"></div>
+
+  <div class="day1-header">
+    <div class="day1-header-text">Today</div>
+    <div></div>
+    <div class="day1-header-text">With OSCortex</div>
+  </div>
+
+  <div class="day1-grid">
+    <div class="day1-card">
+      <div class="day1-before">
+        <div class="day1-label">Today</div>
+        A new lead fills out your form. You see it hours later between sessions. By the time you respond, they have contacted two other coaches.
+      </div>
+      <div class="day1-arrow">&rarr;</div>
+      <div class="day1-after">
+        <div class="day1-label">With OSCortex</div>
+        The lead gets a warm, personalized response within 60 seconds. They are qualified, their discovery call is booked, and you get a brief on who they are before you ever speak.
+      </div>
+    </div>
+
+    <div class="day1-card">
+      <div class="day1-before">
+        <div class="day1-label">Today</div>
+        Between coaching sessions, clients are on their own. Some stay engaged. Many drift. You do not have time to manually check in with everyone.
+      </div>
+      <div class="day1-arrow">&rarr;</div>
+      <div class="day1-after">
+        <div class="day1-label">With OSCortex</div>
+        Every client gets consistent, thoughtful check-ins between sessions. Action item reminders arrive on schedule. If someone goes quiet, you are alerted before they disengage.
+      </div>
+    </div>
+
+    <div class="day1-card">
+      <div class="day1-before">
+        <div class="day1-label">Today</div>
+        You do a podcast interview. It goes well. The episode airs, maybe gets shared once, and then the value fades.
+      </div>
+      <div class="day1-arrow">&rarr;</div>
+      <div class="day1-after">
+        <div class="day1-label">With OSCortex</div>
+        That same interview is automatically transcribed and turned into 30+ pieces: social posts, newsletter segments, blog articles, short video clips. Your ideas keep working for a month.
+      </div>
+    </div>
+
+    <div class="day1-card">
+      <div class="day1-before">
+        <div class="day1-label">Today</div>
+        Someone asks ChatGPT "Who is the best trauma-informed financial coach?" and your name does not appear. The answer is vague, generic, unhelpful.
+      </div>
+      <div class="day1-arrow">&rarr;</div>
+      <div class="day1-after">
+        <div class="day1-label">With OSCortex</div>
+        Your content has been structured so AI engines cite you by name. When that question gets asked, Jen Nash and Priceless Financial Coaching are the answer.
+      </div>
+    </div>
+
+    <div class="day1-card">
+      <div class="day1-before">
+        <div class="day1-label">Today</div>
+        You know employer financial wellness is a huge opportunity, but reaching out to HR departments feels like a second full-time job you don't have time for.
+      </div>
+      <div class="day1-arrow">&rarr;</div>
+      <div class="day1-after">
+        <div class="day1-label">With OSCortex</div>
+        Your outreach agent identifies healthcare employers in your region, sends personalized introductions, and manages follow-up. You step in only when a real conversation starts.
+      </div>
+    </div>
+
+    <div class="day1-card">
+      <div class="day1-before">
+        <div class="day1-label">Today</div>
+        You make business decisions based on gut feel and scattered data. What is working? What should you do more of? It is hard to say.
+      </div>
+      <div class="day1-arrow">&rarr;</div>
+      <div class="day1-after">
+        <div class="day1-label">With OSCortex</div>
+        A live dashboard shows you exactly which content drives inquiries, which queries you are winning, and where your next client is likely coming from.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════════════════════════════════════ FOOTER CTA ═══════════════════════════════════════ -->
 <div class="footer">
-  <strong>AI Momentum Labs</strong> &mdash; OSCortex Intelligence Brief<br>
-  Compiled: July 10, 2026 &nbsp;&middot;&nbsp; File: JN-2026-0710 &nbsp;&middot;&nbsp; Analyst: OSCortex<br>
-  pricelessfinancialcoaching.com &nbsp;&middot;&nbsp; (641) 430-7195 &nbsp;&middot;&nbsp; jenlei@q.com<br>
-  <span class="footer-classified">Confidential &mdash; Internal Use Only &mdash; Not for Distribution</span>
+  <div class="footer-fine">
+    <strong>AI Momentum Labs</strong> &nbsp;&middot;&nbsp; Prepared for Jen Nash &nbsp;&middot;&nbsp; July 2026
+  </div>
 </div>
 
 </body>
