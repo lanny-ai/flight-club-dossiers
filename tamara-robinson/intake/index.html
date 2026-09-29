@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Tamara · Your OS Cortex intake</title>
+<style>
+:root{--ink:#183a39;--muted:#566b69;--paper:#f5f4ee;--white:#fff;--line:#d6dfd9;--green:#175d50;--mint:#e7f1e8;--amber:#7a551f}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit}button,a,input,textarea,select{touch-action:manipulation}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #c47d23;outline-offset:3px}header{border-bottom:1px solid var(--line);background:var(--white)}.head{max-width:1100px;margin:auto;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}.wordmark{font-weight:760;letter-spacing:.06em;font-size:16px}.brandnote{font-size:12px;color:var(--muted);letter-spacing:0;font-weight:500}.pill{font-size:12px;border:1px solid var(--line);border-radius:99px;padding:5px 12px}.shell{max-width:1100px;margin:0 auto;padding:36px 28px 70px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:44px}.sidebar{align-self:start;position:sticky;top:20px}.eyebrow{font-size:12px;font-weight:750;text-transform:uppercase;letter-spacing:.13em;color:var(--green)}h1{font-size:clamp(30px,4vw,44px);line-height:1.16;font-weight:650;letter-spacing:-.04em;margin:9px 0 18px}h2{font-size:28px;line-height:1.25;letter-spacing:-.025em;margin:8px 0 12px}h3{font-size:18px;margin:0 0 8px}p{margin:0 0 16px}.intro{font-size:18px;color:var(--muted);max-width:630px}.small,.hint{font-size:13px;color:var(--muted)}.hint{margin:6px 0 12px}.sidebar ol{list-style:none;padding:0;margin:22px 0}.navstep{display:flex;text-align:left;align-items:center;gap:10px;width:100%;border:0;background:none;color:var(--muted);border-radius:10px;padding:11px 8px;font-size:14px;margin:3px 0}.navstep[aria-current="step"]{background:var(--mint);color:var(--green);font-weight:700}.num{border:1px solid var(--line);border-radius:50%;width:27px;height:27px;display:grid;place-content:center;flex-shrink:0;font-size:12px}.navstep[aria-current="step"] .num{background:var(--green);color:white;border-color:var(--green)}progress{width:100%;height:7px;accent-color:var(--green)}.card,.fact{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px;margin:18px 0}.note{background:var(--mint);border-radius:12px;padding:16px 18px;font-size:14px;margin:20px 0}.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.03em;background:#eef2ef;color:var(--muted);padding:3px 8px;border-radius:5px;margin-bottom:10px}.tag.old{background:#fbf1df;color:var(--amber)}.fact-value{font-weight:600;font-size:18px;margin:3px 0 9px}.choices{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.choice{position:relative;display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:9px;padding:9px 13px;cursor:pointer;font-size:14px;line-height:1.4;background:#fff}.choice:has(input:checked){background:var(--mint);border-color:var(--green);color:var(--green)}input[type="checkbox"],input[type="radio"]{accent-color:var(--green);width:17px;height:17px;margin:0;flex-shrink:0}.correction{margin-top:16px}.field{margin:20px 0}.field>label{font-weight:600;display:block;margin-bottom:7px}.field input:not([type="checkbox"]):not([type="radio"]),textarea,select{width:100%;border:1px solid #afbeb5;border-radius:9px;background:white;color:var(--ink);padding:11px 12px;min-height:47px}textarea{resize:vertical;min-height:94px;line-height:1.5}fieldset{border:0;padding:0;margin:20px 0;min-width:0}legend{font-weight:650;margin-bottom:3px;padding:0}.checkgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.checkgrid .choice{min-height:51px}.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.row .field{margin:10px 0}.actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:30px 0 15px;flex-wrap:wrap}.btn{border:1px solid var(--green);border-radius:10px;padding:12px 20px;font-weight:650;background:var(--green);color:white;min-height:48px}.btn.secondary{background:white;color:var(--green);border-color:var(--line)}.btn.text{background:transparent;border-color:transparent;color:var(--muted);padding-left:0}.save{width:100%;font-size:13px;padding:10px;margin-top:14px}.step[hidden],[hidden]{display:none!important}.status{font-size:13px;color:var(--muted);margin-top:10px;min-height:22px}.review{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.65 system-ui,sans-serif;background:white;border:1px solid var(--line);border-radius:12px;padding:20px;max-height:560px;overflow:auto}.optional{font-weight:400;color:var(--muted);font-size:13px}details{margin:20px 0}summary{cursor:pointer;color:var(--green);font-weight:600;padding:10px 0}footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px;margin-top:30px}.printsummary{display:none}.count{font-size:13px;font-weight:600;margin:8px 0}.error{color:#93402d}.skip{font-size:13px;color:var(--muted);margin-bottom:22px}noscript{display:block;background:#fbf1df;padding:24px} @media(max-width:760px){.head{padding:16px 20px}.shell{display:block;padding:24px 20px 45px}.sidebar{position:static}.sidebar ol{display:flex;overflow-x:auto;gap:5px;margin:10px 0 20px}.navstep{width:auto;white-space:nowrap;padding:8px}.navstep .num{display:none}.sidebar>.eyebrow,.sidebar>.small,.sidebar>progress,.sidebar>.count{display:none}.sidebar .save{width:auto;margin:0 0 20px}.sidebar .status{display:inline;margin-left:10px}.card,.fact{padding:20px}.row,.checkgrid{grid-template-columns:1fr}.pill{display:none}}@media print{header,.sidebar,.step,.actions,footer{display:none!important}.shell{display:block;padding:0;max-width:none}.printsummary{display:block;white-space:pre-wrap;font:11pt/1.5 sans-serif;overflow-wrap:anywhere}body{background:white;color:black}}
+</style>
+</head>
+<body>
+<header><div class="head"><div class="wordmark">OS CORTEX <div class="brandnote">Prepared for you by AI Momentum Labs</div></div><span class="pill">Your business. Your way of working.</span></div></header>
+<noscript>This form needs JavaScript enabled in your browser to show the questions, save progress, and download answers. Open this file in Safari, Chrome, or Edge.</noscript>
+<div class="shell">
+<aside class="sidebar" aria-label="Form sections">
+<div class="eyebrow">Your setup starts here</div><p class="small">A few details to make your OS Cortex useful from day one.</p>
+<progress id="progress" value="1" max="6" aria-label="Current section"></progress><div class="count" id="step-count">Section 1 of 6</div>
+<ol id="navigation"></ol>
+<button class="btn secondary save" type="button" id="save-copy">Save a copy to finish later</button>
+<p class="small">Open your saved copy to pick up where you left off.</p>
+<div id="save-status" class="status" role="status" aria-live="polite"></div>
+</aside>
+<main id="main">
+<form id="intake" autocomplete="off" novalidate>
+<section class="step" data-title="Your details">
+<div class="eyebrow">01 / A quick introduction</div><h1 tabindex="-1">Let’s make this yours, Tamara.</h1>
+<p class="intro">We’ve done some homework. A few quick confirmations and your priorities will help us tailor OS Cortex to the way you actually work.</p>
+<div class="note"><strong>No homework marathon.</strong> Confirm what’s right, change what’s outdated, and answer in a few words. Skip anything you don’t know—we can cover it together. You don’t need to collect documents to finish.</div>
+<p class="small">Your answers stay in this form until you download and return them. There is no online submission. Please leave out passwords and private client details.</p>
+<div id="identity-facts"></div>
+<div class="field"><label for="reach">How is it easiest for our team to reach you?</label><select id="reach" name="reach"><option value="">Choose, or skip for now</option><option>Email</option><option>Text message</option><option>Phone call</option><option>Other — add below</option></select></div>
+<div class="field"><label for="contact-note">Anything else about reaching you? <span class="optional">Optional</span></label><input id="contact-note" name="contact-note" placeholder="Best time to call, another number, or your preferred method"></div>
+</section>
+<section class="step" data-title="Your business" hidden>
+<div class="eyebrow">02 / Your business today</div><h2 tabindex="-1">Help us get the current picture.</h2>
+<p class="intro">Some of our information came from an older website. It’s a starting point for your review.</p><div id="business-facts"></div>
+<div class="card"><h3>What work do you want OS Cortex to support?</h3>
+<fieldset><legend>Your current areas of work</legend><p class="hint">Your 2018 site mentioned residential, commercial, luxury, and investor / bank-owned properties. Select only what matters today.</p><div class="checkgrid" id="services-options"></div></fieldset>
+<div class="field"><label for="other-businesses">Other services, businesses, or projects <span class="optional">If relevant</span></label><textarea id="other-businesses" name="other-businesses" placeholder="Name + what you do + whether it is a priority. Include personal projects if you want help with them."></textarea></div>
+<div class="field"><label for="ideal-clients">Who do you most want to work with?</label><textarea id="ideal-clients" name="ideal-clients" placeholder="For example: downsizing sellers in Santa Monica, repeat investors, or a different focus entirely."></textarea></div>
+<div class="field"><label for="difference">Why do clients choose you? <span class="optional">A sentence is plenty</span></label><textarea id="difference" name="difference" placeholder="Your strengths, approach, experience, or what clients often thank you for."></textarea></div>
+<fieldset><legend>Who handles the day-to-day work?</legend><div class="choices" id="team-options"></div></fieldset>
+<div class="field"><label for="team-roles">Who else should OS Cortex know about? <span class="optional">Optional</span></label><textarea id="team-roles" name="team-roles" placeholder="First name + role is enough: assistant, transaction coordinator, partner. No contact details needed yet."></textarea></div>
+<details><summary>Add business links or background, if useful</summary><div class="field"><label for="links">Your current website, profiles, and social pages</label><textarea id="links" name="links" placeholder="Paste any links you want us to use. You can send these later."></textarea></div><div class="field"><label for="brand-notes">Anything else we should use in your business profile?</label><textarea id="brand-notes" name="brand-notes" placeholder="A current bio, credentials, tagline, or businesses that need separate branding."></textarea></div></details>
+</div>
+</section>
+<section class="step" data-title="First priorities" hidden>
+<div class="eyebrow">03 / Start with what matters</div><h2 tabindex="-1">What would make the biggest difference?</h2><p class="intro">Choose up to three places to start. These are ideas, not assumptions about what you need.</p>
+<div class="card"><fieldset><legend>I’d like help with… <span class="optional">Up to 3</span></legend><div class="checkgrid" id="priority-options"></div><p class="hint" id="priority-count" role="status">0 of 3 selected</p></fieldset>
+<div class="field"><label for="priority-other">Something else? <span class="optional">Optional</span></label><input id="priority-other" name="priority-other" placeholder="Tell us what you would add or replace."></div>
+<div class="field"><label for="first-win">If we could help with just one thing first, what should it be?</label><textarea id="first-win" name="first-win" placeholder="Think of a task you would love to stop doing yourself, or something you want to finally get done."></textarea></div>
+<div class="field"><label for="workflow">What happens with that task today?</label><textarea id="workflow" name="workflow" placeholder="A rough example is enough: an inquiry arrives by email → I add it to my list → I try to remember to follow up. Where does it get stuck?"></textarea></div>
+<div class="field"><label for="success">In 90 days, what would tell you this is working?</label><input id="success" name="success" placeholder="For example: five hours back each week, follow-ups organized, or a weekly newsletter."></div>
+<div class="field"><label for="deadline">Any upcoming date or project we should plan around? <span class="optional">Optional</span></label><input id="deadline" name="deadline" placeholder="A launch, busy season, event, or time-sensitive project."></div></div>
+</section>
+<section class="step" data-title="Everyday work" hidden>
+<div class="eyebrow">04 / Where your work happens</div><h2 tabindex="-1">Tell us what you already use.</h2><p class="intro">App names or plain descriptions are enough. “My contacts are in my phone” is a perfectly good answer.</p>
+<div class="card"><div class="field"><label for="email-calendar">Email and calendar</label><input id="email-calendar" name="email-calendar" placeholder="For example: Gmail + Google Calendar, Outlook, or Apple Calendar."></div>
+<div class="field"><label for="contacts">Where do you keep leads, contacts, and follow-up reminders?</label><input id="contacts" name="contacts" placeholder="An app, spreadsheet, notebook, phone, or a mix."></div>
+<div class="field"><label for="work-tools">Other tools you rely on <span class="optional">Optional</span></label><textarea id="work-tools" name="work-tools" placeholder="For example: listing search, transaction tracking, documents, social posting, or marketing. Include brokerage tools only if you use them."></textarea></div>
+<div class="field"><label for="lead-sources">Where do new clients or opportunities usually come from?</label><input id="lead-sources" name="lead-sources" placeholder="Referrals, past clients, brokerage leads, social media, website, events…"></div>
+<div class="field"><label for="files-location">Where are your useful business materials?</label><input id="files-location" name="files-location" placeholder="Google Drive, Dropbox, computer folders, email, or not organized yet."></div>
+<fieldset><legend>What could you share with us later? <span class="optional">Optional</span></legend><p class="hint">Select what is easy to find. A couple of good examples are enough.</p><div class="checkgrid" id="materials-options"></div></fieldset>
+<div class="field"><label for="rules">Any brokerage or business rules we should follow? <span class="optional">If known</span></label><textarea id="rules" name="rules" placeholder="Approved wording, required signature details, review requirements, or tools and information we should leave alone. “Please help me check” is fine."></textarea></div>
+<p class="small">No logins or client records are needed here. We’ll arrange any necessary access and materials separately.</p></div>
+</section>
+<section class="step" data-title="Your preferences" hidden>
+<div class="eyebrow">05 / The way you like to work</div><h2 tabindex="-1">Make the help feel natural.</h2><p class="intro">A few preferences will help us get the tone, timing, and level of detail right.</p>
+<div class="card"><fieldset><legend>How should business drafts sound?</legend><div class="checkgrid" id="tone-options"></div></fieldset>
+<div class="field"><label for="voice">Anything that sounds especially like you—or nothing like you? <span class="optional">Optional</span></label><textarea id="voice" name="voice" placeholder="Favorite phrases, words to avoid, or a short example you wrote. Please remove private client details."></textarea></div>
+<div class="field"><label for="assistant-style">How do you like help presented?</label><select id="assistant-style" name="assistant-style"><option value="">Choose, or skip for now</option><option>Give me the short answer and the next step</option><option>Give me a recommendation with a little context</option><option>Walk me through it step by step</option><option>It depends — ask me as we go</option></select></div>
+<div class="field"><label for="interaction">What feels easiest when asking for help?</label><select id="interaction" name="interaction"><option value="">Choose, or skip for now</option><option>Typing a quick message</option><option>Speaking a voice message</option><option>A mix of typing and voice</option><option>I’d like you to show me the options</option></select></div>
+<div class="field"><label for="routine">When would an update be helpful?</label><select id="routine" name="routine"><option value="">Choose, or skip for now</option><option>A short morning plan</option><option>An end-of-day recap</option><option>A weekly summary</option><option>Only when something needs my attention</option><option>Let’s decide together</option></select></div>
+<div class="field"><label for="hours">Preferred times and quiet hours <span class="optional">Optional</span></label><input id="hours" name="hours" placeholder="For example: mornings around 8; no routine updates after 6 or on weekends."></div>
+<div class="note"><strong>Our starting approach:</strong> OS Cortex prepares drafts and suggestions for you to review. Sending messages, publishing, making commitments, spending money, or changing records stays subject to your approval. These answers help us plan; they don’t connect accounts or grant access.</div>
+<div class="field"><label for="boundaries">What would you always want to handle yourself?</label><textarea id="boundaries" name="boundaries" placeholder="Certain relationships, negotiations, sensitive conversations, decisions, or anything you don’t want help with."></textarea></div>
+<details><summary>Anything else you’d like us to know?</summary><div class="field"><label for="learning">Would you like help finding your way around your programs? <span class="optional">Optional</span></label><textarea id="learning" name="learning" placeholder="Tell us what you want to learn or achieve. We’ll check your program access on our side."></textarea></div><div class="field"><label for="anything">Anything we missed?</label><textarea id="anything" name="anything" placeholder="Past frustrations with technology, how you like to learn, or anything that would make this easier."></textarea></div></details></div>
+</section>
+<section class="step" data-title="Review & return" hidden>
+<div class="eyebrow">06 / Ready when you are</div><h2 tabindex="-1">Review once. Send it back.</h2><p class="intro">Your answers are below. Use the section names to make changes. Skipped questions are marked so we can fill those gaps together.</p>
+<div class="note" id="review-count"></div><div id="review" class="review" tabindex="0" aria-label="Your answer summary"></div>
+<div class="card"><h3>Return your answers</h3><p>Download your answers, then attach the downloaded file in a reply to the person who sent you this intake.</p><button type="button" class="btn" id="download-answers">Download my answers</button><p class="hint">This downloads a readable text file. Nothing is sent automatically.</p><div id="download-status" class="status" role="status"></div><button type="button" class="btn text" id="print">Print or save as PDF</button></div>
+<p class="small">Need to pause? Choose “Save a copy to finish later.” Your saved copy includes your answers and can be reopened in a browser.</p>
+</section>
+<div class="actions"><button type="button" id="back" class="btn secondary">Back</button><button type="button" id="next" class="btn">Next: Your business →</button></div>
+<p class="skip" id="skip-note">Every question is optional. You can continue and come back.</p>
+</form>
+<pre id="print-summary" class="printsummary"></pre>
+<footer>Prepared for Tamara Robinson · Research provided September 28, 2026.<br>Historical details are labeled for review. Your corrections take precedence.</footer>
+</main>
+</div>
+<script id="saved-answers" type="application/json">null</script>
+<script>
+'use strict';
+const facts=[
+ {id:'name',section:'identity-facts',label:'What should we call you?',value:'Tamara Robinson',source:'Name used in your correspondence',prompt:'Your preferred name'},
+ {id:'email',section:'identity-facts',label:'Best email for you',value:'tamara@robinsonrea.com',source:'Your email to Lanny · September 2026',prompt:'Best email address'},
+ {id:'phone',section:'identity-facts',label:'Best phone number',value:'310-895-9974',source:'Older website · 2018 — may have changed',old:true,prompt:'Current phone number, or “email only”'},
+ {id:'timezone',section:'identity-facts',label:'Your time zone',value:'Pacific Time (Los Angeles)',source:'Suggested from your California business location',prompt:'Your time zone'},
+ {id:'brand',section:'business-facts',label:'Business name you use with clients',value:'Robinson Real Estate Group',source:'Older website · 2018 — may have changed',old:true,prompt:'Current client-facing business name'},
+ {id:'brokerage',section:'business-facts',label:'Your brokerage affiliation',value:'Redfin Corporation',source:'California DRE · recorded in our September 2026 research',prompt:'Current brokerage, or explain your current arrangement'},
+ {id:'market',section:'business-facts',label:'Main area you serve',value:'Westside Los Angeles',source:'Older website · 2018 — may have changed',old:true,prompt:'Current cities, neighborhoods, or broader service area'},
+ {id:'website',section:'business-facts',label:'Website we have for you',value:'robinsonrea.com',source:'Domain in your correspondence; current preferred website unconfirmed',prompt:'Your current website, or “no current website”'}
+];
+const groups={
+ services:{target:'services-options',type:'checkbox',values:['Residential buyers','Residential sellers','Luxury properties','Commercial real estate','Investors / bank-owned properties','Referral relationships','Other — describe below']},
+ team:{target:'team-options',type:'radio',values:['Mostly me','Me + support help','A team or partners','It varies']},
+ priorities:{target:'priority-options',type:'checkbox',values:['Lead follow-up','Client updates','Listings and marketing','Daily planning and reminders','Research and deal summaries','Referral relationships','Organizing information','Learning and using my programs','Something else']},
+ materials:{target:'materials-options',type:'checkbox',values:['Current bio or business overview','A few emails or writing examples','Listing or marketing examples','Buyer / seller presentations','Reusable checklists or templates','Brand guidelines or signature','I’d like help choosing materials']},
+ tone:{target:'tone-options',type:'checkbox',values:['Warm and personal','Clear and direct','Polished and professional','Relaxed and conversational','Confident and concise','Match the examples I share']}
+};
+const fields={
+ reach:['Your details','Easiest way for our team to reach you'], 'contact-note':['Your details','Contact preferences'],
+ 'other-businesses':['Your business','Other services, businesses, or projects'],'ideal-clients':['Your business','Ideal clients'],'difference':['Your business','Why clients choose you'],'team-roles':['Your business','People and roles'],'links':['Your business','Current public links'],'brand-notes':['Your business','Business profile notes'],
+ 'priority-other':['First priorities','Additional priority'],'first-win':['First priorities','First thing to help with'],'workflow':['First priorities','How that task works today'],'success':['First priorities','Success in 90 days'],'deadline':['First priorities','Dates or projects to plan around'],
+ 'email-calendar':['Everyday work','Email and calendar'],'contacts':['Everyday work','Contacts and follow-up'],'work-tools':['Everyday work','Other tools'],'lead-sources':['Everyday work','Lead and opportunity sources'],'files-location':['Everyday work','Location of business materials'],'rules':['Everyday work','Brokerage or business rules'],
+ 'voice':['Your preferences','Voice examples and words to use or avoid'],'assistant-style':['Your preferences','Preferred level of detail'],'interaction':['Your preferences','Typing or voice preference'],'routine':['Your preferences','Update preference'],'hours':['Your preferences','Timing and quiet hours'],'boundaries':['Your preferences','Work to keep personally'],'learning':['Your preferences','Help with programs'],'anything':['Your preferences','Other notes']
+};
+const groupLabels={services:['Your business','Current areas of work'],team:['Your business','Day-to-day team'],priorities:['First priorities','Selected starting priorities'],materials:['Everyday work','Materials available later'],tone:['Your preferences','Tone for business drafts']};
+const form=document.getElementById('intake');
+const steps=[...document.querySelectorAll('.step')];
+let current=0;
+const storageKey='oscortex-tamara-intake-v2';
+let storageWorks=true;
+function element(tag,attrs={},text){const el=document.createElement(tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,v);if(text!==undefined)el.textContent=text;return el;}
+facts.forEach(f=>{
+ const box=element('fieldset',{class:'fact'});box.append(element('legend',{},f.label));
+ box.append(element('span',{class:'tag'+(f.old?' old':'')},f.source));box.append(element('p',{class:'fact-value'},f.value));
+ const choices=element('div',{class:'choices'});
+ for(const [value,label] of [['confirmed','Correct'],['changed','Change'],['unsure','Not sure']]){const l=element('label',{class:'choice'});l.append(element('input',{type:'radio',name:f.id+'-status',value}),document.createTextNode(label));choices.append(l);}
+ box.append(choices);
+ const correction=element('div',{class:'correction field',id:f.id+'-correction',hidden:''});const id=f.id+'-value';correction.append(element('label',{for:id},'What should we use instead?'),element('input',{id,name:id,type:'text',placeholder:f.prompt}));box.append(correction);
+ document.getElementById(f.section).append(box);
+});
+for(const [name,g] of Object.entries(groups)){for(const value of g.values){const label=element('label',{class:'choice'});label.append(element('input',{type:g.type,name,value}),document.createTextNode(value));document.getElementById(g.target).append(label);}}
+steps.forEach((s,i)=>{const li=element('li');const b=element('button',{type:'button',class:'navstep','data-step':i});b.append(element('span',{class:'num','aria-hidden':'true'},String(i+1)),document.createTextNode(s.dataset.title));b.addEventListener('click',()=>showStep(i));li.append(b);document.getElementById('navigation').append(li);});
+function getData(){const data={};for(const [k,v] of new FormData(form).entries()){if(Object.hasOwn(data,k)){if(!Array.isArray(data[k]))data[k]=[data[k]];data[k].push(v);}else data[k]=v;}return {version:2,step:current,answers:data};}
+function restore(data){if(!data||data.version!==2||!data.answers||typeof data.answers!=='object')return;for(const el of form.elements){if(!el.name)continue;const v=data.answers[el.name];if(el.type==='checkbox'||el.type==='radio')el.checked=(Array.isArray(v)?v:[v]).includes(el.value);else if(typeof v==='string')el.value=v;}current=Number.isInteger(data.step)?Math.min(5,Math.max(0,data.step)):0;}
+function refresh(){for(const f of facts){const selected=form.querySelector('input[name="'+f.id+'-status"]:checked');document.getElementById(f.id+'-correction').hidden=selected?.value!=='changed';}const n=form.querySelectorAll('input[name="priorities"]:checked').length;document.getElementById('priority-count').textContent=n+' of 3 selected';for(const c of form.querySelectorAll('input[name="priorities"]'))c.disabled=n>=3&&!c.checked;updateReview();}
+function persist(){try{localStorage.setItem(storageKey,JSON.stringify(getData()));document.getElementById('save-status').textContent='Saved in this browser. Keep a copy to be safe.';}catch(e){storageWorks=false;document.getElementById('save-status').textContent='Use “Save a copy” to keep your progress.';}}
+function showStep(n,focus=true){current=n;steps.forEach((s,i)=>s.hidden=i!==n);document.querySelectorAll('.navstep').forEach((b,i)=>{if(i===n)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');});document.getElementById('step-count').textContent='Section '+(n+1)+' of 6';document.getElementById('progress').value=n+1;document.getElementById('back').hidden=n===0;document.getElementById('next').hidden=n===5;document.getElementById('skip-note').hidden=n===5;document.getElementById('next').textContent='Next: '+(steps[n+1]?.dataset.title||'')+' →';updateReview();if(focus){steps[n].querySelector('h1,h2').focus();window.scrollTo({top:0,behavior:'smooth'});persist();}}
+function normalized(v){return Array.isArray(v)?v.join('; '):(typeof v==='string'?v.trim():'');}
+function summary(){const a=getData().answers;let lines=['TAMARA ROBINSON — OS CORTEX INTAKE','Prepared from supplied research dated September 28, 2026.','Exported: '+new Date().toLocaleString(),'','Only items marked CONFIRMED or CORRECTED are validated by the respondent.','Unanswered or uncertain research remains unverified.',''];let resolved=0,reviewed=0;
+ for(const section of steps.slice(0,5).map(s=>s.dataset.title)){
+ lines.push(section.toUpperCase(),'');
+ for(const f of facts.filter(f=>(f.section==='identity-facts'?'Your details':'Your business')===section)){
+ const status=a[f.id+'-status'];const correction=normalized(a[f.id+'-value']);let answer;
+ if(status==='confirmed'){answer='CONFIRMED: '+f.value;resolved++;reviewed++;}
+ else if(status==='changed'){answer=correction?'CORRECTED: '+correction:'CHANGE REQUESTED — correction still needed';if(correction)resolved++;reviewed++;}
+ else if(status==='unsure'){answer='NOT SURE — follow up';reviewed++;}
+ else answer='NOT REVIEWED';
+ lines.push(f.label+': '+answer,'Research starting point: '+f.value,'Research basis: '+f.source,'');
+ }
+ for(const [key,[s,label]] of Object.entries(groupLabels)){if(s===section)lines.push(label+': '+(normalized(a[key])||'Not answered'), '');}
+ for(const [key,[s,label]] of Object.entries(fields)){if(s===section)lines.push(label+': '+(normalized(a[key])||'Not answered'), '');}
+ }
+ lines.push('STARTING APPROACH SHOWN IN THE FORM','Drafts and suggestions for review. Sending, publishing, commitments, spending, and record changes remain subject to approval. This intake does not connect accounts or grant access.','');
+ return {text:lines.join('\n'),resolved,reviewed};
+}
+function updateReview(){const s=summary();document.getElementById('review').textContent=s.text;document.getElementById('print-summary').textContent=s.text;document.getElementById('review-count').textContent=s.resolved+' of '+facts.length+' researched details confirmed or corrected. '+(facts.length-s.resolved)+' still need clarification. You can return the form as it is.';}
+function download(content,type,name){const url=URL.createObjectURL(new Blob([content],{type}));const a=element('a',{href:url,download:name});document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
+document.getElementById('save-copy').addEventListener('click',()=>{
+ const copy=document.documentElement.cloneNode(true);
+ copy.querySelector('#saved-answers').textContent=JSON.stringify(getData()).replace(/</g,'\\u003c');
+ // Clear rendered answers from the static clone; initialization restores only the embedded state.
+ copy.querySelector('#review').textContent='';copy.querySelector('#print-summary').textContent='';
+ for(const id of ['identity-facts','business-facts','navigation',...Object.values(groups).map(g=>g.target)])copy.querySelector('#'+id).replaceChildren();
+ download('<!doctype html>\n'+copy.outerHTML,'text/html;charset=utf-8','tamara-robinson-intake-saved.html');
+ document.getElementById('save-status').textContent='Copy downloaded. Reopen that copy to continue.';
+});
+document.getElementById('download-answers').addEventListener('click',()=>{download(summary().text,'text/plain;charset=utf-8','tamara-robinson-intake-answers.txt');document.getElementById('download-status').textContent='Answers downloaded. Attach the file in your reply to return it.';});
+document.getElementById('print').addEventListener('click',()=>{updateReview();window.print();});
+window.addEventListener('beforeprint',updateReview);
+document.getElementById('back').addEventListener('click',()=>showStep(Math.max(0,current-1)));
+document.getElementById('next').addEventListener('click',()=>showStep(Math.min(5,current+1)));
+form.addEventListener('submit',e=>e.preventDefault());
+form.addEventListener('input',()=>{refresh();persist();});
+form.addEventListener('change',()=>{refresh();persist();});
+let embedded=null;try{embedded=JSON.parse(document.getElementById('saved-answers').textContent);}catch(e){}
+if(embedded){restore(embedded);document.getElementById('save-status').textContent='Your saved answers are loaded.';}
+else{try{const cached=JSON.parse(localStorage.getItem(storageKey)||'null');restore(cached);if(cached)document.getElementById('save-status').textContent='Your previous progress is loaded in this browser.';}catch(e){storageWorks=false;document.getElementById('save-status').textContent='Use “Save a copy” to keep your progress.';}}
+refresh();showStep(current,false);
+</script>
+</body>
+</html>
